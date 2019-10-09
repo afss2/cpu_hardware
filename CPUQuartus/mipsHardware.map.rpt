@@ -1,5 +1,5 @@
 Analysis & Synthesis report for mipsHardware
-Wed Oct 09 18:08:45 2019
+Wed Oct 09 18:48:11 2019
 Quartus II 64-Bit Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Full Version
 
 
@@ -13,11 +13,8 @@ Quartus II 64-Bit Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Full Versio
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. User-Specified and Inferred Latches
-  9. General Register Statistics
- 10. Multiplexer Restructuring Statistics (Restructuring Performed)
- 11. Parameter Settings for User Entity Instance: Top-level Entity: |regDST
- 12. Analysis & Synthesis Messages
+  8. General Register Statistics
+  9. Analysis & Synthesis Messages
 
 
 
@@ -43,16 +40,16 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +-------------------------------+-----------------------------------------------+
-; Analysis & Synthesis Status   ; Successful - Wed Oct 09 18:08:45 2019         ;
+; Analysis & Synthesis Status   ; Successful - Wed Oct 09 18:48:11 2019         ;
 ; Quartus II 64-Bit Version     ; 9.1 Build 350 03/24/2010 SP 2 SJ Full Version ;
 ; Revision Name                 ; mipsHardware                                  ;
-; Top-level Entity Name         ; regDST                                        ;
+; Top-level Entity Name         ; shiftLeft2_2                                  ;
 ; Family                        ; Stratix II                                    ;
 ; Logic utilization             ; N/A                                           ;
-;     Combinational ALUTs       ; 11                                            ;
+;     Combinational ALUTs       ; 0                                             ;
 ;     Dedicated logic registers ; 0                                             ;
 ; Total registers               ; 0                                             ;
-; Total pins                    ; 23                                            ;
+; Total pins                    ; 64                                            ;
 ; Total virtual pins            ; 0                                             ;
 ; Total block memory bits       ; 0                                             ;
 ; DSP block 9-bit elements      ; 0                                             ;
@@ -66,7 +63,7 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
-; Top-level entity name                                                      ; regDST             ; mipsHardware       ;
+; Top-level entity name                                                      ; shiftLeft2_2       ; mipsHardware       ;
 ; Family name                                                                ; Stratix II         ; Stratix II         ;
 ; Use Generated Physical Constraints File                                    ; Off                ;                    ;
 ; Use smart compilation                                                      ; Off                ; Off                ;
@@ -158,53 +155,52 @@ applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                       ;
-+----------------------------------+-----------------+------------------------------+----------------------------------------------------------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                             ;
-+----------------------------------+-----------------+------------------------------+----------------------------------------------------------+
-; regDST.sv                        ; yes             ; User SystemVerilog HDL File  ; E:/Users/absn2/Desktop/cpu_hardware/CPUQuartus/regDST.sv ;
-+----------------------------------+-----------------+------------------------------+----------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                             ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                   ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------+
+; shiftLeft2_2.sv                  ; yes             ; User SystemVerilog HDL File  ; E:/Users/absn2/Desktop/cpu_hardware/CPUQuartus/shiftLeft2_2.sv ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------+
 
 
-+--------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                  ;
-+-----------------------------------------------+--------------+
-; Resource                                      ; Usage        ;
-+-----------------------------------------------+--------------+
-; Estimated ALUTs Used                          ; 11           ;
-; Dedicated logic registers                     ; 0            ;
-;                                               ;              ;
-; Estimated ALUTs Unavailable                   ; 5            ;
-;                                               ;              ;
-; Total combinational functions                 ; 11           ;
-; Combinational ALUT usage by number of inputs  ;              ;
-;     -- 7 input functions                      ; 0            ;
-;     -- 6 input functions                      ; 5            ;
-;     -- 5 input functions                      ; 0            ;
-;     -- 4 input functions                      ; 0            ;
-;     -- <=3 input functions                    ; 6            ;
-;                                               ;              ;
-; Combinational ALUTs by mode                   ;              ;
-;     -- normal mode                            ; 11           ;
-;     -- extended LUT mode                      ; 0            ;
-;     -- arithmetic mode                        ; 0            ;
-;     -- shared arithmetic mode                 ; 0            ;
-;                                               ;              ;
-; Estimated ALUT/register pairs used            ; 16           ;
-;                                               ;              ;
-; Total registers                               ; 0            ;
-;     -- Dedicated logic registers              ; 0            ;
-;     -- I/O registers                          ; 0            ;
-;                                               ;              ;
-; Estimated ALMs:  partially or completely used ; 8            ;
-;                                               ;              ;
-; I/O pins                                      ; 23           ;
-; Maximum fan-out node                          ; regDSTmux[1] ;
-; Maximum fan-out                               ; 6            ;
-; Total fan-out                                 ; 53           ;
-; Average fan-out                               ; 1.56         ;
-+-----------------------------------------------+--------------+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++----------------------------------------------+------------+
+; Resource                                     ; Usage      ;
++----------------------------------------------+------------+
+; Estimated ALUTs Used                         ; 0          ;
+; Dedicated logic registers                    ; 0          ;
+;                                              ;            ;
+; Estimated ALUTs Unavailable                  ; 0          ;
+;                                              ;            ;
+; Total combinational functions                ; 0          ;
+; Combinational ALUT usage by number of inputs ;            ;
+;     -- 7 input functions                     ; 0          ;
+;     -- 6 input functions                     ; 0          ;
+;     -- 5 input functions                     ; 0          ;
+;     -- 4 input functions                     ; 0          ;
+;     -- <=3 input functions                   ; 0          ;
+;                                              ;            ;
+; Combinational ALUTs by mode                  ;            ;
+;     -- normal mode                           ; 0          ;
+;     -- extended LUT mode                     ; 0          ;
+;     -- arithmetic mode                       ; 0          ;
+;     -- shared arithmetic mode                ; 0          ;
+;                                              ;            ;
+; Estimated ALUT/register pairs used           ; 0          ;
+;                                              ;            ;
+; Total registers                              ; 0          ;
+;     -- Dedicated logic registers             ; 0          ;
+;     -- I/O registers                         ; 0          ;
+;                                              ;            ;
+;                                              ;            ;
+; I/O pins                                     ; 64         ;
+; Maximum fan-out node                         ; signExt[0] ;
+; Maximum fan-out                              ; 1          ;
+; Total fan-out                                ; 30         ;
+; Average fan-out                              ; 0.47       ;
++----------------------------------------------+------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -212,24 +208,9 @@ applicable agreement for further details.
 +----------------------------+-------------------+--------------+-------------------+--------------+---------+-----------+-----------+------+--------------+---------------------+--------------+
 ; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
 +----------------------------+-------------------+--------------+-------------------+--------------+---------+-----------+-----------+------+--------------+---------------------+--------------+
-; |regDST                    ; 11 (11)           ; 0 (0)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 23   ; 0            ; |regDST             ; work         ;
+; |shiftLeft2_2              ; 0 (0)             ; 0 (0)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 64   ; 0            ; |shiftLeft2_2       ; work         ;
 +----------------------------+-------------------+--------------+-------------------+--------------+---------+-----------+-----------+------+--------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-+---------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                               ;
-+----------------------------------------------------+---------------------+------------------------+
-; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
-+----------------------------------------------------+---------------------+------------------------+
-; regDSTOut[0]$latch                                 ; Mux5                ; yes                    ;
-; regDSTOut[1]$latch                                 ; Mux5                ; yes                    ;
-; regDSTOut[2]$latch                                 ; Mux5                ; yes                    ;
-; regDSTOut[3]$latch                                 ; Mux5                ; yes                    ;
-; regDSTOut[4]$latch                                 ; Mux5                ; yes                    ;
-; Number of user-specified and inferred latches = 5  ;                     ;                        ;
-+----------------------------------------------------+---------------------+------------------------+
-Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
 +------------------------------------------------------+
@@ -247,35 +228,17 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; 5:1                ; 5 bits    ; 15 ALUTs      ; 15 ALUTs             ; 0 ALUTs                ; No         ; |regDST|Mux0               ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-
-
-+------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Top-level Entity: |regDST ;
-+----------------+-------+-----------------------------------------------+
-; Parameter Name ; Value ; Type                                          ;
-+----------------+-------+-----------------------------------------------+
-; D              ; 11101 ; Unsigned Binary                               ;
-; E              ; 11111 ; Unsigned Binary                               ;
-+----------------+-------+-----------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
 +-------------------------------+
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Full Version
-    Info: Processing started: Wed Oct 09 18:08:44 2019
+    Info: Processing started: Wed Oct 09 18:48:10 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off mipsHardware -c mipsHardware
 Info: Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info: Found 1 design units, including 1 entities, in source file signextend16to32.sv
+    Info: Found entity 1: signExtend16to32
 Info: Found 1 design units, including 1 entities, in source file schemehard.bdf
     Info: Found entity 1: schemeHard
 Info: Found 1 design units, including 1 entities, in source file regdst.sv
@@ -310,24 +273,12 @@ Info: Found 1 design units, including 1 entities, in source file alusrcb.sv
     Info: Found entity 1: aluSrcB
 Info: Found 1 design units, including 1 entities, in source file pcsource.sv
     Info: Found entity 1: pcSource
-Info: Elaborating entity "regDST" for the top level hierarchy
-Warning (10270): Verilog HDL Case Statement warning at regDST.sv(13): incomplete case statement has no default case item
-Warning (10240): Verilog HDL Always Construct warning at regDST.sv(13): inferring latch(es) for variable "regDSTOut", which holds its previous value in one or more paths through the always construct
-Info (10041): Inferred latch for "regDSTOut[0]" at regDST.sv(13)
-Info (10041): Inferred latch for "regDSTOut[1]" at regDST.sv(13)
-Info (10041): Inferred latch for "regDSTOut[2]" at regDST.sv(13)
-Info (10041): Inferred latch for "regDSTOut[3]" at regDST.sv(13)
-Info (10041): Inferred latch for "regDSTOut[4]" at regDST.sv(13)
-Warning: Latch regDSTOut[0]$latch has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal regDSTmux[1]
-Warning: Latch regDSTOut[1]$latch has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal regDSTmux[2]
-Warning: Latch regDSTOut[2]$latch has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal regDSTmux[1]
-Warning: Latch regDSTOut[3]$latch has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal regDSTmux[1]
-Warning: Latch regDSTOut[4]$latch has unsafe behavior
-    Warning: Ports D and ENA on the latch are fed by the same signal regDSTmux[1]
+Info: Found 1 design units, including 1 entities, in source file shiftleft2_2.sv
+    Info: Found entity 1: shiftLeft2_2
+Info: Elaborating entity "shiftLeft2_2" for the top level hierarchy
+Warning: Output pins are stuck at VCC or GND
+    Warning (13410): Pin "shiftLeft2Out2[0]" is stuck at GND
+    Warning (13410): Pin "shiftLeft2Out2[1]" is stuck at GND
 Warning: Ignored assignments for entity "Registrador" -- entity does not exist in design
     Warning: Assignment for entity set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity Registrador -section_id Top was ignored
     Warning: Assignment for entity set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity Registrador -section_id Top was ignored
@@ -391,14 +342,16 @@ Warning: Ignored assignments for entity "unidadeControle" -- entity does not exi
     Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_PIN_ASSIGNMENTS ON -entity unidadeControle -section_id Top was ignored
     Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_PROMOTE_ASSIGNMENTS ON -entity unidadeControle -section_id Top was ignored
     Warning: Assignment for entity set_global_assignment -name PARTITION_TYPE STANDARD_PARTITION -entity unidadeControle -section_id Top was ignored
-Info: Implemented 34 device resources after synthesis - the final resource count might be different
-    Info: Implemented 18 input pins
-    Info: Implemented 5 output pins
-    Info: Implemented 11 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 76 warnings
+Warning: Design contains 2 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "signExt[30]"
+    Warning (15610): No output dependent on input pin "signExt[31]"
+Info: Implemented 64 device resources after synthesis - the final resource count might be different
+    Info: Implemented 32 input pins
+    Info: Implemented 32 output pins
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 70 warnings
     Info: Peak virtual memory: 4458 megabytes
-    Info: Processing ended: Wed Oct 09 18:08:45 2019
-    Info: Elapsed time: 00:00:01
-    Info: Total CPU time (on all processors): 00:00:02
+    Info: Processing ended: Wed Oct 09 18:48:12 2019
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:01
 
 

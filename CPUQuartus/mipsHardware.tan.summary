@@ -2,34 +2,14 @@
 Timing Analyzer Summary
 --------------------------------------------------------------------------------------
 
-Type           : Worst-case tsu
+Type           : Worst-case tpd
 Slack          : N/A
 Required Time  : None
-Actual Time    : 3.267 ns
-From           : regDSTmux[0]
-To             : regDSTOut[1]$latch
+Actual Time    : 7.537 ns
+From           : signExt[2]
+To             : shiftLeft2Out2[4]
 From Clock     : --
-To Clock       : regDSTmux[2]
-Failed Paths   : 0
-
-Type           : Worst-case tco
-Slack          : N/A
-Required Time  : None
-Actual Time    : 9.341 ns
-From           : regDSTOut[4]$latch
-To             : regDSTOut[4]
-From Clock     : regDSTmux[0]
 To Clock       : --
-Failed Paths   : 0
-
-Type           : Worst-case th
-Slack          : N/A
-Required Time  : None
-Actual Time    : -0.366 ns
-From           : regDSTmux[1]
-To             : regDSTOut[2]$latch
-From Clock     : --
-To Clock       : regDSTmux[0]
 Failed Paths   : 0
 
 Type           : Total number of failed paths

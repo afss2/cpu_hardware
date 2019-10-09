@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY "Stratix II"
 set_global_assignment -name DEVICE AUTO
-set_global_assignment -name TOP_LEVEL_ENTITY regDST
+set_global_assignment -name TOP_LEVEL_ENTITY shiftLeft2_2
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION "9.1 SP2"
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "15:38:22  OCTOBER 09, 2019"
 set_global_assignment -name LAST_QUARTUS_VERSION "9.1 SP2"
@@ -64,11 +64,6 @@ set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity R
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity schemeHard -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -entity schemeHard -section_id Top
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity schemeHard -section_id Top
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name LL_ROOT_REGION ON -section_id "Root Region"
-set_global_assignment -name LL_MEMBER_STATE LOCKED -section_id "Root Region"
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 set_global_assignment -name SYSTEMVERILOG_FILE signExtend16to32.sv
 set_global_assignment -name BDF_FILE schemeHard.bdf
 set_global_assignment -name SYSTEMVERILOG_FILE regDST.sv
@@ -84,3 +79,9 @@ set_global_assignment -name SYSTEMVERILOG_FILE unidadeControle.sv
 set_global_assignment -name SYSTEMVERILOG_FILE aluSrcA.sv
 set_global_assignment -name SYSTEMVERILOG_FILE aluSrcB.sv
 set_global_assignment -name SYSTEMVERILOG_FILE pcSource.sv
+set_global_assignment -name SYSTEMVERILOG_FILE shiftLeft2_2.sv
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name LL_ROOT_REGION ON -section_id "Root Region"
+set_global_assignment -name LL_MEMBER_STATE LOCKED -section_id "Root Region"
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
