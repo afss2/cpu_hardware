@@ -1,5 +1,9 @@
 Fitter report for mipsHardware
+<<<<<<< HEAD
 Wed Oct 09 17:39:58 2019
+=======
+Wed Oct 09 17:45:06 2019
+>>>>>>> 1102ebb6945a4b53415577eff151244d7e7e508e
 Quartus II 64-Bit Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Full Version
 
 
@@ -67,7 +71,11 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Fitter Summary                                                                ;
 +-------------------------------+-----------------------------------------------+
+<<<<<<< HEAD
 ; Fitter Status                 ; Successful - Wed Oct 09 17:39:58 2019         ;
+=======
+; Fitter Status                 ; Successful - Wed Oct 09 17:45:06 2019         ;
+>>>>>>> 1102ebb6945a4b53415577eff151244d7e7e508e
 ; Quartus II 64-Bit Version     ; 9.1 Build 350 03/24/2010 SP 2 SJ Full Version ;
 ; Revision Name                 ; mipsHardware                                  ;
 ; Top-level Entity Name         ; schemeTest                                    ;
@@ -322,7 +330,7 @@ Migrate your design from the selected FPGA device and compile for the HardCopy c
 +--------------+
 ; Pin-Out File ;
 +--------------+
-The pin-out file can be found in E:/Users/absn2/Desktop/cpu_hardware/CPUQuartus/mipsHardware.pin.
+The pin-out file can be found in E:/Users/fmln/Documents/cpu_hardware/CPUQuartus/mipsHardware.pin.
 
 
 +-----------------------------------------------------------------------------------------------------------+
@@ -1628,7 +1636,11 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Fitter
     Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Full Version
+<<<<<<< HEAD
     Info: Processing started: Wed Oct 09 17:39:55 2019
+=======
+    Info: Processing started: Wed Oct 09 17:45:03 2019
+>>>>>>> 1102ebb6945a4b53415577eff151244d7e7e508e
 Info: Command: quartus_fit --read_settings_files=off --write_settings_files=off mipsHardware -c mipsHardware
 Info: Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info: Automatically selected device EP2S15F484C3 for design mipsHardware
@@ -1781,17 +1793,23 @@ Warning: Found 32 output pins without output pin load capacitance assignment
     Info: Pin "sadsa[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
 Info: Delay annotation completed successfully
 Warning: The Reserve All Unused Pins setting has not been specified, and will default to 'As output driving ground'.
-Info: Generated suppressed messages file E:/Users/absn2/Desktop/cpu_hardware/CPUQuartus/mipsHardware.fit.smsg
+Info: Generated suppressed messages file E:/Users/fmln/Documents/cpu_hardware/CPUQuartus/mipsHardware.fit.smsg
 Info: Quartus II 64-Bit Fitter was successful. 0 errors, 4 warnings
+<<<<<<< HEAD
     Info: Peak virtual memory: 4590 megabytes
     Info: Processing ended: Wed Oct 09 17:39:59 2019
     Info: Elapsed time: 00:00:04
+=======
+    Info: Peak virtual memory: 4587 megabytes
+    Info: Processing ended: Wed Oct 09 17:45:06 2019
+    Info: Elapsed time: 00:00:03
+>>>>>>> 1102ebb6945a4b53415577eff151244d7e7e508e
     Info: Total CPU time (on all processors): 00:00:03
 
 
 +----------------------------+
 ; Fitter Suppressed Messages ;
 +----------------------------+
-The suppressed messages can be found in E:/Users/absn2/Desktop/cpu_hardware/CPUQuartus/mipsHardware.fit.smsg.
+The suppressed messages can be found in E:/Users/fmln/Documents/cpu_hardware/CPUQuartus/mipsHardware.fit.smsg.
 
 
