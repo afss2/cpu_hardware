@@ -1,9 +1,5 @@
 Analysis & Synthesis report for mipsHardware
-<<<<<<< HEAD
-Wed Oct 09 17:39:54 2019
-=======
-Wed Oct 09 17:45:02 2019
->>>>>>> 1102ebb6945a4b53415577eff151244d7e7e508e
+Wed Oct 09 18:08:45 2019
 Quartus II 64-Bit Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Full Version
 
 
@@ -17,8 +13,11 @@ Quartus II 64-Bit Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Full Versio
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Analysis & Synthesis Messages
+  8. User-Specified and Inferred Latches
+  9. General Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Parameter Settings for User Entity Instance: Top-level Entity: |regDST
+ 12. Analysis & Synthesis Messages
 
 
 
@@ -44,20 +43,16 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +-------------------------------+-----------------------------------------------+
-<<<<<<< HEAD
-; Analysis & Synthesis Status   ; Successful - Wed Oct 09 17:39:54 2019         ;
-=======
-; Analysis & Synthesis Status   ; Successful - Wed Oct 09 17:45:02 2019         ;
->>>>>>> 1102ebb6945a4b53415577eff151244d7e7e508e
+; Analysis & Synthesis Status   ; Successful - Wed Oct 09 18:08:45 2019         ;
 ; Quartus II 64-Bit Version     ; 9.1 Build 350 03/24/2010 SP 2 SJ Full Version ;
 ; Revision Name                 ; mipsHardware                                  ;
-; Top-level Entity Name         ; schemeTest                                    ;
+; Top-level Entity Name         ; regDST                                        ;
 ; Family                        ; Stratix II                                    ;
 ; Logic utilization             ; N/A                                           ;
-;     Combinational ALUTs       ; 0                                             ;
-;     Dedicated logic registers ; 32                                            ;
-; Total registers               ; 32                                            ;
-; Total pins                    ; 67                                            ;
+;     Combinational ALUTs       ; 11                                            ;
+;     Dedicated logic registers ; 0                                             ;
+; Total registers               ; 0                                             ;
+; Total pins                    ; 23                                            ;
 ; Total virtual pins            ; 0                                             ;
 ; Total block memory bits       ; 0                                             ;
 ; DSP block 9-bit elements      ; 0                                             ;
@@ -71,7 +66,7 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
-; Top-level entity name                                                      ; schemeTest         ; mipsHardware       ;
+; Top-level entity name                                                      ; regDST             ; mipsHardware       ;
 ; Family name                                                                ; Stratix II         ; Stratix II         ;
 ; Use Generated Physical Constraints File                                    ; Off                ;                    ;
 ; Use smart compilation                                                      ; Off                ; Off                ;
@@ -163,75 +158,78 @@ applicable agreement for further details.
 +----------------------------+-------------+
 
 
-<<<<<<< HEAD
-+---------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                  ;
-+----------------------------------+-----------------+------------------------------------+---------------------------------------------------------------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                  ;
-+----------------------------------+-----------------+------------------------------------+---------------------------------------------------------------+
-; Instr_Reg.vhd                    ; yes             ; User VHDL File                     ; E:/Users/absn2/Desktop/cpu_hardware/CPUQuartus/Instr_Reg.vhd  ;
-; schemeTest.bdf                   ; yes             ; User Block Diagram/Schematic File  ; E:/Users/absn2/Desktop/cpu_hardware/CPUQuartus/schemeTest.bdf ;
-+----------------------------------+-----------------+------------------------------------+---------------------------------------------------------------+
-=======
-+--------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                 ;
-+----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                       ;
-+----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------+
-; unidadeControle.sv               ; yes             ; User SystemVerilog HDL File  ; E:/Users/fmln/Documents/cpu_hardware/CPUQuartus/unidadeControle.sv ;
-+----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------+
->>>>>>> 1102ebb6945a4b53415577eff151244d7e7e508e
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                       ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                             ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------+
+; regDST.sv                        ; yes             ; User SystemVerilog HDL File  ; E:/Users/absn2/Desktop/cpu_hardware/CPUQuartus/regDST.sv ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------+
 
 
-+----------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary              ;
-+-----------------------------------------------+----------+
-; Resource                                      ; Usage    ;
-+-----------------------------------------------+----------+
-; Estimated ALUTs Used                          ; 0        ;
-; Dedicated logic registers                     ; 32       ;
-;                                               ;          ;
-; Estimated ALUTs Unavailable                   ; 0        ;
-;                                               ;          ;
-; Total combinational functions                 ; 0        ;
-; Combinational ALUT usage by number of inputs  ;          ;
-;     -- 7 input functions                      ; 0        ;
-;     -- 6 input functions                      ; 0        ;
-;     -- 5 input functions                      ; 0        ;
-;     -- 4 input functions                      ; 0        ;
-;     -- <=3 input functions                    ; 0        ;
-;                                               ;          ;
-; Combinational ALUTs by mode                   ;          ;
-;     -- normal mode                            ; 0        ;
-;     -- extended LUT mode                      ; 0        ;
-;     -- arithmetic mode                        ; 0        ;
-;     -- shared arithmetic mode                 ; 0        ;
-;                                               ;          ;
-; Estimated ALUT/register pairs used            ; 32       ;
-;                                               ;          ;
-; Total registers                               ; 32       ;
-;     -- Dedicated logic registers              ; 32       ;
-;     -- I/O registers                          ; 0        ;
-;                                               ;          ;
-; Estimated ALMs:  partially or completely used ; 16       ;
-;                                               ;          ;
-; I/O pins                                      ; 67       ;
-; Maximum fan-out node                          ; pin_name ;
-; Maximum fan-out                               ; 32       ;
-; Total fan-out                                 ; 160      ;
-; Average fan-out                               ; 1.62     ;
-+-----------------------------------------------+----------+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++-----------------------------------------------+--------------+
+; Resource                                      ; Usage        ;
++-----------------------------------------------+--------------+
+; Estimated ALUTs Used                          ; 11           ;
+; Dedicated logic registers                     ; 0            ;
+;                                               ;              ;
+; Estimated ALUTs Unavailable                   ; 5            ;
+;                                               ;              ;
+; Total combinational functions                 ; 11           ;
+; Combinational ALUT usage by number of inputs  ;              ;
+;     -- 7 input functions                      ; 0            ;
+;     -- 6 input functions                      ; 5            ;
+;     -- 5 input functions                      ; 0            ;
+;     -- 4 input functions                      ; 0            ;
+;     -- <=3 input functions                    ; 6            ;
+;                                               ;              ;
+; Combinational ALUTs by mode                   ;              ;
+;     -- normal mode                            ; 11           ;
+;     -- extended LUT mode                      ; 0            ;
+;     -- arithmetic mode                        ; 0            ;
+;     -- shared arithmetic mode                 ; 0            ;
+;                                               ;              ;
+; Estimated ALUT/register pairs used            ; 16           ;
+;                                               ;              ;
+; Total registers                               ; 0            ;
+;     -- Dedicated logic registers              ; 0            ;
+;     -- I/O registers                          ; 0            ;
+;                                               ;              ;
+; Estimated ALMs:  partially or completely used ; 8            ;
+;                                               ;              ;
+; I/O pins                                      ; 23           ;
+; Maximum fan-out node                          ; regDSTmux[1] ;
+; Maximum fan-out                               ; 6            ;
+; Total fan-out                                 ; 53           ;
+; Average fan-out                               ; 1.56         ;
++-----------------------------------------------+--------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                  ;
-+----------------------------+-------------------+--------------+-------------------+--------------+---------+-----------+-----------+------+--------------+----------------------------+--------------+
-; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; Full Hierarchy Name        ; Library Name ;
-+----------------------------+-------------------+--------------+-------------------+--------------+---------+-----------+-----------+------+--------------+----------------------------+--------------+
-; |schemeTest                ; 0 (0)             ; 32 (0)       ; 0                 ; 0            ; 0       ; 0         ; 0         ; 67   ; 0            ; |schemeTest                ; work         ;
-;    |Instr_Reg:inst|        ; 0 (0)             ; 32 (32)      ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |schemeTest|Instr_Reg:inst ;              ;
-+----------------------------+-------------------+--------------+-------------------+--------------+---------+-----------+-----------+------+--------------+----------------------------+--------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                           ;
++----------------------------+-------------------+--------------+-------------------+--------------+---------+-----------+-----------+------+--------------+---------------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
++----------------------------+-------------------+--------------+-------------------+--------------+---------+-----------+-----------+------+--------------+---------------------+--------------+
+; |regDST                    ; 11 (11)           ; 0 (0)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 23   ; 0            ; |regDST             ; work         ;
++----------------------------+-------------------+--------------+-------------------+--------------+---------+-----------+-----------+------+--------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                               ;
++----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
++----------------------------------------------------+---------------------+------------------------+
+; regDSTOut[0]$latch                                 ; Mux5                ; yes                    ;
+; regDSTOut[1]$latch                                 ; Mux5                ; yes                    ;
+; regDSTOut[2]$latch                                 ; Mux5                ; yes                    ;
+; regDSTOut[3]$latch                                 ; Mux5                ; yes                    ;
+; regDSTOut[4]$latch                                 ; Mux5                ; yes                    ;
+; Number of user-specified and inferred latches = 5  ;                     ;                        ;
++----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
 +------------------------------------------------------+
@@ -239,14 +237,34 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 32    ;
+; Total registers                              ; 0     ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 32    ;
+; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 32    ;
+; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 5:1                ; 5 bits    ; 15 ALUTs      ; 15 ALUTs             ; 0 ALUTs                ; No         ; |regDST|Mux0               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |regDST ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; D              ; 11101 ; Unsigned Binary                               ;
+; E              ; 11111 ; Unsigned Binary                               ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +-------------------------------+
@@ -255,18 +273,19 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Full Version
-<<<<<<< HEAD
-    Info: Processing started: Wed Oct 09 17:39:53 2019
+    Info: Processing started: Wed Oct 09 18:08:44 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off mipsHardware -c mipsHardware
 Info: Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info: Found 1 design units, including 1 entities, in source file schemehard.bdf
+    Info: Found entity 1: schemeHard
+Info: Found 1 design units, including 1 entities, in source file regdst.sv
+    Info: Found entity 1: regDST
+Info: Found 1 design units, including 1 entities, in source file iord.sv
+    Info: Found entity 1: iord
+Warning: Can't analyze file -- file pcRegister.vhd is missing
 Info: Found 2 design units, including 1 entities, in source file registrador.vhd
     Info: Found design unit 1: Registrador-behavioral_arch
     Info: Found entity 1: Registrador
-=======
-    Info: Processing started: Wed Oct 09 17:45:01 2019
-Info: Command: quartus_map --read_settings_files=on --write_settings_files=off mipsHardware -c mipsHardware
-Info: Parallel compilation is enabled and will use 4 of the 4 processors detected
->>>>>>> 1102ebb6945a4b53415577eff151244d7e7e508e
 Info: Found 2 design units, including 1 entities, in source file banco_reg.vhd
     Info: Found design unit 1: Banco_reg-behavioral_arch
     Info: Found entity 1: Banco_reg
@@ -280,157 +299,106 @@ Info: Found 3 design units, including 1 entities, in source file memoria.vhd
 Info: Found 2 design units, including 1 entities, in source file regdesloc.vhd
     Info: Found design unit 1: RegDesloc-behavioral_arch
     Info: Found entity 1: RegDesloc
-<<<<<<< HEAD
-=======
-Info: Found 2 design units, including 1 entities, in source file registrador.vhd
-    Info: Found design unit 1: Registrador-behavioral_arch
-    Info: Found entity 1: Registrador
->>>>>>> 1102ebb6945a4b53415577eff151244d7e7e508e
 Info: Found 2 design units, including 1 entities, in source file ula32.vhd
     Info: Found design unit 1: Ula32-behavioral
     Info: Found entity 1: Ula32
 Info: Found 1 design units, including 1 entities, in source file unidadecontrole.sv
     Info: Found entity 1: unidadeControle
-Info: Found 1 design units, including 1 entities, in source file schemehard.bdf
-    Info: Found entity 1: schemeHard
-<<<<<<< HEAD
 Info: Found 1 design units, including 1 entities, in source file alusrca.sv
     Info: Found entity 1: aluSrcA
 Info: Found 1 design units, including 1 entities, in source file alusrcb.sv
     Info: Found entity 1: aluSrcB
 Info: Found 1 design units, including 1 entities, in source file pcsource.sv
     Info: Found entity 1: pcSource
-Info: Found 1 design units, including 1 entities, in source file schemetest.bdf
-    Info: Found entity 1: schemeTest
-Info: Elaborating entity "schemeTest" for the top level hierarchy
-Info: Elaborating entity "Instr_Reg" for hierarchy "Instr_Reg:inst"
+Info: Elaborating entity "regDST" for the top level hierarchy
+Warning (10270): Verilog HDL Case Statement warning at regDST.sv(13): incomplete case statement has no default case item
+Warning (10240): Verilog HDL Always Construct warning at regDST.sv(13): inferring latch(es) for variable "regDSTOut", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "regDSTOut[0]" at regDST.sv(13)
+Info (10041): Inferred latch for "regDSTOut[1]" at regDST.sv(13)
+Info (10041): Inferred latch for "regDSTOut[2]" at regDST.sv(13)
+Info (10041): Inferred latch for "regDSTOut[3]" at regDST.sv(13)
+Info (10041): Inferred latch for "regDSTOut[4]" at regDST.sv(13)
+Warning: Latch regDSTOut[0]$latch has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal regDSTmux[1]
+Warning: Latch regDSTOut[1]$latch has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal regDSTmux[2]
+Warning: Latch regDSTOut[2]$latch has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal regDSTmux[1]
+Warning: Latch regDSTOut[3]$latch has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal regDSTmux[1]
+Warning: Latch regDSTOut[4]$latch has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal regDSTmux[1]
+Warning: Ignored assignments for entity "Registrador" -- entity does not exist in design
+    Warning: Assignment for entity set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity Registrador -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity Registrador -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_COLOR 16764057 -entity Registrador -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_ASSIGNMENTS ON -entity Registrador -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_ASSIGNMENTS REPLACE_CONFLICTING -entity Registrador -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_LOGICLOCK_REGIONS REPLACE_CONFLICTING -entity Registrador -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_PIN_ASSIGNMENTS ON -entity Registrador -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_PROMOTE_ASSIGNMENTS ON -entity Registrador -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_TYPE STANDARD_PARTITION -entity Registrador -section_id Top was ignored
+Warning: Ignored assignments for entity "aluSrcA" -- entity does not exist in design
+    Warning: Assignment for entity set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity aluSrcA -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity aluSrcA -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_COLOR 16764057 -entity aluSrcA -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_ASSIGNMENTS ON -entity aluSrcA -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_ASSIGNMENTS REPLACE_CONFLICTING -entity aluSrcA -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_LOGICLOCK_REGIONS REPLACE_CONFLICTING -entity aluSrcA -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_PIN_ASSIGNMENTS ON -entity aluSrcA -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_PROMOTE_ASSIGNMENTS ON -entity aluSrcA -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_TYPE STANDARD_PARTITION -entity aluSrcA -section_id Top was ignored
+Warning: Ignored assignments for entity "aluSrcB" -- entity does not exist in design
+    Warning: Assignment for entity set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity aluSrcB -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity aluSrcB -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_COLOR 16764057 -entity aluSrcB -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_ASSIGNMENTS ON -entity aluSrcB -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_ASSIGNMENTS REPLACE_CONFLICTING -entity aluSrcB -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_LOGICLOCK_REGIONS REPLACE_CONFLICTING -entity aluSrcB -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_PIN_ASSIGNMENTS ON -entity aluSrcB -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_PROMOTE_ASSIGNMENTS ON -entity aluSrcB -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_TYPE STANDARD_PARTITION -entity aluSrcB -section_id Top was ignored
 Warning: Ignored assignments for entity "mipsHardware" -- entity does not exist in design
     Warning: Assignment for entity set_global_assignment -name LL_ROOT_REGION ON -entity mipsHardware -section_id "Root Region" was ignored
     Warning: Assignment for entity set_global_assignment -name LL_MEMBER_STATE LOCKED -entity mipsHardware -section_id "Root Region" was ignored
-Info: Implemented 99 device resources after synthesis - the final resource count might be different
-    Info: Implemented 35 input pins
-    Info: Implemented 32 output pins
-    Info: Implemented 32 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 3 warnings
-    Info: Peak virtual memory: 4465 megabytes
-    Info: Processing ended: Wed Oct 09 17:39:54 2019
-=======
-Info: Found 1 design units, including 1 entities, in source file iord.sv
-    Info: Found entity 1: iord
-Info: Found 1 design units, including 1 entities, in source file regdst.sv
-    Info: Found entity 1: regDST
-Info: Elaborating entity "unidadeControle" for the top level hierarchy
-Warning (10034): Output port "sscontrol" at unidadeControle.sv(43) has no driver
-Warning (10034): Output port "lscontrol" at unidadeControle.sv(44) has no driver
-Warning (10034): Output port "iordmux" at unidadeControle.sv(47) has no driver
-Warning (10034): Output port "regdst" at unidadeControle.sv(50) has no driver
-Warning (10034): Output port "muxregdst" at unidadeControle.sv(53) has no driver
-Warning (10034): Output port "muxmemtoreg" at unidadeControle.sv(54) has no driver
-Warning (10034): Output port "muxalusrca" at unidadeControle.sv(56) has no driver
-Warning (10034): Output port "muxalusrcb" at unidadeControle.sv(57) has no driver
-Warning (10034): Output port "muxpcsource" at unidadeControle.sv(59) has no driver
-Warning (10034): Output port "regwrite" at unidadeControle.sv(11) has no driver
-Warning (10034): Output port "epcwrite" at unidadeControle.sv(12) has no driver
-Warning (10034): Output port "irwrite" at unidadeControle.sv(13) has no driver
-Warning (10034): Output port "memwrite" at unidadeControle.sv(16) has no driver
-Warning (10034): Output port "memread" at unidadeControle.sv(17) has no driver
-Warning (10034): Output port "memtoreg" at unidadeControle.sv(18) has no driver
-Warning (10034): Output port "pcwrite" at unidadeControle.sv(21) has no driver
-Warning (10034): Output port "pcwritecond" at unidadeControle.sv(22) has no driver
-Warning (10034): Output port "aluop" at unidadeControle.sv(25) has no driver
-Warning (10034): Output port "aluoutwrite" at unidadeControle.sv(26) has no driver
-Warning (10034): Output port "hiwrite" at unidadeControle.sv(29) has no driver
-Warning (10034): Output port "lowrite" at unidadeControle.sv(30) has no driver
-Warning (10034): Output port "divby0" at unidadeControle.sv(31) has no driver
-Warning (10034): Output port "xchgctrl" at unidadeControle.sv(34) has no driver
-Warning (10034): Output port "expcontrol" at unidadeControle.sv(37) has no driver
-Warning (10034): Output port "shiftcontrol" at unidadeControle.sv(40) has no driver
-Warning (10034): Output port "muxhi" at unidadeControle.sv(48) has no driver
-Warning (10034): Output port "muxlo" at unidadeControle.sv(49) has no driver
-Warning (10034): Output port "muxshiftsrca" at unidadeControle.sv(51) has no driver
-Warning (10034): Output port "muxshiftsrcb" at unidadeControle.sv(52) has no driver
-Warning (10034): Output port "muxxxchgctrl" at unidadeControle.sv(55) has no driver
-Warning: Output pins are stuck at VCC or GND
-    Warning (13410): Pin "regwrite" is stuck at GND
-    Warning (13410): Pin "epcwrite" is stuck at GND
-    Warning (13410): Pin "irwrite" is stuck at GND
-    Warning (13410): Pin "memwrite" is stuck at GND
-    Warning (13410): Pin "memread" is stuck at GND
-    Warning (13410): Pin "memtoreg" is stuck at GND
-    Warning (13410): Pin "pcwrite" is stuck at GND
-    Warning (13410): Pin "pcwritecond" is stuck at GND
-    Warning (13410): Pin "aluop" is stuck at GND
-    Warning (13410): Pin "aluoutwrite" is stuck at GND
-    Warning (13410): Pin "hiwrite" is stuck at GND
-    Warning (13410): Pin "lowrite" is stuck at GND
-    Warning (13410): Pin "divby0" is stuck at GND
-    Warning (13410): Pin "xchgctrl" is stuck at GND
-    Warning (13410): Pin "expcontrol" is stuck at GND
-    Warning (13410): Pin "shiftcontrol" is stuck at GND
-    Warning (13410): Pin "sscontrol[0]" is stuck at GND
-    Warning (13410): Pin "sscontrol[1]" is stuck at GND
-    Warning (13410): Pin "lscontrol[0]" is stuck at GND
-    Warning (13410): Pin "lscontrol[1]" is stuck at GND
-    Warning (13410): Pin "iordmux[0]" is stuck at GND
-    Warning (13410): Pin "iordmux[1]" is stuck at GND
-    Warning (13410): Pin "iordmux[2]" is stuck at GND
-    Warning (13410): Pin "iordmux[3]" is stuck at GND
-    Warning (13410): Pin "muxhi" is stuck at GND
-    Warning (13410): Pin "muxlo" is stuck at GND
-    Warning (13410): Pin "regdst[0]" is stuck at GND
-    Warning (13410): Pin "regdst[1]" is stuck at GND
-    Warning (13410): Pin "regdst[2]" is stuck at GND
-    Warning (13410): Pin "regdst[3]" is stuck at GND
-    Warning (13410): Pin "muxshiftsrca" is stuck at GND
-    Warning (13410): Pin "muxshiftsrcb" is stuck at GND
-    Warning (13410): Pin "muxregdst[0]" is stuck at GND
-    Warning (13410): Pin "muxregdst[1]" is stuck at GND
-    Warning (13410): Pin "muxregdst[2]" is stuck at GND
-    Warning (13410): Pin "muxregdst[3]" is stuck at GND
-    Warning (13410): Pin "muxmemtoreg[0]" is stuck at GND
-    Warning (13410): Pin "muxmemtoreg[1]" is stuck at GND
-    Warning (13410): Pin "muxmemtoreg[2]" is stuck at GND
-    Warning (13410): Pin "muxmemtoreg[3]" is stuck at GND
-    Warning (13410): Pin "muxmemtoreg[4]" is stuck at GND
-    Warning (13410): Pin "muxxxchgctrl" is stuck at GND
-    Warning (13410): Pin "muxalusrca[0]" is stuck at GND
-    Warning (13410): Pin "muxalusrca[1]" is stuck at GND
-    Warning (13410): Pin "muxalusrcb[0]" is stuck at GND
-    Warning (13410): Pin "muxalusrcb[1]" is stuck at GND
-    Warning (13410): Pin "muxalusrcb[2]" is stuck at GND
-    Warning (13410): Pin "muxpcsource[0]" is stuck at GND
-    Warning (13410): Pin "muxpcsource[1]" is stuck at GND
-    Warning (13410): Pin "muxpcsource[2]" is stuck at GND
-Warning: Ignored assignments for entity "mipsHardware" -- entity does not exist in design
-    Warning: Assignment for entity set_global_assignment -name LL_ROOT_REGION ON -entity mipsHardware -section_id "Root Region" was ignored
-    Warning: Assignment for entity set_global_assignment -name LL_MEMBER_STATE LOCKED -entity mipsHardware -section_id "Root Region" was ignored
-Warning: Design contains 18 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "clk"
-    Warning (15610): No output dependent on input pin "shamt[0]"
-    Warning (15610): No output dependent on input pin "shamt[1]"
-    Warning (15610): No output dependent on input pin "shamt[2]"
-    Warning (15610): No output dependent on input pin "shamt[3]"
-    Warning (15610): No output dependent on input pin "shamt[4]"
-    Warning (15610): No output dependent on input pin "funct[0]"
-    Warning (15610): No output dependent on input pin "funct[1]"
-    Warning (15610): No output dependent on input pin "funct[2]"
-    Warning (15610): No output dependent on input pin "funct[3]"
-    Warning (15610): No output dependent on input pin "funct[4]"
-    Warning (15610): No output dependent on input pin "funct[5]"
-    Warning (15610): No output dependent on input pin "op[0]"
-    Warning (15610): No output dependent on input pin "op[1]"
-    Warning (15610): No output dependent on input pin "op[2]"
-    Warning (15610): No output dependent on input pin "op[3]"
-    Warning (15610): No output dependent on input pin "op[4]"
-    Warning (15610): No output dependent on input pin "op[5]"
-Info: Implemented 68 device resources after synthesis - the final resource count might be different
+Warning: Ignored assignments for entity "pcSource" -- entity does not exist in design
+    Warning: Assignment for entity set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity pcSource -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity pcSource -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_COLOR 16764057 -entity pcSource -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_ASSIGNMENTS ON -entity pcSource -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_ASSIGNMENTS REPLACE_CONFLICTING -entity pcSource -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_LOGICLOCK_REGIONS REPLACE_CONFLICTING -entity pcSource -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_PIN_ASSIGNMENTS ON -entity pcSource -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_PROMOTE_ASSIGNMENTS ON -entity pcSource -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_TYPE STANDARD_PARTITION -entity pcSource -section_id Top was ignored
+Warning: Ignored assignments for entity "schemeHard" -- entity does not exist in design
+    Warning: Assignment for entity set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity schemeHard -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity schemeHard -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_COLOR 16764057 -entity schemeHard -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_ASSIGNMENTS ON -entity schemeHard -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_ASSIGNMENTS REPLACE_CONFLICTING -entity schemeHard -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_LOGICLOCK_REGIONS REPLACE_CONFLICTING -entity schemeHard -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_PIN_ASSIGNMENTS ON -entity schemeHard -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_PROMOTE_ASSIGNMENTS ON -entity schemeHard -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_TYPE STANDARD_PARTITION -entity schemeHard -section_id Top was ignored
+Warning: Ignored assignments for entity "unidadeControle" -- entity does not exist in design
+    Warning: Assignment for entity set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity unidadeControle -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity unidadeControle -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_COLOR 16764057 -entity unidadeControle -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_ASSIGNMENTS ON -entity unidadeControle -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_ASSIGNMENTS REPLACE_CONFLICTING -entity unidadeControle -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_LOGICLOCK_REGIONS REPLACE_CONFLICTING -entity unidadeControle -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_PIN_ASSIGNMENTS ON -entity unidadeControle -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_PROMOTE_ASSIGNMENTS ON -entity unidadeControle -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_TYPE STANDARD_PARTITION -entity unidadeControle -section_id Top was ignored
+Info: Implemented 34 device resources after synthesis - the final resource count might be different
     Info: Implemented 18 input pins
-    Info: Implemented 50 output pins
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 103 warnings
+    Info: Implemented 5 output pins
+    Info: Implemented 11 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 76 warnings
     Info: Peak virtual memory: 4458 megabytes
-    Info: Processing ended: Wed Oct 09 17:45:02 2019
->>>>>>> 1102ebb6945a4b53415577eff151244d7e7e508e
+    Info: Processing ended: Wed Oct 09 18:08:45 2019
     Info: Elapsed time: 00:00:01
-    Info: Total CPU time (on all processors): 00:00:01
+    Info: Total CPU time (on all processors): 00:00:02
 
 
