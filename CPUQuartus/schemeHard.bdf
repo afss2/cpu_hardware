@@ -1,0 +1,268 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 1991-2010 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+*/
+//#pragma file_not_in_maxplusii_format
+(header "graphic" (version "1.3"))
+(symbol
+	(rect 448 32 656 576)
+	(text "unidadeControle" (rect 5 0 84 12)(font "Arial" ))
+	(text "inst" (rect 8 528 25 540)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "clk" (rect 0 0 14 12)(font "Arial" ))
+		(text "clk" (rect 21 27 35 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 1))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "shamt[4..0]" (rect 0 0 56 12)(font "Arial" ))
+		(text "shamt[4..0]" (rect 21 43 77 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "funct[5..0]" (rect 0 0 51 12)(font "Arial" ))
+		(text "funct[5..0]" (rect 21 59 72 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 3))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "op[5..0]" (rect 0 0 37 12)(font "Arial" ))
+		(text "op[5..0]" (rect 21 75 58 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 3))
+	)
+	(port
+		(pt 208 32)
+		(output)
+		(text "regwrite" (rect 0 0 37 12)(font "Arial" ))
+		(text "regwrite" (rect 150 27 187 39)(font "Arial" ))
+		(line (pt 208 32)(pt 192 32)(line_width 1))
+	)
+	(port
+		(pt 208 48)
+		(output)
+		(text "epcwrite" (rect 0 0 40 12)(font "Arial" ))
+		(text "epcwrite" (rect 147 43 187 55)(font "Arial" ))
+		(line (pt 208 48)(pt 192 48)(line_width 1))
+	)
+	(port
+		(pt 208 64)
+		(output)
+		(text "irwrite" (rect 0 0 28 12)(font "Arial" ))
+		(text "irwrite" (rect 159 59 187 71)(font "Arial" ))
+		(line (pt 208 64)(pt 192 64)(line_width 1))
+	)
+	(port
+		(pt 208 80)
+		(output)
+		(text "memwrite" (rect 0 0 47 12)(font "Arial" ))
+		(text "memwrite" (rect 140 75 187 87)(font "Arial" ))
+		(line (pt 208 80)(pt 192 80)(line_width 1))
+	)
+	(port
+		(pt 208 96)
+		(output)
+		(text "memread" (rect 0 0 46 12)(font "Arial" ))
+		(text "memread" (rect 141 91 187 103)(font "Arial" ))
+		(line (pt 208 96)(pt 192 96)(line_width 1))
+	)
+	(port
+		(pt 208 112)
+		(output)
+		(text "memtoreg" (rect 0 0 49 12)(font "Arial" ))
+		(text "memtoreg" (rect 138 107 187 119)(font "Arial" ))
+		(line (pt 208 112)(pt 192 112)(line_width 1))
+	)
+	(port
+		(pt 208 128)
+		(output)
+		(text "pcwrite" (rect 0 0 34 12)(font "Arial" ))
+		(text "pcwrite" (rect 153 123 187 135)(font "Arial" ))
+		(line (pt 208 128)(pt 192 128)(line_width 1))
+	)
+	(port
+		(pt 208 144)
+		(output)
+		(text "pcwritecond" (rect 0 0 57 12)(font "Arial" ))
+		(text "pcwritecond" (rect 130 139 187 151)(font "Arial" ))
+		(line (pt 208 144)(pt 192 144)(line_width 1))
+	)
+	(port
+		(pt 208 160)
+		(output)
+		(text "aluop" (rect 0 0 25 12)(font "Arial" ))
+		(text "aluop" (rect 162 155 187 167)(font "Arial" ))
+		(line (pt 208 160)(pt 192 160)(line_width 1))
+	)
+	(port
+		(pt 208 176)
+		(output)
+		(text "aluoutwrite" (rect 0 0 51 12)(font "Arial" ))
+		(text "aluoutwrite" (rect 136 171 187 183)(font "Arial" ))
+		(line (pt 208 176)(pt 192 176)(line_width 1))
+	)
+	(port
+		(pt 208 192)
+		(output)
+		(text "hiwrite" (rect 0 0 30 12)(font "Arial" ))
+		(text "hiwrite" (rect 157 187 187 199)(font "Arial" ))
+		(line (pt 208 192)(pt 192 192)(line_width 1))
+	)
+	(port
+		(pt 208 208)
+		(output)
+		(text "lowrite" (rect 0 0 30 12)(font "Arial" ))
+		(text "lowrite" (rect 157 203 187 215)(font "Arial" ))
+		(line (pt 208 208)(pt 192 208)(line_width 1))
+	)
+	(port
+		(pt 208 224)
+		(output)
+		(text "divby0" (rect 0 0 34 12)(font "Arial" ))
+		(text "divby0" (rect 153 219 187 231)(font "Arial" ))
+		(line (pt 208 224)(pt 192 224)(line_width 1))
+	)
+	(port
+		(pt 208 240)
+		(output)
+		(text "xchgctrl" (rect 0 0 38 12)(font "Arial" ))
+		(text "xchgctrl" (rect 149 235 187 247)(font "Arial" ))
+		(line (pt 208 240)(pt 192 240)(line_width 1))
+	)
+	(port
+		(pt 208 256)
+		(output)
+		(text "expcontrol" (rect 0 0 50 12)(font "Arial" ))
+		(text "expcontrol" (rect 137 251 187 263)(font "Arial" ))
+		(line (pt 208 256)(pt 192 256)(line_width 1))
+	)
+	(port
+		(pt 208 272)
+		(output)
+		(text "shiftcontrol" (rect 0 0 55 12)(font "Arial" ))
+		(text "shiftcontrol" (rect 132 267 187 279)(font "Arial" ))
+		(line (pt 208 272)(pt 192 272)(line_width 1))
+	)
+	(port
+		(pt 208 288)
+		(output)
+		(text "sscontrol[1..0]" (rect 0 0 70 12)(font "Arial" ))
+		(text "sscontrol[1..0]" (rect 117 283 187 295)(font "Arial" ))
+		(line (pt 208 288)(pt 192 288)(line_width 3))
+	)
+	(port
+		(pt 208 304)
+		(output)
+		(text "lscontrol[1..0]" (rect 0 0 67 12)(font "Arial" ))
+		(text "lscontrol[1..0]" (rect 120 299 187 311)(font "Arial" ))
+		(line (pt 208 304)(pt 192 304)(line_width 3))
+	)
+	(port
+		(pt 208 320)
+		(output)
+		(text "iordmux[3..0]" (rect 0 0 64 12)(font "Arial" ))
+		(text "iordmux[3..0]" (rect 123 315 187 327)(font "Arial" ))
+		(line (pt 208 320)(pt 192 320)(line_width 3))
+	)
+	(port
+		(pt 208 336)
+		(output)
+		(text "muxhi" (rect 0 0 29 12)(font "Arial" ))
+		(text "muxhi" (rect 158 331 187 343)(font "Arial" ))
+		(line (pt 208 336)(pt 192 336)(line_width 1))
+	)
+	(port
+		(pt 208 352)
+		(output)
+		(text "muxlo" (rect 0 0 29 12)(font "Arial" ))
+		(text "muxlo" (rect 158 347 187 359)(font "Arial" ))
+		(line (pt 208 352)(pt 192 352)(line_width 1))
+	)
+	(port
+		(pt 208 368)
+		(output)
+		(text "regdst[3..0]" (rect 0 0 56 12)(font "Arial" ))
+		(text "regdst[3..0]" (rect 131 363 187 375)(font "Arial" ))
+		(line (pt 208 368)(pt 192 368)(line_width 3))
+	)
+	(port
+		(pt 208 384)
+		(output)
+		(text "muxshiftsrca" (rect 0 0 64 12)(font "Arial" ))
+		(text "muxshiftsrca" (rect 123 379 187 391)(font "Arial" ))
+		(line (pt 208 384)(pt 192 384)(line_width 1))
+	)
+	(port
+		(pt 208 400)
+		(output)
+		(text "muxshiftsrcb" (rect 0 0 64 12)(font "Arial" ))
+		(text "muxshiftsrcb" (rect 123 395 187 407)(font "Arial" ))
+		(line (pt 208 400)(pt 192 400)(line_width 1))
+	)
+	(port
+		(pt 208 416)
+		(output)
+		(text "muxregdst[3..0]" (rect 0 0 77 12)(font "Arial" ))
+		(text "muxregdst[3..0]" (rect 110 411 187 423)(font "Arial" ))
+		(line (pt 208 416)(pt 192 416)(line_width 3))
+	)
+	(port
+		(pt 208 432)
+		(output)
+		(text "muxmemtoreg[4..0]" (rect 0 0 96 12)(font "Arial" ))
+		(text "muxmemtoreg[4..0]" (rect 91 427 187 439)(font "Arial" ))
+		(line (pt 208 432)(pt 192 432)(line_width 3))
+	)
+	(port
+		(pt 208 448)
+		(output)
+		(text "muxxxchgctrl" (rect 0 0 66 12)(font "Arial" ))
+		(text "muxxxchgctrl" (rect 121 443 187 455)(font "Arial" ))
+		(line (pt 208 448)(pt 192 448)(line_width 1))
+	)
+	(port
+		(pt 208 464)
+		(output)
+		(text "muxalusrca[1..0]" (rect 0 0 82 12)(font "Arial" ))
+		(text "muxalusrca[1..0]" (rect 105 459 187 471)(font "Arial" ))
+		(line (pt 208 464)(pt 192 464)(line_width 3))
+	)
+	(port
+		(pt 208 480)
+		(output)
+		(text "muxalusrcb[2..0]" (rect 0 0 82 12)(font "Arial" ))
+		(text "muxalusrcb[2..0]" (rect 105 475 187 487)(font "Arial" ))
+		(line (pt 208 480)(pt 192 480)(line_width 3))
+	)
+	(port
+		(pt 208 496)
+		(output)
+		(text "muxpcsource[2..0]" (rect 0 0 92 12)(font "Arial" ))
+		(text "muxpcsource[2..0]" (rect 95 491 187 503)(font "Arial" ))
+		(line (pt 208 496)(pt 192 496)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 192 528)(line_width 1))
+	)
+)

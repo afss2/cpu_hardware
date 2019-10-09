@@ -1,0 +1,15 @@
+Analysis & Synthesis Status : Successful - Wed Oct 09 15:40:42 2019
+Quartus II 64-Bit Version : 9.1 Build 350 03/24/2010 SP 2 SJ Full Version
+Revision Name : mipsHardware
+Top-level Entity Name : unidadeControle
+Family : Stratix II
+Logic utilization : N/A
+    Combinational ALUTs : 0
+    Dedicated logic registers : 0
+Total registers : 0
+Total pins : 68
+Total virtual pins : 0
+Total block memory bits : 0
+DSP block 9-bit elements : 0
+Total PLLs : 0
+Total DLLs : 0
