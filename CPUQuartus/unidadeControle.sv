@@ -54,8 +54,8 @@ module unidadeControle(
     output logic muxmemtoreg[4:0],
     output logic muxxxchgctrl,
     output logic [1:0]muxalusrca,
-    output logic [2:0]muxalusrcb,
-    output logic [2:0]muxpcsource
+    output logic [1:0]muxalusrcb,
+    output logic [1:0]muxpcsource
 );
 
 

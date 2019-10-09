@@ -5,9 +5,9 @@ Timing Analyzer Summary
 Type           : Worst-case tpd
 Slack          : N/A
 Required Time  : None
-Actual Time    : 7.537 ns
-From           : signExt[2]
-To             : shiftLeft2Out2[4]
+Actual Time    : 10.915 ns
+From           : muxpcsource[0]
+To             : pcSourceOut[26]
 From Clock     : --
 To Clock       : --
 Failed Paths   : 0

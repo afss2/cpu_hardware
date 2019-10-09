@@ -250,15 +250,15 @@ applicable agreement for further details.
 	(port
 		(pt 208 480)
 		(output)
-		(text "muxalusrcb[2..0]" (rect 0 0 82 12)(font "Arial" ))
-		(text "muxalusrcb[2..0]" (rect 105 475 187 487)(font "Arial" ))
+		(text "muxalusrcb[1..0]" (rect 0 0 82 12)(font "Arial" ))
+		(text "muxalusrcb[1..0]" (rect 105 475 187 487)(font "Arial" ))
 		(line (pt 208 480)(pt 192 480)(line_width 3))
 	)
 	(port
 		(pt 208 496)
 		(output)
-		(text "muxpcsource[2..0]" (rect 0 0 92 12)(font "Arial" ))
-		(text "muxpcsource[2..0]" (rect 95 491 187 503)(font "Arial" ))
+		(text "muxpcsource[1..0]" (rect 0 0 92 12)(font "Arial" ))
+		(text "muxpcsource[1..0]" (rect 95 491 187 503)(font "Arial" ))
 		(line (pt 208 496)(pt 192 496)(line_width 3))
 	)
 	(drawing
