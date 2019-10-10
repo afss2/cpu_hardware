@@ -1,5 +1,5 @@
 Analysis & Synthesis report for mipsHardware
-Wed Oct 09 19:36:51 2019
+Thu Oct 10 19:16:15 2019
 Quartus II 64-Bit Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Full Version
 
 
@@ -13,22 +13,12 @@ Quartus II 64-Bit Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Full Versio
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Registers Removed During Synthesis
-  9. Removed Registers Triggering Further Register Optimizations
+  8. State Machine - |unidadeControle|state
+  9. Registers Removed During Synthesis
  10. General Register Statistics
- 11. Source assignments for Memoria:inst2|LPM_RAM_DQ:MEM|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated
- 12. Source assignments for Memoria:inst2|LPM_RAM_DQ:MEM_plus_One|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated
- 13. Source assignments for Memoria:inst2|LPM_RAM_DQ:MEM_plus_Two|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated
- 14. Source assignments for Memoria:inst2|LPM_RAM_DQ:MEM_plus_Three|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated
- 15. Parameter Settings for User Entity Instance: Memoria:inst2|LPM_RAM_DQ:MEM
- 16. Parameter Settings for User Entity Instance: Memoria:inst2|LPM_RAM_DQ:MEM_plus_One
- 17. Parameter Settings for User Entity Instance: Memoria:inst2|LPM_RAM_DQ:MEM_plus_Two
- 18. Parameter Settings for User Entity Instance: Memoria:inst2|LPM_RAM_DQ:MEM_plus_Three
- 19. Parameter Settings for User Entity Instance: iord:inst5
- 20. Parameter Settings for User Entity Instance: aluSrcB:inst1
- 21. Parameter Settings for User Entity Instance: memToReg:inst7
- 22. Parameter Settings for User Entity Instance: regDST:inst9
- 23. Analysis & Synthesis Messages
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: Top-level Entity: |unidadeControle
+ 13. Analysis & Synthesis Messages
 
 
 
@@ -54,16 +44,16 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +-------------------------------+-----------------------------------------------+
-; Analysis & Synthesis Status   ; Successful - Wed Oct 09 19:36:51 2019         ;
+; Analysis & Synthesis Status   ; Successful - Thu Oct 10 19:16:15 2019         ;
 ; Quartus II 64-Bit Version     ; 9.1 Build 350 03/24/2010 SP 2 SJ Full Version ;
 ; Revision Name                 ; mipsHardware                                  ;
-; Top-level Entity Name         ; schemeHard                                    ;
+; Top-level Entity Name         ; unidadeControle                               ;
 ; Family                        ; Stratix II                                    ;
 ; Logic utilization             ; N/A                                           ;
-;     Combinational ALUTs       ; 0                                             ;
-;     Dedicated logic registers ; 0                                             ;
-; Total registers               ; 0                                             ;
-; Total pins                    ; 1                                             ;
+;     Combinational ALUTs       ; 1                                             ;
+;     Dedicated logic registers ; 2                                             ;
+; Total registers               ; 2                                             ;
+; Total pins                    ; 60                                            ;
 ; Total virtual pins            ; 0                                             ;
 ; Total block memory bits       ; 0                                             ;
 ; DSP block 9-bit elements      ; 0                                             ;
@@ -77,7 +67,7 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
-; Top-level entity name                                                      ; schemeHard         ; mipsHardware       ;
+; Top-level entity name                                                      ; unidadeControle    ; mipsHardware       ;
 ; Family name                                                                ; Stratix II         ; Stratix II         ;
 ; Use Generated Physical Constraints File                                    ; Off                ;                    ;
 ; Use smart compilation                                                      ; Off                ; Off                ;
@@ -169,67 +159,53 @@ applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                            ;
-+----------------------------------+-----------------+----------------------------------------+-------------------------------------------------------------------------------------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                        ;
-+----------------------------------+-----------------+----------------------------------------+-------------------------------------------------------------------------------------+
-; memToReg.sv                      ; yes             ; User SystemVerilog HDL File            ; E:/Users/absn2/Desktop/cpu_hardware/CPUQuartus/memToReg.sv                          ;
-; signExtend16to32.sv              ; yes             ; User SystemVerilog HDL File            ; E:/Users/absn2/Desktop/cpu_hardware/CPUQuartus/signExtend16to32.sv                  ;
-; schemeHard.bdf                   ; yes             ; User Block Diagram/Schematic File      ; E:/Users/absn2/Desktop/cpu_hardware/CPUQuartus/schemeHard.bdf                       ;
-; regDST.sv                        ; yes             ; User SystemVerilog HDL File            ; E:/Users/absn2/Desktop/cpu_hardware/CPUQuartus/regDST.sv                            ;
-; iord.sv                          ; yes             ; User SystemVerilog HDL File            ; E:/Users/absn2/Desktop/cpu_hardware/CPUQuartus/iord.sv                              ;
-; Registrador.vhd                  ; yes             ; User VHDL File                         ; E:/Users/absn2/Desktop/cpu_hardware/CPUQuartus/Registrador.vhd                      ;
-; Banco_reg.vhd                    ; yes             ; User VHDL File                         ; E:/Users/absn2/Desktop/cpu_hardware/CPUQuartus/Banco_reg.vhd                        ;
-; Instr_Reg.vhd                    ; yes             ; User VHDL File                         ; E:/Users/absn2/Desktop/cpu_hardware/CPUQuartus/Instr_Reg.vhd                        ;
-; Memoria.vhd                      ; yes             ; User VHDL File                         ; E:/Users/absn2/Desktop/cpu_hardware/CPUQuartus/Memoria.vhd                          ;
-; ula32.vhd                        ; yes             ; User VHDL File                         ; E:/Users/absn2/Desktop/cpu_hardware/CPUQuartus/ula32.vhd                            ;
-; unidadeControle.sv               ; yes             ; User SystemVerilog HDL File            ; E:/Users/absn2/Desktop/cpu_hardware/CPUQuartus/unidadeControle.sv                   ;
-; aluSrcA.sv                       ; yes             ; User SystemVerilog HDL File            ; E:/Users/absn2/Desktop/cpu_hardware/CPUQuartus/aluSrcA.sv                           ;
-; aluSrcB.sv                       ; yes             ; User SystemVerilog HDL File            ; E:/Users/absn2/Desktop/cpu_hardware/CPUQuartus/aluSrcB.sv                           ;
-; pcSource.sv                      ; yes             ; User SystemVerilog HDL File            ; E:/Users/absn2/Desktop/cpu_hardware/CPUQuartus/pcSource.sv                          ;
-; shiftLeft2_2.sv                  ; yes             ; User SystemVerilog HDL File            ; E:/Users/absn2/Desktop/cpu_hardware/CPUQuartus/shiftLeft2_2.sv                      ;
-; lpm_ram_dq.tdf                   ; yes             ; Megafunction                           ; e:/programfiles/quartus/altera/91sp2/quartus/libraries/megafunctions/lpm_ram_dq.tdf ;
-; altram.tdf                       ; yes             ; Megafunction                           ; e:/programfiles/quartus/altera/91sp2/quartus/libraries/megafunctions/altram.tdf     ;
-; altsyncram.tdf                   ; yes             ; Megafunction                           ; e:/programfiles/quartus/altera/91sp2/quartus/libraries/megafunctions/altsyncram.tdf ;
-; db/altsyncram_g2a1.tdf           ; yes             ; Auto-Generated Megafunction            ; E:/Users/absn2/Desktop/cpu_hardware/CPUQuartus/db/altsyncram_g2a1.tdf               ;
-; instrucoes.mif                   ; yes             ; Auto-Found Memory Initialization File  ; E:/Users/absn2/Desktop/cpu_hardware/CPUQuartus/instrucoes.mif                       ;
-+----------------------------------+-----------------+----------------------------------------+-------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                 ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                       ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------+
+; unidadeControle.sv               ; yes             ; User SystemVerilog HDL File  ; E:/Users/fmln/Documents/cpu_hardware/CPUQuartus/unidadeControle.sv ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------+
 
 
-+------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary          ;
-+----------------------------------------------+-------+
-; Resource                                     ; Usage ;
-+----------------------------------------------+-------+
-; Estimated ALUTs Used                         ; 0     ;
-; Dedicated logic registers                    ; 0     ;
-;                                              ;       ;
-; Estimated ALUTs Unavailable                  ; 0     ;
-;                                              ;       ;
-; Total combinational functions                ; 0     ;
-; Combinational ALUT usage by number of inputs ;       ;
-;     -- 7 input functions                     ; 0     ;
-;     -- 6 input functions                     ; 0     ;
-;     -- 5 input functions                     ; 0     ;
-;     -- 4 input functions                     ; 0     ;
-;     -- <=3 input functions                   ; 0     ;
-;                                              ;       ;
-; Combinational ALUTs by mode                  ;       ;
-;     -- normal mode                           ; 0     ;
-;     -- extended LUT mode                     ; 0     ;
-;     -- arithmetic mode                       ; 0     ;
-;     -- shared arithmetic mode                ; 0     ;
-;                                              ;       ;
-; Estimated ALUT/register pairs used           ; 0     ;
-;                                              ;       ;
-; Total registers                              ; 0     ;
-;     -- Dedicated logic registers             ; 0     ;
-;     -- I/O registers                         ; 0     ;
-;                                              ;       ;
-;                                              ;       ;
-; I/O pins                                     ; 1     ;
-+----------------------------------------------+-------+
++--------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                        ;
++-----------------------------------------------+--------------------+
+; Resource                                      ; Usage              ;
++-----------------------------------------------+--------------------+
+; Estimated ALUTs Used                          ; 1                  ;
+; Dedicated logic registers                     ; 2                  ;
+;                                               ;                    ;
+; Estimated ALUTs Unavailable                   ; 0                  ;
+;                                               ;                    ;
+; Total combinational functions                 ; 1                  ;
+; Combinational ALUT usage by number of inputs  ;                    ;
+;     -- 7 input functions                      ; 0                  ;
+;     -- 6 input functions                      ; 0                  ;
+;     -- 5 input functions                      ; 0                  ;
+;     -- 4 input functions                      ; 0                  ;
+;     -- <=3 input functions                    ; 1                  ;
+;                                               ;                    ;
+; Combinational ALUTs by mode                   ;                    ;
+;     -- normal mode                            ; 1                  ;
+;     -- extended LUT mode                      ; 0                  ;
+;     -- arithmetic mode                        ; 0                  ;
+;     -- shared arithmetic mode                 ; 0                  ;
+;                                               ;                    ;
+; Estimated ALUT/register pairs used            ; 2                  ;
+;                                               ;                    ;
+; Total registers                               ; 2                  ;
+;     -- Dedicated logic registers              ; 2                  ;
+;     -- I/O registers                          ; 0                  ;
+;                                               ;                    ;
+; Estimated ALMs:  partially or completely used ; 1                  ;
+;                                               ;                    ;
+; I/O pins                                      ; 60                 ;
+; Maximum fan-out node                          ; muxalusrcb[0]~reg0 ;
+; Maximum fan-out                               ; 2                  ;
+; Total fan-out                                 ; 8                  ;
+; Average fan-out                               ; 0.13               ;
++-----------------------------------------------+--------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -237,187 +213,79 @@ applicable agreement for further details.
 +----------------------------+-------------------+--------------+-------------------+--------------+---------+-----------+-----------+------+--------------+---------------------+--------------+
 ; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
 +----------------------------+-------------------+--------------+-------------------+--------------+---------+-----------+-----------+------+--------------+---------------------+--------------+
-; |schemeHard                ; 0 (0)             ; 0 (0)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 1    ; 0            ; |schemeHard         ; work         ;
+; |unidadeControle           ; 1 (1)             ; 2 (2)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 60   ; 0            ; |unidadeControle    ; work         ;
 +----------------------------+-------------------+--------------+-------------------+--------------+---------+-----------+-----------+------+--------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+---------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                    ;
-+-----------------------------------------+---------------------------------------------+
-; Register name                           ; Reason for Removal                          ;
-+-----------------------------------------+---------------------------------------------+
-; Registrador:AluOut|Saida[0..7]          ; Stuck at GND due to stuck port clock_enable ;
-; Registrador:EPC|Saida[0..7]             ; Stuck at GND due to stuck port clock_enable ;
-; Registrador:B|Saida[0..7]               ; Stuck at GND due to stuck port clock_enable ;
-; Registrador:PC|Saida[0..7]              ; Stuck at GND due to stuck port clock_enable ;
-; Instr_Reg:inst4|Instr25_21[0..4]        ; Stuck at GND due to stuck port clock_enable ;
-; Instr_Reg:inst4|Instr20_16[0..4]        ; Stuck at GND due to stuck port clock_enable ;
-; Banco_reg:inst6|Reg0[0..7]              ; Stuck at GND due to stuck port clock_enable ;
-; Banco_reg:inst6|Reg1[0..7]              ; Stuck at GND due to stuck port clock_enable ;
-; Banco_reg:inst6|Reg2[0..7]              ; Stuck at GND due to stuck port clock_enable ;
-; Banco_reg:inst6|Reg3[0..7]              ; Stuck at GND due to stuck port clock_enable ;
-; Banco_reg:inst6|Reg4[0..7]              ; Stuck at GND due to stuck port clock_enable ;
-; Banco_reg:inst6|Reg5[0..7]              ; Stuck at GND due to stuck port clock_enable ;
-; Banco_reg:inst6|Reg6[0..7]              ; Stuck at GND due to stuck port clock_enable ;
-; Banco_reg:inst6|Reg7[0..7]              ; Stuck at GND due to stuck port clock_enable ;
-; Banco_reg:inst6|Reg8[0..7]              ; Stuck at GND due to stuck port clock_enable ;
-; Banco_reg:inst6|Reg9[0..7]              ; Stuck at GND due to stuck port clock_enable ;
-; Banco_reg:inst6|Reg10[0..7]             ; Stuck at GND due to stuck port clock_enable ;
-; Banco_reg:inst6|Reg11[0..7]             ; Stuck at GND due to stuck port clock_enable ;
-; Banco_reg:inst6|Reg12[0..7]             ; Stuck at GND due to stuck port clock_enable ;
-; Banco_reg:inst6|Reg13[0..7]             ; Stuck at GND due to stuck port clock_enable ;
-; Banco_reg:inst6|Reg14[0..7]             ; Stuck at GND due to stuck port clock_enable ;
-; Banco_reg:inst6|Reg15[0..7]             ; Stuck at GND due to stuck port clock_enable ;
-; Banco_reg:inst6|Reg16[0..7]             ; Stuck at GND due to stuck port clock_enable ;
-; Banco_reg:inst6|Reg17[0..7]             ; Stuck at GND due to stuck port clock_enable ;
-; Banco_reg:inst6|Reg18[0..7]             ; Stuck at GND due to stuck port clock_enable ;
-; Banco_reg:inst6|Reg19[0..7]             ; Stuck at GND due to stuck port clock_enable ;
-; Banco_reg:inst6|Reg20[0..7]             ; Stuck at GND due to stuck port clock_enable ;
-; Banco_reg:inst6|Reg21[0..7]             ; Stuck at GND due to stuck port clock_enable ;
-; Banco_reg:inst6|Reg22[0..7]             ; Stuck at GND due to stuck port clock_enable ;
-; Banco_reg:inst6|Reg23[0..7]             ; Stuck at GND due to stuck port clock_enable ;
-; Banco_reg:inst6|Reg24[0..7]             ; Stuck at GND due to stuck port clock_enable ;
-; Banco_reg:inst6|Reg25[0..7]             ; Stuck at GND due to stuck port clock_enable ;
-; Banco_reg:inst6|Reg26[0..7]             ; Stuck at GND due to stuck port clock_enable ;
-; Banco_reg:inst6|Reg27[0..7]             ; Stuck at GND due to stuck port clock_enable ;
-; Banco_reg:inst6|Reg28[0..7]             ; Stuck at GND due to stuck port clock_enable ;
-; Banco_reg:inst6|Reg29[0..7]             ; Stuck at GND due to stuck port clock_enable ;
-; Banco_reg:inst6|Reg30[0..7]             ; Stuck at GND due to stuck port clock_enable ;
-; Banco_reg:inst6|Reg31[0..7]             ; Stuck at GND due to stuck port clock_enable ;
-; Instr_Reg:inst4|Instr15_0[0..7,11..15]  ; Lost fanout                                 ;
-; Registrador:A|Saida[0..7]               ; Lost fanout                                 ;
-; Total Number of Removed Registers = 319 ;                                             ;
-+-----------------------------------------+---------------------------------------------+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------+
+; State Machine - |unidadeControle|state                                     ;
++---------------+---------------+--------------+--------------+--------------+
+; Name          ; state.decode2 ; state.fetch3 ; state.fetch1 ; state.decode ;
++---------------+---------------+--------------+--------------+--------------+
+; state.fetch1  ; 0             ; 0            ; 0            ; 0            ;
+; state.fetch3  ; 0             ; 1            ; 1            ; 0            ;
+; state.decode  ; 0             ; 0            ; 1            ; 1            ;
+; state.decode2 ; 1             ; 0            ; 1            ; 0            ;
++---------------+---------------+--------------+--------------+--------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                     ;
-+-----------------------------+--------------------------------+----------------------------------------------------------------------------------+
-; Register name               ; Reason for Removal             ; Registers Removed due to This Register                                           ;
-+-----------------------------+--------------------------------+----------------------------------------------------------------------------------+
-; Registrador:B|Saida[7]      ; Stuck at GND                   ; Registrador:PC|Saida[7], Instr_Reg:inst4|Instr25_21[4],                          ;
-;                             ; due to stuck port clock_enable ; Instr_Reg:inst4|Instr25_21[3], Instr_Reg:inst4|Instr25_21[2],                    ;
-;                             ;                                ; Instr_Reg:inst4|Instr25_21[1], Instr_Reg:inst4|Instr25_21[0],                    ;
-;                             ;                                ; Instr_Reg:inst4|Instr20_16[4], Instr_Reg:inst4|Instr20_16[3],                    ;
-;                             ;                                ; Instr_Reg:inst4|Instr20_16[2], Instr_Reg:inst4|Instr20_16[1],                    ;
-;                             ;                                ; Instr_Reg:inst4|Instr20_16[0], Banco_reg:inst6|Reg0[7], Banco_reg:inst6|Reg0[6], ;
-;                             ;                                ; Banco_reg:inst6|Reg0[5], Banco_reg:inst6|Reg0[4], Banco_reg:inst6|Reg0[3],       ;
-;                             ;                                ; Banco_reg:inst6|Reg0[2], Banco_reg:inst6|Reg0[1], Banco_reg:inst6|Reg0[0],       ;
-;                             ;                                ; Banco_reg:inst6|Reg1[7], Banco_reg:inst6|Reg1[6], Banco_reg:inst6|Reg1[5],       ;
-;                             ;                                ; Banco_reg:inst6|Reg1[4], Banco_reg:inst6|Reg1[3], Banco_reg:inst6|Reg1[2],       ;
-;                             ;                                ; Banco_reg:inst6|Reg1[1], Banco_reg:inst6|Reg1[0], Banco_reg:inst6|Reg2[7],       ;
-;                             ;                                ; Banco_reg:inst6|Reg2[6], Banco_reg:inst6|Reg2[5], Banco_reg:inst6|Reg2[4],       ;
-;                             ;                                ; Banco_reg:inst6|Reg2[3], Banco_reg:inst6|Reg2[2], Banco_reg:inst6|Reg2[1],       ;
-;                             ;                                ; Banco_reg:inst6|Reg2[0], Banco_reg:inst6|Reg3[7], Banco_reg:inst6|Reg3[6],       ;
-;                             ;                                ; Banco_reg:inst6|Reg3[5], Banco_reg:inst6|Reg3[4], Banco_reg:inst6|Reg3[3],       ;
-;                             ;                                ; Banco_reg:inst6|Reg3[2], Banco_reg:inst6|Reg3[1], Banco_reg:inst6|Reg3[0],       ;
-;                             ;                                ; Banco_reg:inst6|Reg4[7], Banco_reg:inst6|Reg4[6], Banco_reg:inst6|Reg4[5],       ;
-;                             ;                                ; Banco_reg:inst6|Reg4[4], Banco_reg:inst6|Reg4[3], Banco_reg:inst6|Reg4[2],       ;
-;                             ;                                ; Banco_reg:inst6|Reg4[1], Banco_reg:inst6|Reg4[0], Banco_reg:inst6|Reg5[7],       ;
-;                             ;                                ; Banco_reg:inst6|Reg5[6], Banco_reg:inst6|Reg5[5], Banco_reg:inst6|Reg5[4],       ;
-;                             ;                                ; Banco_reg:inst6|Reg5[3], Banco_reg:inst6|Reg5[2], Banco_reg:inst6|Reg5[1],       ;
-;                             ;                                ; Banco_reg:inst6|Reg5[0], Banco_reg:inst6|Reg6[7], Banco_reg:inst6|Reg6[6],       ;
-;                             ;                                ; Banco_reg:inst6|Reg6[5], Banco_reg:inst6|Reg6[4], Banco_reg:inst6|Reg6[3],       ;
-;                             ;                                ; Banco_reg:inst6|Reg6[2], Banco_reg:inst6|Reg6[1], Banco_reg:inst6|Reg6[0],       ;
-;                             ;                                ; Banco_reg:inst6|Reg7[7], Banco_reg:inst6|Reg7[6], Banco_reg:inst6|Reg7[5],       ;
-;                             ;                                ; Banco_reg:inst6|Reg7[4], Banco_reg:inst6|Reg7[3], Banco_reg:inst6|Reg7[2],       ;
-;                             ;                                ; Banco_reg:inst6|Reg7[1], Banco_reg:inst6|Reg7[0], Banco_reg:inst6|Reg8[7],       ;
-;                             ;                                ; Banco_reg:inst6|Reg8[6], Banco_reg:inst6|Reg8[5], Banco_reg:inst6|Reg8[4],       ;
-;                             ;                                ; Banco_reg:inst6|Reg8[3], Banco_reg:inst6|Reg8[2], Banco_reg:inst6|Reg8[1],       ;
-;                             ;                                ; Banco_reg:inst6|Reg8[0], Banco_reg:inst6|Reg9[7], Banco_reg:inst6|Reg9[6],       ;
-;                             ;                                ; Banco_reg:inst6|Reg9[5], Banco_reg:inst6|Reg9[4], Banco_reg:inst6|Reg9[3],       ;
-;                             ;                                ; Banco_reg:inst6|Reg9[2], Banco_reg:inst6|Reg9[1], Banco_reg:inst6|Reg9[0],       ;
-;                             ;                                ; Banco_reg:inst6|Reg10[7], Banco_reg:inst6|Reg10[6], Banco_reg:inst6|Reg10[5],    ;
-;                             ;                                ; Banco_reg:inst6|Reg10[4], Banco_reg:inst6|Reg10[3], Banco_reg:inst6|Reg10[2],    ;
-;                             ;                                ; Banco_reg:inst6|Reg10[1], Banco_reg:inst6|Reg10[0], Banco_reg:inst6|Reg11[7],    ;
-;                             ;                                ; Banco_reg:inst6|Reg11[6], Banco_reg:inst6|Reg11[5], Banco_reg:inst6|Reg11[4],    ;
-;                             ;                                ; Banco_reg:inst6|Reg11[3], Banco_reg:inst6|Reg11[2], Banco_reg:inst6|Reg11[1],    ;
-;                             ;                                ; Banco_reg:inst6|Reg11[0], Banco_reg:inst6|Reg12[7], Banco_reg:inst6|Reg12[6],    ;
-;                             ;                                ; Banco_reg:inst6|Reg12[5], Banco_reg:inst6|Reg12[4], Banco_reg:inst6|Reg12[3],    ;
-;                             ;                                ; Banco_reg:inst6|Reg12[2], Banco_reg:inst6|Reg12[1], Banco_reg:inst6|Reg12[0],    ;
-;                             ;                                ; Banco_reg:inst6|Reg13[7], Banco_reg:inst6|Reg13[6], Banco_reg:inst6|Reg13[5],    ;
-;                             ;                                ; Banco_reg:inst6|Reg13[4], Banco_reg:inst6|Reg13[3], Banco_reg:inst6|Reg13[2],    ;
-;                             ;                                ; Banco_reg:inst6|Reg13[1], Banco_reg:inst6|Reg13[0], Banco_reg:inst6|Reg14[7],    ;
-;                             ;                                ; Banco_reg:inst6|Reg14[6], Banco_reg:inst6|Reg14[5], Banco_reg:inst6|Reg14[4],    ;
-;                             ;                                ; Banco_reg:inst6|Reg14[3], Banco_reg:inst6|Reg14[2], Banco_reg:inst6|Reg14[1],    ;
-;                             ;                                ; Banco_reg:inst6|Reg14[0], Banco_reg:inst6|Reg15[7], Banco_reg:inst6|Reg15[6],    ;
-;                             ;                                ; Banco_reg:inst6|Reg15[5], Banco_reg:inst6|Reg15[4], Banco_reg:inst6|Reg15[3],    ;
-;                             ;                                ; Banco_reg:inst6|Reg15[2], Banco_reg:inst6|Reg15[1], Banco_reg:inst6|Reg15[0],    ;
-;                             ;                                ; Banco_reg:inst6|Reg16[7], Banco_reg:inst6|Reg16[6], Banco_reg:inst6|Reg16[5],    ;
-;                             ;                                ; Banco_reg:inst6|Reg16[4], Banco_reg:inst6|Reg16[3], Banco_reg:inst6|Reg16[2],    ;
-;                             ;                                ; Banco_reg:inst6|Reg16[1], Banco_reg:inst6|Reg16[0], Banco_reg:inst6|Reg17[7],    ;
-;                             ;                                ; Banco_reg:inst6|Reg17[6], Banco_reg:inst6|Reg17[5], Banco_reg:inst6|Reg17[4],    ;
-;                             ;                                ; Banco_reg:inst6|Reg17[3], Banco_reg:inst6|Reg17[2], Banco_reg:inst6|Reg17[1],    ;
-;                             ;                                ; Banco_reg:inst6|Reg17[0], Banco_reg:inst6|Reg18[7], Banco_reg:inst6|Reg18[6],    ;
-;                             ;                                ; Banco_reg:inst6|Reg18[5], Banco_reg:inst6|Reg18[4], Banco_reg:inst6|Reg18[3],    ;
-;                             ;                                ; Banco_reg:inst6|Reg18[2], Banco_reg:inst6|Reg18[1], Banco_reg:inst6|Reg18[0],    ;
-;                             ;                                ; Banco_reg:inst6|Reg19[7], Banco_reg:inst6|Reg19[6], Banco_reg:inst6|Reg19[5],    ;
-;                             ;                                ; Banco_reg:inst6|Reg19[4], Banco_reg:inst6|Reg19[3], Banco_reg:inst6|Reg19[2],    ;
-;                             ;                                ; Banco_reg:inst6|Reg19[1], Banco_reg:inst6|Reg19[0], Banco_reg:inst6|Reg20[7],    ;
-;                             ;                                ; Banco_reg:inst6|Reg20[6], Banco_reg:inst6|Reg20[5], Banco_reg:inst6|Reg20[4],    ;
-;                             ;                                ; Banco_reg:inst6|Reg20[3], Banco_reg:inst6|Reg20[2], Banco_reg:inst6|Reg20[1],    ;
-;                             ;                                ; Banco_reg:inst6|Reg20[0], Banco_reg:inst6|Reg21[7], Banco_reg:inst6|Reg21[6],    ;
-;                             ;                                ; Banco_reg:inst6|Reg21[5], Banco_reg:inst6|Reg21[4], Banco_reg:inst6|Reg21[3],    ;
-;                             ;                                ; Banco_reg:inst6|Reg21[2], Banco_reg:inst6|Reg21[1], Banco_reg:inst6|Reg21[0],    ;
-;                             ;                                ; Banco_reg:inst6|Reg22[7], Banco_reg:inst6|Reg22[6], Banco_reg:inst6|Reg22[5],    ;
-;                             ;                                ; Banco_reg:inst6|Reg22[4], Banco_reg:inst6|Reg22[3], Banco_reg:inst6|Reg22[2],    ;
-;                             ;                                ; Banco_reg:inst6|Reg22[1], Banco_reg:inst6|Reg22[0], Banco_reg:inst6|Reg23[7],    ;
-;                             ;                                ; Banco_reg:inst6|Reg23[6], Banco_reg:inst6|Reg23[5], Banco_reg:inst6|Reg23[4],    ;
-;                             ;                                ; Banco_reg:inst6|Reg23[3], Banco_reg:inst6|Reg23[2], Banco_reg:inst6|Reg23[1],    ;
-;                             ;                                ; Banco_reg:inst6|Reg23[0], Banco_reg:inst6|Reg24[7], Banco_reg:inst6|Reg24[6],    ;
-;                             ;                                ; Banco_reg:inst6|Reg24[5], Banco_reg:inst6|Reg24[4], Banco_reg:inst6|Reg24[3],    ;
-;                             ;                                ; Banco_reg:inst6|Reg24[2], Banco_reg:inst6|Reg24[1], Banco_reg:inst6|Reg24[0],    ;
-;                             ;                                ; Banco_reg:inst6|Reg25[7], Banco_reg:inst6|Reg25[6], Banco_reg:inst6|Reg25[5],    ;
-;                             ;                                ; Banco_reg:inst6|Reg25[4], Banco_reg:inst6|Reg25[3], Banco_reg:inst6|Reg25[2],    ;
-;                             ;                                ; Banco_reg:inst6|Reg25[1], Banco_reg:inst6|Reg25[0], Banco_reg:inst6|Reg26[7],    ;
-;                             ;                                ; Banco_reg:inst6|Reg26[6], Banco_reg:inst6|Reg26[5], Banco_reg:inst6|Reg26[4],    ;
-;                             ;                                ; Banco_reg:inst6|Reg26[3], Banco_reg:inst6|Reg26[2], Banco_reg:inst6|Reg26[1],    ;
-;                             ;                                ; Banco_reg:inst6|Reg26[0], Banco_reg:inst6|Reg27[7], Banco_reg:inst6|Reg27[6],    ;
-;                             ;                                ; Banco_reg:inst6|Reg27[5], Banco_reg:inst6|Reg27[4], Banco_reg:inst6|Reg27[3],    ;
-;                             ;                                ; Banco_reg:inst6|Reg27[2], Banco_reg:inst6|Reg27[1], Banco_reg:inst6|Reg27[0],    ;
-;                             ;                                ; Banco_reg:inst6|Reg28[7], Banco_reg:inst6|Reg28[6], Banco_reg:inst6|Reg28[5],    ;
-;                             ;                                ; Banco_reg:inst6|Reg28[4], Banco_reg:inst6|Reg28[3], Banco_reg:inst6|Reg28[2],    ;
-;                             ;                                ; Banco_reg:inst6|Reg28[1], Banco_reg:inst6|Reg28[0], Banco_reg:inst6|Reg29[7],    ;
-;                             ;                                ; Banco_reg:inst6|Reg29[6], Banco_reg:inst6|Reg29[5], Banco_reg:inst6|Reg29[4],    ;
-;                             ;                                ; Banco_reg:inst6|Reg29[3], Banco_reg:inst6|Reg29[2], Banco_reg:inst6|Reg29[1],    ;
-;                             ;                                ; Banco_reg:inst6|Reg29[0], Banco_reg:inst6|Reg30[7], Banco_reg:inst6|Reg30[6],    ;
-;                             ;                                ; Banco_reg:inst6|Reg30[5], Banco_reg:inst6|Reg30[4], Banco_reg:inst6|Reg30[3],    ;
-;                             ;                                ; Banco_reg:inst6|Reg30[2], Banco_reg:inst6|Reg30[1], Banco_reg:inst6|Reg30[0],    ;
-;                             ;                                ; Banco_reg:inst6|Reg31[7], Banco_reg:inst6|Reg31[6], Banco_reg:inst6|Reg31[5],    ;
-;                             ;                                ; Banco_reg:inst6|Reg31[4], Banco_reg:inst6|Reg31[3], Banco_reg:inst6|Reg31[2],    ;
-;                             ;                                ; Banco_reg:inst6|Reg31[1], Banco_reg:inst6|Reg31[0]                               ;
-; Registrador:AluOut|Saida[7] ; Stuck at GND                   ; Instr_Reg:inst4|Instr15_0[7], Registrador:A|Saida[7]                             ;
-;                             ; due to stuck port clock_enable ;                                                                                  ;
-; Registrador:AluOut|Saida[6] ; Stuck at GND                   ; Instr_Reg:inst4|Instr15_0[6], Registrador:A|Saida[6]                             ;
-;                             ; due to stuck port clock_enable ;                                                                                  ;
-; Registrador:AluOut|Saida[5] ; Stuck at GND                   ; Instr_Reg:inst4|Instr15_0[5], Registrador:A|Saida[5]                             ;
-;                             ; due to stuck port clock_enable ;                                                                                  ;
-; Registrador:AluOut|Saida[4] ; Stuck at GND                   ; Instr_Reg:inst4|Instr15_0[4], Registrador:A|Saida[4]                             ;
-;                             ; due to stuck port clock_enable ;                                                                                  ;
-; Registrador:AluOut|Saida[3] ; Stuck at GND                   ; Instr_Reg:inst4|Instr15_0[3], Registrador:A|Saida[3]                             ;
-;                             ; due to stuck port clock_enable ;                                                                                  ;
-; Registrador:AluOut|Saida[2] ; Stuck at GND                   ; Instr_Reg:inst4|Instr15_0[2], Registrador:A|Saida[2]                             ;
-;                             ; due to stuck port clock_enable ;                                                                                  ;
-; Registrador:AluOut|Saida[1] ; Stuck at GND                   ; Instr_Reg:inst4|Instr15_0[1], Registrador:A|Saida[1]                             ;
-;                             ; due to stuck port clock_enable ;                                                                                  ;
-; Registrador:AluOut|Saida[0] ; Stuck at GND                   ; Instr_Reg:inst4|Instr15_0[0], Registrador:A|Saida[0]                             ;
-;                             ; due to stuck port clock_enable ;                                                                                  ;
-; Registrador:B|Saida[6]      ; Stuck at GND                   ; Registrador:PC|Saida[6]                                                          ;
-;                             ; due to stuck port clock_enable ;                                                                                  ;
-; Registrador:B|Saida[5]      ; Stuck at GND                   ; Registrador:PC|Saida[5]                                                          ;
-;                             ; due to stuck port clock_enable ;                                                                                  ;
-; Registrador:B|Saida[4]      ; Stuck at GND                   ; Registrador:PC|Saida[4]                                                          ;
-;                             ; due to stuck port clock_enable ;                                                                                  ;
-; Registrador:B|Saida[3]      ; Stuck at GND                   ; Registrador:PC|Saida[3]                                                          ;
-;                             ; due to stuck port clock_enable ;                                                                                  ;
-; Registrador:B|Saida[2]      ; Stuck at GND                   ; Registrador:PC|Saida[2]                                                          ;
-;                             ; due to stuck port clock_enable ;                                                                                  ;
-; Registrador:B|Saida[1]      ; Stuck at GND                   ; Registrador:PC|Saida[1]                                                          ;
-;                             ; due to stuck port clock_enable ;                                                                                  ;
-; Registrador:B|Saida[0]      ; Stuck at GND                   ; Registrador:PC|Saida[0]                                                          ;
-;                             ; due to stuck port clock_enable ;                                                                                  ;
-+-----------------------------+--------------------------------+----------------------------------------------------------------------------------+
++---------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                              ;
++----------------------------------------+----------------------------------------+
+; Register name                          ; Reason for Removal                     ;
++----------------------------------------+----------------------------------------+
+; muxlo~reg0                             ; Merged with muxxxchgctrl~reg0          ;
+; muxalusrca[1]~reg0                     ; Merged with muxxxchgctrl~reg0          ;
+; alucontrol[1]~reg0                     ; Merged with muxxxchgctrl~reg0          ;
+; lowrite~reg0                           ; Merged with muxxxchgctrl~reg0          ;
+; muxshiftsrca~reg0                      ; Merged with muxxxchgctrl~reg0          ;
+; sscontrol[1]~reg0                      ; Merged with muxxxchgctrl~reg0          ;
+; lscontrol[0]~reg0                      ; Merged with muxxxchgctrl~reg0          ;
+; muxpcsource[0]~reg0                    ; Merged with muxxxchgctrl~reg0          ;
+; divby0~reg0                            ; Merged with muxxxchgctrl~reg0          ;
+; iordmux[1]~reg0                        ; Merged with muxxxchgctrl~reg0          ;
+; muxmemtoreg[2]~reg0                    ; Merged with muxxxchgctrl~reg0          ;
+; alucontrol[2]~reg0                     ; Merged with muxxxchgctrl~reg0          ;
+; shiftcontrol~reg0                      ; Merged with muxxxchgctrl~reg0          ;
+; muxhi~reg0                             ; Merged with muxxxchgctrl~reg0          ;
+; muxregdst[0]~reg0                      ; Merged with muxxxchgctrl~reg0          ;
+; muxalusrca[0]~reg0                     ; Merged with muxxxchgctrl~reg0          ;
+; pcwritecond~reg0                       ; Merged with muxxxchgctrl~reg0          ;
+; memwrite~reg0                          ; Merged with muxxxchgctrl~reg0          ;
+; muxregdst[2]~reg0                      ; Merged with muxxxchgctrl~reg0          ;
+; lscontrol[1]~reg0                      ; Merged with muxxxchgctrl~reg0          ;
+; sscontrol[0]~reg0                      ; Merged with muxxxchgctrl~reg0          ;
+; iordmux[0]~reg0                        ; Merged with muxxxchgctrl~reg0          ;
+; muxpcsource[1]~reg0                    ; Merged with muxxxchgctrl~reg0          ;
+; epcwrite~reg0                          ; Merged with muxxxchgctrl~reg0          ;
+; iordmux[2]~reg0                        ; Merged with muxxxchgctrl~reg0          ;
+; muxmemtoreg[1]~reg0                    ; Merged with muxxxchgctrl~reg0          ;
+; muxshiftsrcb~reg0                      ; Merged with muxxxchgctrl~reg0          ;
+; xchgctrl~reg0                          ; Merged with muxxxchgctrl~reg0          ;
+; hiwrite~reg0                           ; Merged with muxxxchgctrl~reg0          ;
+; muxmemtoreg[3]~reg0                    ; Merged with muxregdst[1]~reg0          ;
+; muxmemtoreg[0]~reg0                    ; Merged with muxregdst[1]~reg0          ;
+; alucontrol[0]~reg0                     ; Merged with muxalusrcb[0]~reg0         ;
+; muxxxchgctrl~reg0                      ; Stuck at GND due to stuck port data_in ;
+; pcwrite~reg0                           ; Stuck at GND due to stuck port data_in ;
+; aluoutwrite~reg0                       ; Merged with muxalusrcb[1]~reg0         ;
+; muxregdst[1]~reg0                      ; Stuck at VCC due to stuck port data_in ;
+; irwrite~reg0                           ; Stuck at GND due to stuck port data_in ;
+; muxalusrcb[1]~reg0                     ; Stuck at GND due to stuck port data_in ;
+; state.fetch3                           ; Lost fanout                            ;
+; state.decode                           ; Lost fanout                            ;
+; state~2                                ; Lost fanout                            ;
+; state~4                                ; Lost fanout                            ;
+; state~5                                ; Lost fanout                            ;
+; state~6                                ; Lost fanout                            ;
+; state~7                                ; Lost fanout                            ;
+; state~8                                ; Lost fanout                            ;
+; state.decode2                          ; Lost fanout                            ;
+; state.fetch1                           ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 48 ;                                        ;
++----------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -425,7 +293,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
+; Total registers                              ; 2     ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
@@ -435,174 +303,28 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 
 
-+---------------------------------------------------------------------------------------------------------------------+
-; Source assignments for Memoria:inst2|LPM_RAM_DQ:MEM|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated ;
-+---------------------------------+--------------------+------+-------------------------------------------------------+
-; Assignment                      ; Value              ; From ; To                                                    ;
-+---------------------------------+--------------------+------+-------------------------------------------------------+
-; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                     ;
-+---------------------------------+--------------------+------+-------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
+; 3:1                ; 2 bits    ; 4 ALUTs       ; 2 ALUTs              ; 2 ALUTs                ; Yes        ; |unidadeControle|regwrite~reg0 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------+
-; Source assignments for Memoria:inst2|LPM_RAM_DQ:MEM_plus_One|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated ;
-+---------------------------------+--------------------+------+----------------------------------------------------------------+
-; Assignment                      ; Value              ; From ; To                                                             ;
-+---------------------------------+--------------------+------+----------------------------------------------------------------+
-; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                              ;
-+---------------------------------+--------------------+------+----------------------------------------------------------------+
-
-
-+------------------------------------------------------------------------------------------------------------------------------+
-; Source assignments for Memoria:inst2|LPM_RAM_DQ:MEM_plus_Two|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated ;
-+---------------------------------+--------------------+------+----------------------------------------------------------------+
-; Assignment                      ; Value              ; From ; To                                                             ;
-+---------------------------------+--------------------+------+----------------------------------------------------------------+
-; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                              ;
-+---------------------------------+--------------------+------+----------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------------+
-; Source assignments for Memoria:inst2|LPM_RAM_DQ:MEM_plus_Three|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated ;
-+---------------------------------+--------------------+------+------------------------------------------------------------------+
-; Assignment                      ; Value              ; From ; To                                                               ;
-+---------------------------------+--------------------+------+------------------------------------------------------------------+
-; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                ;
-+---------------------------------+--------------------+------+------------------------------------------------------------------+
-
-
-+---------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Memoria:inst2|LPM_RAM_DQ:MEM ;
-+------------------------+----------------+---------------------------------+
-; Parameter Name         ; Value          ; Type                            ;
-+------------------------+----------------+---------------------------------+
-; LPM_WIDTH              ; 8              ; Signed Integer                  ;
-; LPM_WIDTHAD            ; 8              ; Signed Integer                  ;
-; LPM_NUMWORDS           ; 0              ; Signed Integer                  ;
-; LPM_INDATA             ; REGISTERED     ; Untyped                         ;
-; LPM_ADDRESS_CONTROL    ; REGISTERED     ; Untyped                         ;
-; LPM_OUTDATA            ; REGISTERED     ; Untyped                         ;
-; LPM_FILE               ; instrucoes.mif ; Untyped                         ;
-; USE_EAB                ; ON             ; Untyped                         ;
-; DEVICE_FAMILY          ; Stratix II     ; Untyped                         ;
-; CBXI_PARAMETER         ; NOTHING        ; Untyped                         ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                      ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                    ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                    ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                  ;
-+------------------------+----------------+---------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Memoria:inst2|LPM_RAM_DQ:MEM_plus_One ;
-+------------------------+----------------+------------------------------------------+
-; Parameter Name         ; Value          ; Type                                     ;
-+------------------------+----------------+------------------------------------------+
-; LPM_WIDTH              ; 8              ; Signed Integer                           ;
-; LPM_WIDTHAD            ; 8              ; Signed Integer                           ;
-; LPM_NUMWORDS           ; 0              ; Signed Integer                           ;
-; LPM_INDATA             ; REGISTERED     ; Untyped                                  ;
-; LPM_ADDRESS_CONTROL    ; REGISTERED     ; Untyped                                  ;
-; LPM_OUTDATA            ; REGISTERED     ; Untyped                                  ;
-; LPM_FILE               ; instrucoes.mif ; Untyped                                  ;
-; USE_EAB                ; ON             ; Untyped                                  ;
-; DEVICE_FAMILY          ; Stratix II     ; Untyped                                  ;
-; CBXI_PARAMETER         ; NOTHING        ; Untyped                                  ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                               ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                             ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                             ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                           ;
-+------------------------+----------------+------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Memoria:inst2|LPM_RAM_DQ:MEM_plus_Two ;
-+------------------------+----------------+------------------------------------------+
-; Parameter Name         ; Value          ; Type                                     ;
-+------------------------+----------------+------------------------------------------+
-; LPM_WIDTH              ; 8              ; Signed Integer                           ;
-; LPM_WIDTHAD            ; 8              ; Signed Integer                           ;
-; LPM_NUMWORDS           ; 0              ; Signed Integer                           ;
-; LPM_INDATA             ; REGISTERED     ; Untyped                                  ;
-; LPM_ADDRESS_CONTROL    ; REGISTERED     ; Untyped                                  ;
-; LPM_OUTDATA            ; REGISTERED     ; Untyped                                  ;
-; LPM_FILE               ; instrucoes.mif ; Untyped                                  ;
-; USE_EAB                ; ON             ; Untyped                                  ;
-; DEVICE_FAMILY          ; Stratix II     ; Untyped                                  ;
-; CBXI_PARAMETER         ; NOTHING        ; Untyped                                  ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                               ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                             ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                             ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                           ;
-+------------------------+----------------+------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Memoria:inst2|LPM_RAM_DQ:MEM_plus_Three ;
-+------------------------+----------------+--------------------------------------------+
-; Parameter Name         ; Value          ; Type                                       ;
-+------------------------+----------------+--------------------------------------------+
-; LPM_WIDTH              ; 8              ; Signed Integer                             ;
-; LPM_WIDTHAD            ; 8              ; Signed Integer                             ;
-; LPM_NUMWORDS           ; 0              ; Signed Integer                             ;
-; LPM_INDATA             ; REGISTERED     ; Untyped                                    ;
-; LPM_ADDRESS_CONTROL    ; REGISTERED     ; Untyped                                    ;
-; LPM_OUTDATA            ; REGISTERED     ; Untyped                                    ;
-; LPM_FILE               ; instrucoes.mif ; Untyped                                    ;
-; USE_EAB                ; ON             ; Untyped                                    ;
-; DEVICE_FAMILY          ; Stratix II     ; Untyped                                    ;
-; CBXI_PARAMETER         ; NOTHING        ; Untyped                                    ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                 ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                               ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                               ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                             ;
-+------------------------+----------------+--------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: iord:inst5             ;
-+----------------+----------------------------------+-----------------+
-; Parameter Name ; Value                            ; Type            ;
-+----------------+----------------------------------+-----------------+
-; D              ; 00000000000000000000000011111101 ; Unsigned Binary ;
-; E              ; 00000000000000000000000011111110 ; Unsigned Binary ;
-; F              ; 00000000000000000000000011111111 ; Unsigned Binary ;
-+----------------+----------------------------------+-----------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: aluSrcB:inst1 ;
-+----------------+-------+-----------------------------------+
-; Parameter Name ; Value ; Type                              ;
-+----------------+-------+-----------------------------------+
-; pcMais4        ; 100   ; Unsigned Binary                   ;
-+----------------+-------+-----------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: memToReg:inst7         ;
-+----------------+----------------------------------+-----------------+
-; Parameter Name ; Value                            ; Type            ;
-+----------------+----------------------------------+-----------------+
-; e10            ; 00000000000000000000000011100011 ; Unsigned Binary ;
-+----------------+----------------------------------+-----------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------------+
-; Parameter Settings for User Entity Instance: regDST:inst9 ;
-+----------------+-------+----------------------------------+
-; Parameter Name ; Value ; Type                             ;
-+----------------+-------+----------------------------------+
-; D              ; 11101 ; Unsigned Binary                  ;
-; E              ; 11111 ; Unsigned Binary                  ;
-+----------------+-------+----------------------------------+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |unidadeControle ;
++-----------------+---------+-----------------------------------------------------+
+; Parameter Name  ; Value   ; Type                                                ;
++-----------------+---------+-----------------------------------------------------+
+; reset_parameter ; 0000000 ; Unsigned Binary                                     ;
+; fetch1          ; 0000010 ; Unsigned Binary                                     ;
+; fetch2          ; 0000010 ; Unsigned Binary                                     ;
+; fetch3          ; 0000011 ; Unsigned Binary                                     ;
+; wait_           ; 0000100 ; Unsigned Binary                                     ;
+; decode          ; 0000101 ; Unsigned Binary                                     ;
+; decode2         ; 0000110 ; Unsigned Binary                                     ;
++-----------------+---------+-----------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -612,7 +334,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Full Version
-    Info: Processing started: Wed Oct 09 19:36:49 2019
+    Info: Processing started: Thu Oct 10 19:16:13 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off mipsHardware -c mipsHardware
 Info: Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info: Found 1 design units, including 1 entities, in source file memtoreg.sv
@@ -655,222 +377,119 @@ Info: Found 1 design units, including 1 entities, in source file pcsource.sv
     Info: Found entity 1: pcSource
 Info: Found 1 design units, including 1 entities, in source file shiftleft2_2.sv
     Info: Found entity 1: shiftLeft2_2
-Info: Elaborating entity "schemeHard" for the top level hierarchy
-Warning: Port "clk" of type unidadeControle and instance "inst13" is missing source signal
-Info: Elaborating entity "Registrador" for hierarchy "Registrador:A"
-Info: Elaborating entity "Banco_reg" for hierarchy "Banco_reg:inst6"
-Info: Elaborating entity "Instr_Reg" for hierarchy "Instr_Reg:inst4"
-Info: Elaborating entity "Memoria" for hierarchy "Memoria:inst2"
-Info: Elaborating entity "LPM_RAM_DQ" for hierarchy "Memoria:inst2|LPM_RAM_DQ:MEM"
-Info: Elaborated megafunction instantiation "Memoria:inst2|LPM_RAM_DQ:MEM"
-Info: Instantiated megafunction "Memoria:inst2|LPM_RAM_DQ:MEM" with the following parameter:
-    Info: Parameter "LPM_WIDTH" = "8"
-    Info: Parameter "LPM_WIDTHAD" = "8"
-    Info: Parameter "LPM_NUMWORDS" = "0"
-    Info: Parameter "LPM_INDATA" = "REGISTERED"
-    Info: Parameter "LPM_ADDRESS_CONTROL" = "REGISTERED"
-    Info: Parameter "LPM_OUTDATA" = "REGISTERED"
-    Info: Parameter "LPM_FILE" = "instrucoes.mif"
-    Info: Parameter "LPM_TYPE" = "LPM_RAM_DQ"
-    Info: Parameter "USE_EAB" = "ON"
-    Info: Parameter "INTENDED_DEVICE_FAMILY" = "UNUSED"
-    Info: Parameter "LPM_HINT" = "UNUSED"
-Info: Elaborating entity "altram" for hierarchy "Memoria:inst2|LPM_RAM_DQ:MEM|altram:sram"
-Warning: Assertion warning: altram does not support Stratix II device family -- attempting best-case memory conversions, but power-up states and read during write behavior will be different for Stratix II devices
-Info: Elaborated megafunction instantiation "Memoria:inst2|LPM_RAM_DQ:MEM|altram:sram", which is child of megafunction instantiation "Memoria:inst2|LPM_RAM_DQ:MEM"
-Info: Elaborating entity "altsyncram" for hierarchy "Memoria:inst2|LPM_RAM_DQ:MEM|altram:sram|altsyncram:ram_block"
-Info: Elaborated megafunction instantiation "Memoria:inst2|LPM_RAM_DQ:MEM|altram:sram|altsyncram:ram_block", which is child of megafunction instantiation "Memoria:inst2|LPM_RAM_DQ:MEM"
-Info: Found 1 design units, including 1 entities, in source file db/altsyncram_g2a1.tdf
-    Info: Found entity 1: altsyncram_g2a1
-Info: Elaborating entity "altsyncram_g2a1" for hierarchy "Memoria:inst2|LPM_RAM_DQ:MEM|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated"
-Info: Elaborating entity "iord" for hierarchy "iord:inst5"
-Warning (10270): Verilog HDL Case Statement warning at iord.sv(15): incomplete case statement has no default case item
-Warning (10240): Verilog HDL Always Construct warning at iord.sv(15): inferring latch(es) for variable "iordOut", which holds its previous value in one or more paths through the always construct
-Info (10041): Inferred latch for "iordOut[0]" at iord.sv(15)
-Info (10041): Inferred latch for "iordOut[1]" at iord.sv(15)
-Info (10041): Inferred latch for "iordOut[2]" at iord.sv(15)
-Info (10041): Inferred latch for "iordOut[3]" at iord.sv(15)
-Info (10041): Inferred latch for "iordOut[4]" at iord.sv(15)
-Info (10041): Inferred latch for "iordOut[5]" at iord.sv(15)
-Info (10041): Inferred latch for "iordOut[6]" at iord.sv(15)
-Info (10041): Inferred latch for "iordOut[7]" at iord.sv(15)
-Info (10041): Inferred latch for "iordOut[8]" at iord.sv(15)
-Info (10041): Inferred latch for "iordOut[9]" at iord.sv(15)
-Info (10041): Inferred latch for "iordOut[10]" at iord.sv(15)
-Info (10041): Inferred latch for "iordOut[11]" at iord.sv(15)
-Info (10041): Inferred latch for "iordOut[12]" at iord.sv(15)
-Info (10041): Inferred latch for "iordOut[13]" at iord.sv(15)
-Info (10041): Inferred latch for "iordOut[14]" at iord.sv(15)
-Info (10041): Inferred latch for "iordOut[15]" at iord.sv(15)
-Info (10041): Inferred latch for "iordOut[16]" at iord.sv(15)
-Info (10041): Inferred latch for "iordOut[17]" at iord.sv(15)
-Info (10041): Inferred latch for "iordOut[18]" at iord.sv(15)
-Info (10041): Inferred latch for "iordOut[19]" at iord.sv(15)
-Info (10041): Inferred latch for "iordOut[20]" at iord.sv(15)
-Info (10041): Inferred latch for "iordOut[21]" at iord.sv(15)
-Info (10041): Inferred latch for "iordOut[22]" at iord.sv(15)
-Info (10041): Inferred latch for "iordOut[23]" at iord.sv(15)
-Info (10041): Inferred latch for "iordOut[24]" at iord.sv(15)
-Info (10041): Inferred latch for "iordOut[25]" at iord.sv(15)
-Info (10041): Inferred latch for "iordOut[26]" at iord.sv(15)
-Info (10041): Inferred latch for "iordOut[27]" at iord.sv(15)
-Info (10041): Inferred latch for "iordOut[28]" at iord.sv(15)
-Info (10041): Inferred latch for "iordOut[29]" at iord.sv(15)
-Info (10041): Inferred latch for "iordOut[30]" at iord.sv(15)
-Info (10041): Inferred latch for "iordOut[31]" at iord.sv(15)
-Info: Elaborating entity "pcSource" for hierarchy "pcSource:inst16"
-Info: Elaborating entity "Ula32" for hierarchy "Ula32:inst3"
-Info: Elaborating entity "aluSrcA" for hierarchy "aluSrcA:inst"
-Warning (10270): Verilog HDL Case Statement warning at aluSrcA.sv(9): incomplete case statement has no default case item
-Warning (10240): Verilog HDL Always Construct warning at aluSrcA.sv(9): inferring latch(es) for variable "aluSrcAOut", which holds its previous value in one or more paths through the always construct
-Info (10041): Inferred latch for "aluSrcAOut[0]" at aluSrcA.sv(9)
-Info (10041): Inferred latch for "aluSrcAOut[1]" at aluSrcA.sv(9)
-Info (10041): Inferred latch for "aluSrcAOut[2]" at aluSrcA.sv(9)
-Info (10041): Inferred latch for "aluSrcAOut[3]" at aluSrcA.sv(9)
-Info (10041): Inferred latch for "aluSrcAOut[4]" at aluSrcA.sv(9)
-Info (10041): Inferred latch for "aluSrcAOut[5]" at aluSrcA.sv(9)
-Info (10041): Inferred latch for "aluSrcAOut[6]" at aluSrcA.sv(9)
-Info (10041): Inferred latch for "aluSrcAOut[7]" at aluSrcA.sv(9)
-Info (10041): Inferred latch for "aluSrcAOut[8]" at aluSrcA.sv(9)
-Info (10041): Inferred latch for "aluSrcAOut[9]" at aluSrcA.sv(9)
-Info (10041): Inferred latch for "aluSrcAOut[10]" at aluSrcA.sv(9)
-Info (10041): Inferred latch for "aluSrcAOut[11]" at aluSrcA.sv(9)
-Info (10041): Inferred latch for "aluSrcAOut[12]" at aluSrcA.sv(9)
-Info (10041): Inferred latch for "aluSrcAOut[13]" at aluSrcA.sv(9)
-Info (10041): Inferred latch for "aluSrcAOut[14]" at aluSrcA.sv(9)
-Info (10041): Inferred latch for "aluSrcAOut[15]" at aluSrcA.sv(9)
-Info (10041): Inferred latch for "aluSrcAOut[16]" at aluSrcA.sv(9)
-Info (10041): Inferred latch for "aluSrcAOut[17]" at aluSrcA.sv(9)
-Info (10041): Inferred latch for "aluSrcAOut[18]" at aluSrcA.sv(9)
-Info (10041): Inferred latch for "aluSrcAOut[19]" at aluSrcA.sv(9)
-Info (10041): Inferred latch for "aluSrcAOut[20]" at aluSrcA.sv(9)
-Info (10041): Inferred latch for "aluSrcAOut[21]" at aluSrcA.sv(9)
-Info (10041): Inferred latch for "aluSrcAOut[22]" at aluSrcA.sv(9)
-Info (10041): Inferred latch for "aluSrcAOut[23]" at aluSrcA.sv(9)
-Info (10041): Inferred latch for "aluSrcAOut[24]" at aluSrcA.sv(9)
-Info (10041): Inferred latch for "aluSrcAOut[25]" at aluSrcA.sv(9)
-Info (10041): Inferred latch for "aluSrcAOut[26]" at aluSrcA.sv(9)
-Info (10041): Inferred latch for "aluSrcAOut[27]" at aluSrcA.sv(9)
-Info (10041): Inferred latch for "aluSrcAOut[28]" at aluSrcA.sv(9)
-Info (10041): Inferred latch for "aluSrcAOut[29]" at aluSrcA.sv(9)
-Info (10041): Inferred latch for "aluSrcAOut[30]" at aluSrcA.sv(9)
-Info (10041): Inferred latch for "aluSrcAOut[31]" at aluSrcA.sv(9)
-Info: Elaborating entity "aluSrcB" for hierarchy "aluSrcB:inst1"
-Info: Elaborating entity "shiftLeft2_2" for hierarchy "shiftLeft2_2:inst11"
-Info: Elaborating entity "signExtend16to32" for hierarchy "signExtend16to32:inst10"
-Info: Elaborating entity "unidadeControle" for hierarchy "unidadeControle:inst13"
-Warning (10034): Output port "sscontrol" at unidadeControle.sv(43) has no driver
-Warning (10034): Output port "lscontrol" at unidadeControle.sv(44) has no driver
-Warning (10034): Output port "iordmux" at unidadeControle.sv(47) has no driver
-Warning (10034): Output port "regdst" at unidadeControle.sv(50) has no driver
-Warning (10034): Output port "muxregdst" at unidadeControle.sv(53) has no driver
-Warning (10034): Output port "muxmemtoreg" at unidadeControle.sv(54) has no driver
-Warning (10034): Output port "muxalusrca" at unidadeControle.sv(56) has no driver
-Warning (10034): Output port "muxalusrcb" at unidadeControle.sv(57) has no driver
-Warning (10034): Output port "muxpcsource" at unidadeControle.sv(59) has no driver
-Warning (10034): Output port "regwrite" at unidadeControle.sv(11) has no driver
-Warning (10034): Output port "epcwrite" at unidadeControle.sv(12) has no driver
-Warning (10034): Output port "irwrite" at unidadeControle.sv(13) has no driver
-Warning (10034): Output port "memwrite" at unidadeControle.sv(16) has no driver
-Warning (10034): Output port "memread" at unidadeControle.sv(17) has no driver
-Warning (10034): Output port "memtoreg" at unidadeControle.sv(18) has no driver
-Warning (10034): Output port "pcwrite" at unidadeControle.sv(21) has no driver
-Warning (10034): Output port "pcwritecond" at unidadeControle.sv(22) has no driver
-Warning (10034): Output port "aluop" at unidadeControle.sv(25) has no driver
-Warning (10034): Output port "aluoutwrite" at unidadeControle.sv(26) has no driver
-Warning (10034): Output port "hiwrite" at unidadeControle.sv(29) has no driver
-Warning (10034): Output port "lowrite" at unidadeControle.sv(30) has no driver
-Warning (10034): Output port "divby0" at unidadeControle.sv(31) has no driver
-Warning (10034): Output port "xchgctrl" at unidadeControle.sv(34) has no driver
-Warning (10034): Output port "expcontrol" at unidadeControle.sv(37) has no driver
-Warning (10034): Output port "shiftcontrol" at unidadeControle.sv(40) has no driver
-Warning (10034): Output port "muxhi" at unidadeControle.sv(48) has no driver
-Warning (10034): Output port "muxlo" at unidadeControle.sv(49) has no driver
-Warning (10034): Output port "muxshiftsrca" at unidadeControle.sv(51) has no driver
-Warning (10034): Output port "muxshiftsrcb" at unidadeControle.sv(52) has no driver
-Warning (10034): Output port "muxxxchgctrl" at unidadeControle.sv(55) has no driver
-Info: Elaborating entity "memToReg" for hierarchy "memToReg:inst7"
-Warning (10199): Verilog HDL Case Statement warning at memToReg.sv(30): case item expression never matches the case expression
-Warning (10199): Verilog HDL Case Statement warning at memToReg.sv(31): case item expression never matches the case expression
-Warning (10199): Verilog HDL Case Statement warning at memToReg.sv(32): case item expression never matches the case expression
-Info: Elaborating entity "regDST" for hierarchy "regDST:inst9"
-Warning (10270): Verilog HDL Case Statement warning at regDST.sv(13): incomplete case statement has no default case item
-Warning (10240): Verilog HDL Always Construct warning at regDST.sv(13): inferring latch(es) for variable "regDSTOut", which holds its previous value in one or more paths through the always construct
-Info (10041): Inferred latch for "regDSTOut[0]" at regDST.sv(13)
-Info (10041): Inferred latch for "regDSTOut[1]" at regDST.sv(13)
-Info (10041): Inferred latch for "regDSTOut[2]" at regDST.sv(13)
-Info (10041): Inferred latch for "regDSTOut[3]" at regDST.sv(13)
-Info (10041): Inferred latch for "regDSTOut[4]" at regDST.sv(13)
-Warning: Synthesized away the following node(s):
-    Warning: Synthesized away the following RAM node(s):
-        Warning (14320): Synthesized away node "Memoria:inst2|lpm_ram_dq:MEM_plus_One|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated|q_a[3]"
-        Warning (14320): Synthesized away node "Memoria:inst2|lpm_ram_dq:MEM_plus_One|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated|q_a[4]"
-        Warning (14320): Synthesized away node "Memoria:inst2|lpm_ram_dq:MEM_plus_One|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated|q_a[5]"
-        Warning (14320): Synthesized away node "Memoria:inst2|lpm_ram_dq:MEM_plus_One|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated|q_a[6]"
-        Warning (14320): Synthesized away node "Memoria:inst2|lpm_ram_dq:MEM_plus_One|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated|q_a[7]"
-        Warning (14320): Synthesized away node "Memoria:inst2|lpm_ram_dq:MEM|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated|q_a[0]"
-        Warning (14320): Synthesized away node "Memoria:inst2|lpm_ram_dq:MEM|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated|q_a[1]"
-        Warning (14320): Synthesized away node "Memoria:inst2|lpm_ram_dq:MEM|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated|q_a[2]"
-        Warning (14320): Synthesized away node "Memoria:inst2|lpm_ram_dq:MEM|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated|q_a[3]"
-        Warning (14320): Synthesized away node "Memoria:inst2|lpm_ram_dq:MEM|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated|q_a[4]"
-        Warning (14320): Synthesized away node "Memoria:inst2|lpm_ram_dq:MEM|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated|q_a[5]"
-        Warning (14320): Synthesized away node "Memoria:inst2|lpm_ram_dq:MEM|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated|q_a[6]"
-        Warning (14320): Synthesized away node "Memoria:inst2|lpm_ram_dq:MEM|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated|q_a[7]"
-Warning: Synthesized away the following node(s):
-    Warning: Synthesized away the following RAM node(s):
-        Warning (14320): Synthesized away node "Memoria:inst2|lpm_ram_dq:MEM_plus_Three|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated|q_a[2]"
-        Warning (14320): Synthesized away node "Memoria:inst2|lpm_ram_dq:MEM_plus_Three|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated|q_a[3]"
-        Warning (14320): Synthesized away node "Memoria:inst2|lpm_ram_dq:MEM_plus_Three|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated|q_a[4]"
-        Warning (14320): Synthesized away node "Memoria:inst2|lpm_ram_dq:MEM_plus_Three|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated|q_a[5]"
-        Warning (14320): Synthesized away node "Memoria:inst2|lpm_ram_dq:MEM_plus_Three|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated|q_a[6]"
-        Warning (14320): Synthesized away node "Memoria:inst2|lpm_ram_dq:MEM_plus_Three|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated|q_a[7]"
-        Warning (14320): Synthesized away node "Memoria:inst2|lpm_ram_dq:MEM_plus_One|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated|q_a[0]"
-        Warning (14320): Synthesized away node "Memoria:inst2|lpm_ram_dq:MEM_plus_One|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated|q_a[1]"
-        Warning (14320): Synthesized away node "Memoria:inst2|lpm_ram_dq:MEM_plus_One|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated|q_a[2]"
-        Warning (14320): Synthesized away node "Memoria:inst2|lpm_ram_dq:MEM_plus_Three|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated|q_a[0]"
-        Warning (14320): Synthesized away node "Memoria:inst2|lpm_ram_dq:MEM_plus_Three|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated|q_a[1]"
-        Warning (14320): Synthesized away node "Memoria:inst2|lpm_ram_dq:MEM_plus_Two|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated|q_a[0]"
-        Warning (14320): Synthesized away node "Memoria:inst2|lpm_ram_dq:MEM_plus_Two|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated|q_a[1]"
-        Warning (14320): Synthesized away node "Memoria:inst2|lpm_ram_dq:MEM_plus_Two|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated|q_a[2]"
-        Warning (14320): Synthesized away node "Memoria:inst2|lpm_ram_dq:MEM_plus_Two|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated|q_a[3]"
-        Warning (14320): Synthesized away node "Memoria:inst2|lpm_ram_dq:MEM_plus_Two|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated|q_a[4]"
-        Warning (14320): Synthesized away node "Memoria:inst2|lpm_ram_dq:MEM_plus_Two|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated|q_a[5]"
-        Warning (14320): Synthesized away node "Memoria:inst2|lpm_ram_dq:MEM_plus_Two|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated|q_a[6]"
-        Warning (14320): Synthesized away node "Memoria:inst2|lpm_ram_dq:MEM_plus_Two|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated|q_a[7]"
-Info: 21 registers lost all their fanouts during netlist optimizations. The first 21 are displayed below.
-    Info: Register "Instr_Reg:inst4|Instr15_0[15]" lost all its fanouts during netlist optimizations.
-    Info: Register "Instr_Reg:inst4|Instr15_0[14]" lost all its fanouts during netlist optimizations.
-    Info: Register "Instr_Reg:inst4|Instr15_0[13]" lost all its fanouts during netlist optimizations.
-    Info: Register "Instr_Reg:inst4|Instr15_0[12]" lost all its fanouts during netlist optimizations.
-    Info: Register "Instr_Reg:inst4|Instr15_0[11]" lost all its fanouts during netlist optimizations.
-    Info: Register "Instr_Reg:inst4|Instr15_0[7]" lost all its fanouts during netlist optimizations.
-    Info: Register "Instr_Reg:inst4|Instr15_0[6]" lost all its fanouts during netlist optimizations.
-    Info: Register "Instr_Reg:inst4|Instr15_0[5]" lost all its fanouts during netlist optimizations.
-    Info: Register "Instr_Reg:inst4|Instr15_0[4]" lost all its fanouts during netlist optimizations.
-    Info: Register "Instr_Reg:inst4|Instr15_0[3]" lost all its fanouts during netlist optimizations.
-    Info: Register "Instr_Reg:inst4|Instr15_0[2]" lost all its fanouts during netlist optimizations.
-    Info: Register "Instr_Reg:inst4|Instr15_0[1]" lost all its fanouts during netlist optimizations.
-    Info: Register "Instr_Reg:inst4|Instr15_0[0]" lost all its fanouts during netlist optimizations.
-    Info: Register "Registrador:A|Saida[7]" lost all its fanouts during netlist optimizations.
-    Info: Register "Registrador:A|Saida[6]" lost all its fanouts during netlist optimizations.
-    Info: Register "Registrador:A|Saida[5]" lost all its fanouts during netlist optimizations.
-    Info: Register "Registrador:A|Saida[4]" lost all its fanouts during netlist optimizations.
-    Info: Register "Registrador:A|Saida[3]" lost all its fanouts during netlist optimizations.
-    Info: Register "Registrador:A|Saida[2]" lost all its fanouts during netlist optimizations.
-    Info: Register "Registrador:A|Saida[1]" lost all its fanouts during netlist optimizations.
-    Info: Register "Registrador:A|Saida[0]" lost all its fanouts during netlist optimizations.
+Info: Elaborating entity "unidadeControle" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at unidadeControle.sv(73): object "count" assigned a value but never read
+Warning (10272): Verilog HDL Case Statement warning at unidadeControle.sv(144): case item expression covers a value already covered by a previous case item
+Warning (10272): Verilog HDL Case Statement warning at unidadeControle.sv(231): case item expression covers a value already covered by a previous case item
+Info (10264): Verilog HDL Case Statement information at unidadeControle.sv(114): all case item expressions in this case statement are onehot
+Warning: Output pins are stuck at VCC or GND
+    Warning (13410): Pin "epcwrite" is stuck at GND
+    Warning (13410): Pin "irwrite" is stuck at GND
+    Warning (13410): Pin "memwrite" is stuck at GND
+    Warning (13410): Pin "pcwrite" is stuck at GND
+    Warning (13410): Pin "pcwritecond" is stuck at GND
+    Warning (13410): Pin "alucontrol[1]" is stuck at GND
+    Warning (13410): Pin "alucontrol[2]" is stuck at GND
+    Warning (13410): Pin "aluoutwrite" is stuck at GND
+    Warning (13410): Pin "hiwrite" is stuck at GND
+    Warning (13410): Pin "lowrite" is stuck at GND
+    Warning (13410): Pin "divby0" is stuck at GND
+    Warning (13410): Pin "xchgctrl" is stuck at GND
+    Warning (13410): Pin "shiftcontrol" is stuck at GND
+    Warning (13410): Pin "sscontrol[0]" is stuck at GND
+    Warning (13410): Pin "sscontrol[1]" is stuck at GND
+    Warning (13410): Pin "lscontrol[0]" is stuck at GND
+    Warning (13410): Pin "lscontrol[1]" is stuck at GND
+    Warning (13410): Pin "iordmux[0]" is stuck at GND
+    Warning (13410): Pin "iordmux[1]" is stuck at GND
+    Warning (13410): Pin "iordmux[2]" is stuck at GND
+    Warning (13410): Pin "muxhi" is stuck at GND
+    Warning (13410): Pin "muxlo" is stuck at GND
+    Warning (13410): Pin "muxshiftsrca" is stuck at GND
+    Warning (13410): Pin "muxshiftsrcb" is stuck at GND
+    Warning (13410): Pin "muxregdst[0]" is stuck at GND
+    Warning (13410): Pin "muxregdst[1]" is stuck at VCC
+    Warning (13410): Pin "muxregdst[2]" is stuck at GND
+    Warning (13410): Pin "muxmemtoreg[0]" is stuck at VCC
+    Warning (13410): Pin "muxmemtoreg[1]" is stuck at GND
+    Warning (13410): Pin "muxmemtoreg[2]" is stuck at GND
+    Warning (13410): Pin "muxmemtoreg[3]" is stuck at VCC
+    Warning (13410): Pin "muxxxchgctrl" is stuck at GND
+    Warning (13410): Pin "muxalusrca[0]" is stuck at GND
+    Warning (13410): Pin "muxalusrca[1]" is stuck at GND
+    Warning (13410): Pin "muxalusrcb[1]" is stuck at GND
+    Warning (13410): Pin "muxpcsource[0]" is stuck at GND
+    Warning (13410): Pin "muxpcsource[1]" is stuck at GND
+Info: 9 registers lost all their fanouts during netlist optimizations. The first 9 are displayed below.
+    Info: Register "state.fetch3" lost all its fanouts during netlist optimizations.
+    Info: Register "state.decode" lost all its fanouts during netlist optimizations.
+    Info: Register "state~2" lost all its fanouts during netlist optimizations.
+    Info: Register "state~4" lost all its fanouts during netlist optimizations.
+    Info: Register "state~5" lost all its fanouts during netlist optimizations.
+    Info: Register "state~6" lost all its fanouts during netlist optimizations.
+    Info: Register "state~7" lost all its fanouts during netlist optimizations.
+    Info: Register "state~8" lost all its fanouts during netlist optimizations.
+    Info: Register "state.decode2" lost all its fanouts during netlist optimizations.
+Warning: Ignored assignments for entity "Registrador" -- entity does not exist in design
+    Warning: Assignment for entity set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity Registrador -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity Registrador -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_COLOR 16764057 -entity Registrador -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_ASSIGNMENTS ON -entity Registrador -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_ASSIGNMENTS REPLACE_CONFLICTING -entity Registrador -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_LOGICLOCK_REGIONS REPLACE_CONFLICTING -entity Registrador -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_PIN_ASSIGNMENTS ON -entity Registrador -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_PROMOTE_ASSIGNMENTS ON -entity Registrador -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_TYPE STANDARD_PARTITION -entity Registrador -section_id Top was ignored
+Warning: Ignored assignments for entity "aluSrcA" -- entity does not exist in design
+    Warning: Assignment for entity set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity aluSrcA -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity aluSrcA -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_COLOR 16764057 -entity aluSrcA -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_ASSIGNMENTS ON -entity aluSrcA -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_ASSIGNMENTS REPLACE_CONFLICTING -entity aluSrcA -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_LOGICLOCK_REGIONS REPLACE_CONFLICTING -entity aluSrcA -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_PIN_ASSIGNMENTS ON -entity aluSrcA -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_PROMOTE_ASSIGNMENTS ON -entity aluSrcA -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_TYPE STANDARD_PARTITION -entity aluSrcA -section_id Top was ignored
+Warning: Ignored assignments for entity "aluSrcB" -- entity does not exist in design
+    Warning: Assignment for entity set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity aluSrcB -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity aluSrcB -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_COLOR 16764057 -entity aluSrcB -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_ASSIGNMENTS ON -entity aluSrcB -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_ASSIGNMENTS REPLACE_CONFLICTING -entity aluSrcB -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_LOGICLOCK_REGIONS REPLACE_CONFLICTING -entity aluSrcB -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_PIN_ASSIGNMENTS ON -entity aluSrcB -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_PROMOTE_ASSIGNMENTS ON -entity aluSrcB -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_TYPE STANDARD_PARTITION -entity aluSrcB -section_id Top was ignored
 Warning: Ignored assignments for entity "mipsHardware" -- entity does not exist in design
     Warning: Assignment for entity set_global_assignment -name LL_ROOT_REGION ON -entity mipsHardware -section_id "Root Region" was ignored
     Warning: Assignment for entity set_global_assignment -name LL_MEMBER_STATE LOCKED -entity mipsHardware -section_id "Root Region" was ignored
-Warning: Design contains 1 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "clk"
-Info: Implemented 1 device resources after synthesis - the final resource count might be different
-    Info: Implemented 1 input pins
-    Info: Implemented 0 output pins
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 83 warnings
-    Info: Peak virtual memory: 4490 megabytes
-    Info: Processing ended: Wed Oct 09 19:36:51 2019
+Warning: Design contains 18 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "funct[0]"
+    Warning (15610): No output dependent on input pin "funct[1]"
+    Warning (15610): No output dependent on input pin "funct[2]"
+    Warning (15610): No output dependent on input pin "funct[3]"
+    Warning (15610): No output dependent on input pin "funct[4]"
+    Warning (15610): No output dependent on input pin "funct[5]"
+    Warning (15610): No output dependent on input pin "opcode[0]"
+    Warning (15610): No output dependent on input pin "opcode[1]"
+    Warning (15610): No output dependent on input pin "opcode[2]"
+    Warning (15610): No output dependent on input pin "opcode[3]"
+    Warning (15610): No output dependent on input pin "opcode[4]"
+    Warning (15610): No output dependent on input pin "opcode[5]"
+    Warning (15610): No output dependent on input pin "Overflow"
+    Warning (15610): No output dependent on input pin "Negativo"
+    Warning (15610): No output dependent on input pin "z"
+    Warning (15610): No output dependent on input pin "Igual"
+    Warning (15610): No output dependent on input pin "Maior"
+    Warning (15610): No output dependent on input pin "Menor"
+Info: Implemented 62 device resources after synthesis - the final resource count might be different
+    Info: Implemented 20 input pins
+    Info: Implemented 40 output pins
+    Info: Implemented 2 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 94 warnings
+    Info: Peak virtual memory: 4467 megabytes
+    Info: Processing ended: Thu Oct 10 19:16:15 2019
     Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:02
+    Info: Total CPU time (on all processors): 00:00:01
 
 

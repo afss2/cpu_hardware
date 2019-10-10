@@ -1,0 +1,7 @@
+
+State Machine - |unidadeControle|state
+Name state.decode2 state.fetch3 state.fetch1 state.decode 
+state.fetch1 0 0 0 0 
+state.fetch3 0 1 1 0 
+state.decode 0 0 1 1 
+state.decode2 1 0 1 0 
