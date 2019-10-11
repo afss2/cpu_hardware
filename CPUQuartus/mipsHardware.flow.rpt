@@ -1,5 +1,5 @@
 Flow report for mipsHardware
-Fri Oct 11 02:26:01 2019
+Fri Oct 11 03:30:42 2019
 Quartus II 64-Bit Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Full Version
 
 
@@ -38,17 +38,17 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +-------------------------------+-----------------------------------------------+
-; Flow Status                   ; Successful - Fri Oct 11 02:26:01 2019         ;
+; Flow Status                   ; Successful - Fri Oct 11 03:30:42 2019         ;
 ; Quartus II 64-Bit Version     ; 9.1 Build 350 03/24/2010 SP 2 SJ Full Version ;
 ; Revision Name                 ; mipsHardware                                  ;
 ; Top-level Entity Name         ; schemeHard                                    ;
 ; Family                        ; Stratix II                                    ;
 ; Met timing requirements       ; Yes                                           ;
 ; Logic utilization             ; 14 %                                          ;
-;     Combinational ALUTs       ; 974 / 12,480 ( 8 % )                          ;
+;     Combinational ALUTs       ; 1,013 / 12,480 ( 8 % )                        ;
 ;     Dedicated logic registers ; 1,214 / 12,480 ( 10 % )                       ;
 ; Total registers               ; 1214                                          ;
-; Total pins                    ; 100 / 343 ( 29 % )                            ;
+; Total pins                    ; 274 / 343 ( 80 % )                            ;
 ; Total virtual pins            ; 0                                             ;
 ; Total block memory bits       ; 8,192 / 419,328 ( 2 % )                       ;
 ; DSP block 9-bit elements      ; 0 / 96 ( 0 % )                                ;
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 10/11/2019 02:25:44 ;
+; Start date & time ; 10/11/2019 03:30:25 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; mipsHardware        ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ applicable agreement for further details.
 +------------------------------------+---------------------------------+---------------+-------------+----------------+
 ; Assignment Name                    ; Value                           ; Default Value ; Entity Name ; Section Id     ;
 +------------------------------------+---------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID              ; 229335799398857.157077154409096 ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID              ; 229335799398857.157077542414168 ; --            ; --          ; --             ;
 ; PARTITION_COLOR                    ; 16764057                        ; --            ; aluSrcA     ; Top            ;
 ; PARTITION_COLOR                    ; 16764057                        ; --            ; aluSrcB     ; Top            ;
 ; PARTITION_COLOR                    ; 16764057                        ; --            ; schemeHard  ; Top            ;
@@ -92,11 +92,11 @@ applicable agreement for further details.
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name             ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis    ; 00:00:06     ; 1.0                     ; 4519 MB             ; 00:00:08                           ;
-; Fitter                  ; 00:00:06     ; 3.2                     ; 4608 MB             ; 00:00:07                           ;
-; Assembler               ; 00:00:02     ; 1.0                     ; 4425 MB             ; 00:00:01                           ;
-; Classic Timing Analyzer ; 00:00:01     ; 1.0                     ; 4367 MB             ; 00:00:01                           ;
-; Total                   ; 00:00:15     ; --                      ; --                  ; 00:00:17                           ;
+; Analysis & Synthesis    ; 00:00:06     ; 1.0                     ; 4520 MB             ; 00:00:11                           ;
+; Fitter                  ; 00:00:07     ; 3.2                     ; 4608 MB             ; 00:00:08                           ;
+; Assembler               ; 00:00:02     ; 1.0                     ; 4427 MB             ; 00:00:01                           ;
+; Classic Timing Analyzer ; 00:00:00     ; 1.0                     ; 4368 MB             ; 00:00:01                           ;
+; Total                   ; 00:00:15     ; --                      ; --                  ; 00:00:21                           ;
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
