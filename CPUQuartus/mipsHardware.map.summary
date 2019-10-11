@@ -1,15 +1,15 @@
-Analysis & Synthesis Status : Successful - Fri Oct 11 03:30:31 2019
+Analysis & Synthesis Status : Successful - Fri Oct 11 04:34:50 2019
 Quartus II 64-Bit Version : 9.1 Build 350 03/24/2010 SP 2 SJ Full Version
 Revision Name : mipsHardware
-Top-level Entity Name : schemeHard
+Top-level Entity Name : Banco_reg
 Family : Stratix II
 Logic utilization : N/A
-    Combinational ALUTs : 1,005
-    Dedicated logic registers : 1,214
-Total registers : 1214
-Total pins : 274
+    Combinational ALUTs : 738
+    Dedicated logic registers : 1,024
+Total registers : 1024
+Total pins : 114
 Total virtual pins : 0
-Total block memory bits : 8,192
+Total block memory bits : 0
 DSP block 9-bit elements : 0
 Total PLLs : 0
 Total DLLs : 0
