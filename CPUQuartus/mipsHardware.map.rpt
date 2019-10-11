@@ -1,5 +1,5 @@
 Analysis & Synthesis report for mipsHardware
-Thu Oct 10 19:16:15 2019
+Fri Oct 11 02:25:50 2019
 Quartus II 64-Bit Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Full Version
 
 
@@ -13,12 +13,26 @@ Quartus II 64-Bit Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Full Versio
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |unidadeControle|state
-  9. Registers Removed During Synthesis
- 10. General Register Statistics
- 11. Multiplexer Restructuring Statistics (Restructuring Performed)
- 12. Parameter Settings for User Entity Instance: Top-level Entity: |unidadeControle
- 13. Analysis & Synthesis Messages
+  8. Analysis & Synthesis RAM Summary
+  9. State Machine - |schemeHard|unidadeControle:inst17|state
+ 10. Registers Removed During Synthesis
+ 11. Removed Registers Triggering Further Register Optimizations
+ 12. General Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Source assignments for Memoria:inst2|LPM_RAM_DQ:MEM|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated
+ 15. Source assignments for Memoria:inst2|LPM_RAM_DQ:MEM_plus_One|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated
+ 16. Source assignments for Memoria:inst2|LPM_RAM_DQ:MEM_plus_Two|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated
+ 17. Source assignments for Memoria:inst2|LPM_RAM_DQ:MEM_plus_Three|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated
+ 18. Parameter Settings for User Entity Instance: unidadeControle:inst17
+ 19. Parameter Settings for User Entity Instance: memToReg:inst7
+ 20. Parameter Settings for User Entity Instance: regDST:inst9
+ 21. Parameter Settings for User Entity Instance: aluSrcB:inst1
+ 22. Parameter Settings for User Entity Instance: Memoria:inst2|LPM_RAM_DQ:MEM
+ 23. Parameter Settings for User Entity Instance: Memoria:inst2|LPM_RAM_DQ:MEM_plus_One
+ 24. Parameter Settings for User Entity Instance: Memoria:inst2|LPM_RAM_DQ:MEM_plus_Two
+ 25. Parameter Settings for User Entity Instance: Memoria:inst2|LPM_RAM_DQ:MEM_plus_Three
+ 26. Parameter Settings for User Entity Instance: iord:inst5
+ 27. Analysis & Synthesis Messages
 
 
 
@@ -44,18 +58,18 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +-------------------------------+-----------------------------------------------+
-; Analysis & Synthesis Status   ; Successful - Thu Oct 10 19:16:15 2019         ;
+; Analysis & Synthesis Status   ; Successful - Fri Oct 11 02:25:50 2019         ;
 ; Quartus II 64-Bit Version     ; 9.1 Build 350 03/24/2010 SP 2 SJ Full Version ;
 ; Revision Name                 ; mipsHardware                                  ;
-; Top-level Entity Name         ; unidadeControle                               ;
+; Top-level Entity Name         ; schemeHard                                    ;
 ; Family                        ; Stratix II                                    ;
 ; Logic utilization             ; N/A                                           ;
-;     Combinational ALUTs       ; 1                                             ;
-;     Dedicated logic registers ; 2                                             ;
-; Total registers               ; 2                                             ;
-; Total pins                    ; 60                                            ;
+;     Combinational ALUTs       ; 971                                           ;
+;     Dedicated logic registers ; 1,214                                         ;
+; Total registers               ; 1214                                          ;
+; Total pins                    ; 100                                           ;
 ; Total virtual pins            ; 0                                             ;
-; Total block memory bits       ; 0                                             ;
+; Total block memory bits       ; 8,192                                         ;
 ; DSP block 9-bit elements      ; 0                                             ;
 ; Total PLLs                    ; 0                                             ;
 ; Total DLLs                    ; 0                                             ;
@@ -67,7 +81,7 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
-; Top-level entity name                                                      ; unidadeControle    ; mipsHardware       ;
+; Top-level entity name                                                      ; schemeHard         ; mipsHardware       ;
 ; Family name                                                                ; Stratix II         ; Stratix II         ;
 ; Use Generated Physical Constraints File                                    ; Off                ;                    ;
 ; Use smart compilation                                                      ; Off                ; Off                ;
@@ -159,133 +173,187 @@ applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                 ;
-+----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                       ;
-+----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------+
-; unidadeControle.sv               ; yes             ; User SystemVerilog HDL File  ; E:/Users/fmln/Documents/cpu_hardware/CPUQuartus/unidadeControle.sv ;
-+----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                        ;
++----------------------------------+-----------------+------------------------------------+-------------------------------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                        ;
++----------------------------------+-----------------+------------------------------------+-------------------------------------------------------------------------------------+
+; instrucoes.mif                   ; yes             ; User Memory Initialization File    ; E:/Users/absn2/Desktop/cpu_hardware/CPUQuartus/instrucoes.mif                       ;
+; memToReg.sv                      ; yes             ; User SystemVerilog HDL File        ; E:/Users/absn2/Desktop/cpu_hardware/CPUQuartus/memToReg.sv                          ;
+; signExtend16to32.sv              ; yes             ; User SystemVerilog HDL File        ; E:/Users/absn2/Desktop/cpu_hardware/CPUQuartus/signExtend16to32.sv                  ;
+; schemeHard.bdf                   ; yes             ; User Block Diagram/Schematic File  ; E:/Users/absn2/Desktop/cpu_hardware/CPUQuartus/schemeHard.bdf                       ;
+; regDST.sv                        ; yes             ; User SystemVerilog HDL File        ; E:/Users/absn2/Desktop/cpu_hardware/CPUQuartus/regDST.sv                            ;
+; Banco_reg.vhd                    ; yes             ; User VHDL File                     ; E:/Users/absn2/Desktop/cpu_hardware/CPUQuartus/Banco_reg.vhd                        ;
+; iord.sv                          ; yes             ; User SystemVerilog HDL File        ; E:/Users/absn2/Desktop/cpu_hardware/CPUQuartus/iord.sv                              ;
+; Registrador.vhd                  ; yes             ; User VHDL File                     ; E:/Users/absn2/Desktop/cpu_hardware/CPUQuartus/Registrador.vhd                      ;
+; Instr_Reg.vhd                    ; yes             ; User VHDL File                     ; E:/Users/absn2/Desktop/cpu_hardware/CPUQuartus/Instr_Reg.vhd                        ;
+; Memoria.vhd                      ; yes             ; User VHDL File                     ; E:/Users/absn2/Desktop/cpu_hardware/CPUQuartus/Memoria.vhd                          ;
+; ula32.vhd                        ; yes             ; User VHDL File                     ; E:/Users/absn2/Desktop/cpu_hardware/CPUQuartus/ula32.vhd                            ;
+; unidadeControle.sv               ; yes             ; User SystemVerilog HDL File        ; E:/Users/absn2/Desktop/cpu_hardware/CPUQuartus/unidadeControle.sv                   ;
+; aluSrcA.sv                       ; yes             ; User SystemVerilog HDL File        ; E:/Users/absn2/Desktop/cpu_hardware/CPUQuartus/aluSrcA.sv                           ;
+; aluSrcB.sv                       ; yes             ; User SystemVerilog HDL File        ; E:/Users/absn2/Desktop/cpu_hardware/CPUQuartus/aluSrcB.sv                           ;
+; pcSource.sv                      ; yes             ; User SystemVerilog HDL File        ; E:/Users/absn2/Desktop/cpu_hardware/CPUQuartus/pcSource.sv                          ;
+; shiftLeft2_2.sv                  ; yes             ; User SystemVerilog HDL File        ; E:/Users/absn2/Desktop/cpu_hardware/CPUQuartus/shiftLeft2_2.sv                      ;
+; lpm_ram_dq.tdf                   ; yes             ; Megafunction                       ; e:/programfiles/quartus/altera/91sp2/quartus/libraries/megafunctions/lpm_ram_dq.tdf ;
+; altram.tdf                       ; yes             ; Megafunction                       ; e:/programfiles/quartus/altera/91sp2/quartus/libraries/megafunctions/altram.tdf     ;
+; altsyncram.tdf                   ; yes             ; Megafunction                       ; e:/programfiles/quartus/altera/91sp2/quartus/libraries/megafunctions/altsyncram.tdf ;
+; db/altsyncram_g2a1.tdf           ; yes             ; Auto-Generated Megafunction        ; E:/Users/absn2/Desktop/cpu_hardware/CPUQuartus/db/altsyncram_g2a1.tdf               ;
++----------------------------------+-----------------+------------------------------------+-------------------------------------------------------------------------------------+
 
 
-+--------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                        ;
-+-----------------------------------------------+--------------------+
-; Resource                                      ; Usage              ;
-+-----------------------------------------------+--------------------+
-; Estimated ALUTs Used                          ; 1                  ;
-; Dedicated logic registers                     ; 2                  ;
-;                                               ;                    ;
-; Estimated ALUTs Unavailable                   ; 0                  ;
-;                                               ;                    ;
-; Total combinational functions                 ; 1                  ;
-; Combinational ALUT usage by number of inputs  ;                    ;
-;     -- 7 input functions                      ; 0                  ;
-;     -- 6 input functions                      ; 0                  ;
-;     -- 5 input functions                      ; 0                  ;
-;     -- 4 input functions                      ; 0                  ;
-;     -- <=3 input functions                    ; 1                  ;
-;                                               ;                    ;
-; Combinational ALUTs by mode                   ;                    ;
-;     -- normal mode                            ; 1                  ;
-;     -- extended LUT mode                      ; 0                  ;
-;     -- arithmetic mode                        ; 0                  ;
-;     -- shared arithmetic mode                 ; 0                  ;
-;                                               ;                    ;
-; Estimated ALUT/register pairs used            ; 2                  ;
-;                                               ;                    ;
-; Total registers                               ; 2                  ;
-;     -- Dedicated logic registers              ; 2                  ;
-;     -- I/O registers                          ; 0                  ;
-;                                               ;                    ;
-; Estimated ALMs:  partially or completely used ; 1                  ;
-;                                               ;                    ;
-; I/O pins                                      ; 60                 ;
-; Maximum fan-out node                          ; muxalusrcb[0]~reg0 ;
-; Maximum fan-out                               ; 2                  ;
-; Total fan-out                                 ; 8                  ;
-; Average fan-out                               ; 0.13               ;
-+-----------------------------------------------+--------------------+
++-------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary           ;
++-----------------------------------------------+-------+
+; Resource                                      ; Usage ;
++-----------------------------------------------+-------+
+; Estimated ALUTs Used                          ; 971   ;
+; Dedicated logic registers                     ; 1214  ;
+;                                               ;       ;
+; Estimated ALUTs Unavailable                   ; 10    ;
+;                                               ;       ;
+; Total combinational functions                 ; 971   ;
+; Combinational ALUT usage by number of inputs  ;       ;
+;     -- 7 input functions                      ; 10    ;
+;     -- 6 input functions                      ; 706   ;
+;     -- 5 input functions                      ; 55    ;
+;     -- 4 input functions                      ; 36    ;
+;     -- <=3 input functions                    ; 164   ;
+;                                               ;       ;
+; Combinational ALUTs by mode                   ;       ;
+;     -- normal mode                            ; 938   ;
+;     -- extended LUT mode                      ; 10    ;
+;     -- arithmetic mode                        ; 23    ;
+;     -- shared arithmetic mode                 ; 0     ;
+;                                               ;       ;
+; Estimated ALUT/register pairs used            ; 1997  ;
+;                                               ;       ;
+; Total registers                               ; 1214  ;
+;     -- Dedicated logic registers              ; 1214  ;
+;     -- I/O registers                          ; 0     ;
+;                                               ;       ;
+; Estimated ALMs:  partially or completely used ; 999   ;
+;                                               ;       ;
+; I/O pins                                      ; 100   ;
+; Total block memory bits                       ; 8192  ;
+; Maximum fan-out node                          ; clk   ;
+; Maximum fan-out                               ; 1246  ;
+; Total fan-out                                 ; 10315 ;
+; Average fan-out                               ; 4.45  ;
++-----------------------------------------------+-------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                           ;
-+----------------------------+-------------------+--------------+-------------------+--------------+---------+-----------+-----------+------+--------------+---------------------+--------------+
-; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
-+----------------------------+-------------------+--------------+-------------------+--------------+---------+-----------+-----------+------+--------------+---------------------+--------------+
-; |unidadeControle           ; 1 (1)             ; 2 (2)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 60   ; 0            ; |unidadeControle    ; work         ;
-+----------------------------+-------------------+--------------+-------------------+--------------+---------+-----------+-----------+------+--------------+---------------------+--------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                ;
++-------------------------------------------------+-------------------+--------------+-------------------+--------------+---------+-----------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                      ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                 ; Library Name ;
++-------------------------------------------------+-------------------+--------------+-------------------+--------------+---------+-----------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------------+--------------+
+; |schemeHard                                     ; 971 (1)           ; 1214 (0)     ; 8192              ; 0            ; 0       ; 0         ; 0         ; 100  ; 0            ; |schemeHard                                                                                                         ; work         ;
+;    |Banco_reg:inst6|                            ; 736 (736)         ; 1024 (1024)  ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |schemeHard|Banco_reg:inst6                                                                                         ; work         ;
+;    |Instr_Reg:inst4|                            ; 0 (0)             ; 32 (32)      ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |schemeHard|Instr_Reg:inst4                                                                                         ;              ;
+;    |Memoria:inst2|                              ; 23 (23)           ; 0 (0)        ; 8192              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |schemeHard|Memoria:inst2                                                                                           ; work         ;
+;       |lpm_ram_dq:MEM_plus_One|                 ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |schemeHard|Memoria:inst2|lpm_ram_dq:MEM_plus_One                                                                   ; work         ;
+;          |altram:sram|                          ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |schemeHard|Memoria:inst2|lpm_ram_dq:MEM_plus_One|altram:sram                                                       ;              ;
+;             |altsyncram:ram_block|              ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |schemeHard|Memoria:inst2|lpm_ram_dq:MEM_plus_One|altram:sram|altsyncram:ram_block                                  ;              ;
+;                |altsyncram_g2a1:auto_generated| ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |schemeHard|Memoria:inst2|lpm_ram_dq:MEM_plus_One|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated   ;              ;
+;       |lpm_ram_dq:MEM_plus_Three|               ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |schemeHard|Memoria:inst2|lpm_ram_dq:MEM_plus_Three                                                                 ;              ;
+;          |altram:sram|                          ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |schemeHard|Memoria:inst2|lpm_ram_dq:MEM_plus_Three|altram:sram                                                     ; work         ;
+;             |altsyncram:ram_block|              ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |schemeHard|Memoria:inst2|lpm_ram_dq:MEM_plus_Three|altram:sram|altsyncram:ram_block                                ; work         ;
+;                |altsyncram_g2a1:auto_generated| ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |schemeHard|Memoria:inst2|lpm_ram_dq:MEM_plus_Three|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated ; work         ;
+;       |lpm_ram_dq:MEM_plus_Two|                 ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |schemeHard|Memoria:inst2|lpm_ram_dq:MEM_plus_Two                                                                   ;              ;
+;          |altram:sram|                          ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |schemeHard|Memoria:inst2|lpm_ram_dq:MEM_plus_Two|altram:sram                                                       ;              ;
+;             |altsyncram:ram_block|              ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |schemeHard|Memoria:inst2|lpm_ram_dq:MEM_plus_Two|altram:sram|altsyncram:ram_block                                  ;              ;
+;                |altsyncram_g2a1:auto_generated| ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |schemeHard|Memoria:inst2|lpm_ram_dq:MEM_plus_Two|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated   ;              ;
+;       |lpm_ram_dq:MEM|                          ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |schemeHard|Memoria:inst2|lpm_ram_dq:MEM                                                                            ; work         ;
+;          |altram:sram|                          ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |schemeHard|Memoria:inst2|lpm_ram_dq:MEM|altram:sram                                                                ; work         ;
+;             |altsyncram:ram_block|              ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |schemeHard|Memoria:inst2|lpm_ram_dq:MEM|altram:sram|altsyncram:ram_block                                           ; work         ;
+;                |altsyncram_g2a1:auto_generated| ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |schemeHard|Memoria:inst2|lpm_ram_dq:MEM|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated            ; work         ;
+;    |Registrador:AluOut|                         ; 0 (0)             ; 32 (32)      ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |schemeHard|Registrador:AluOut                                                                                      ; work         ;
+;    |Registrador:A|                              ; 0 (0)             ; 32 (32)      ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |schemeHard|Registrador:A                                                                                           ; work         ;
+;    |Registrador:B|                              ; 0 (0)             ; 32 (32)      ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |schemeHard|Registrador:B                                                                                           ; work         ;
+;    |Registrador:PC|                             ; 0 (0)             ; 32 (32)      ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |schemeHard|Registrador:PC                                                                                          ; work         ;
+;    |Ula32:inst3|                                ; 116 (116)         ; 0 (0)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |schemeHard|Ula32:inst3                                                                                             ; work         ;
+;    |aluSrcA:inst|                               ; 31 (31)           ; 0 (0)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |schemeHard|aluSrcA:inst                                                                                            ; work         ;
+;    |aluSrcB:inst1|                              ; 28 (28)           ; 0 (0)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |schemeHard|aluSrcB:inst1                                                                                           ; work         ;
+;    |regDST:inst9|                               ; 5 (5)             ; 0 (0)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |schemeHard|regDST:inst9                                                                                            ; work         ;
+;    |unidadeControle:inst17|                     ; 31 (31)           ; 30 (30)      ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |schemeHard|unidadeControle:inst17                                                                                  ; work         ;
++-------------------------------------------------+-------------------+--------------+-------------------+--------------+---------+-----------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                            ;
++--------------------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+----------------+
+; Name                                                                                                               ; Type ; Mode        ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF            ;
++--------------------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+----------------+
+; Memoria:inst2|lpm_ram_dq:MEM_plus_One|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated|ALTSYNCRAM   ; AUTO ; Single Port ; 256          ; 8            ; --           ; --           ; 2048 ; instrucoes.mif ;
+; Memoria:inst2|lpm_ram_dq:MEM_plus_Three|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated|ALTSYNCRAM ; AUTO ; Single Port ; 256          ; 8            ; --           ; --           ; 2048 ; instrucoes.mif ;
+; Memoria:inst2|lpm_ram_dq:MEM_plus_Two|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated|ALTSYNCRAM   ; AUTO ; Single Port ; 256          ; 8            ; --           ; --           ; 2048 ; instrucoes.mif ;
+; Memoria:inst2|lpm_ram_dq:MEM|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated|ALTSYNCRAM            ; AUTO ; Single Port ; 256          ; 8            ; --           ; --           ; 2048 ; instrucoes.mif ;
++--------------------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+----------------+
+
+
 Encoding Type:  One-Hot
-+----------------------------------------------------------------------------+
-; State Machine - |unidadeControle|state                                     ;
-+---------------+---------------+--------------+--------------+--------------+
-; Name          ; state.decode2 ; state.fetch3 ; state.fetch1 ; state.decode ;
-+---------------+---------------+--------------+--------------+--------------+
-; state.fetch1  ; 0             ; 0            ; 0            ; 0            ;
-; state.fetch3  ; 0             ; 1            ; 1            ; 0            ;
-; state.decode  ; 0             ; 0            ; 1            ; 1            ;
-; state.decode2 ; 1             ; 0            ; 1            ; 0            ;
-+---------------+---------------+--------------+--------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |schemeHard|unidadeControle:inst17|state                                                                                                             ;
++-------------------+------------------+---------------+-------------------+---------------+---------------+--------------+--------------+--------------+--------------+
+; Name              ; state.wait_Final ; state.closeWR ; state.add_sub_and ; state.execute ; state.decode2 ; state.decode ; state.fetch3 ; state.fetch2 ; state.fetch1 ;
++-------------------+------------------+---------------+-------------------+---------------+---------------+--------------+--------------+--------------+--------------+
+; state.fetch1      ; 0                ; 0             ; 0                 ; 0             ; 0             ; 0            ; 0            ; 0            ; 0            ;
+; state.fetch2      ; 0                ; 0             ; 0                 ; 0             ; 0             ; 0            ; 0            ; 1            ; 1            ;
+; state.fetch3      ; 0                ; 0             ; 0                 ; 0             ; 0             ; 0            ; 1            ; 0            ; 1            ;
+; state.decode      ; 0                ; 0             ; 0                 ; 0             ; 0             ; 1            ; 0            ; 0            ; 1            ;
+; state.decode2     ; 0                ; 0             ; 0                 ; 0             ; 1             ; 0            ; 0            ; 0            ; 1            ;
+; state.execute     ; 0                ; 0             ; 0                 ; 1             ; 0             ; 0            ; 0            ; 0            ; 1            ;
+; state.add_sub_and ; 0                ; 0             ; 1                 ; 0             ; 0             ; 0            ; 0            ; 0            ; 1            ;
+; state.closeWR     ; 0                ; 1             ; 0                 ; 0             ; 0             ; 0            ; 0            ; 0            ; 1            ;
+; state.wait_Final  ; 1                ; 0             ; 0                 ; 0             ; 0             ; 0            ; 0            ; 0            ; 1            ;
++-------------------+------------------+---------------+-------------------+---------------+---------------+--------------+--------------+--------------+--------------+
 
 
-+---------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                              ;
-+----------------------------------------+----------------------------------------+
-; Register name                          ; Reason for Removal                     ;
-+----------------------------------------+----------------------------------------+
-; muxlo~reg0                             ; Merged with muxxxchgctrl~reg0          ;
-; muxalusrca[1]~reg0                     ; Merged with muxxxchgctrl~reg0          ;
-; alucontrol[1]~reg0                     ; Merged with muxxxchgctrl~reg0          ;
-; lowrite~reg0                           ; Merged with muxxxchgctrl~reg0          ;
-; muxshiftsrca~reg0                      ; Merged with muxxxchgctrl~reg0          ;
-; sscontrol[1]~reg0                      ; Merged with muxxxchgctrl~reg0          ;
-; lscontrol[0]~reg0                      ; Merged with muxxxchgctrl~reg0          ;
-; muxpcsource[0]~reg0                    ; Merged with muxxxchgctrl~reg0          ;
-; divby0~reg0                            ; Merged with muxxxchgctrl~reg0          ;
-; iordmux[1]~reg0                        ; Merged with muxxxchgctrl~reg0          ;
-; muxmemtoreg[2]~reg0                    ; Merged with muxxxchgctrl~reg0          ;
-; alucontrol[2]~reg0                     ; Merged with muxxxchgctrl~reg0          ;
-; shiftcontrol~reg0                      ; Merged with muxxxchgctrl~reg0          ;
-; muxhi~reg0                             ; Merged with muxxxchgctrl~reg0          ;
-; muxregdst[0]~reg0                      ; Merged with muxxxchgctrl~reg0          ;
-; muxalusrca[0]~reg0                     ; Merged with muxxxchgctrl~reg0          ;
-; pcwritecond~reg0                       ; Merged with muxxxchgctrl~reg0          ;
-; memwrite~reg0                          ; Merged with muxxxchgctrl~reg0          ;
-; muxregdst[2]~reg0                      ; Merged with muxxxchgctrl~reg0          ;
-; lscontrol[1]~reg0                      ; Merged with muxxxchgctrl~reg0          ;
-; sscontrol[0]~reg0                      ; Merged with muxxxchgctrl~reg0          ;
-; iordmux[0]~reg0                        ; Merged with muxxxchgctrl~reg0          ;
-; muxpcsource[1]~reg0                    ; Merged with muxxxchgctrl~reg0          ;
-; epcwrite~reg0                          ; Merged with muxxxchgctrl~reg0          ;
-; iordmux[2]~reg0                        ; Merged with muxxxchgctrl~reg0          ;
-; muxmemtoreg[1]~reg0                    ; Merged with muxxxchgctrl~reg0          ;
-; muxshiftsrcb~reg0                      ; Merged with muxxxchgctrl~reg0          ;
-; xchgctrl~reg0                          ; Merged with muxxxchgctrl~reg0          ;
-; hiwrite~reg0                           ; Merged with muxxxchgctrl~reg0          ;
-; muxmemtoreg[3]~reg0                    ; Merged with muxregdst[1]~reg0          ;
-; muxmemtoreg[0]~reg0                    ; Merged with muxregdst[1]~reg0          ;
-; alucontrol[0]~reg0                     ; Merged with muxalusrcb[0]~reg0         ;
-; muxxxchgctrl~reg0                      ; Stuck at GND due to stuck port data_in ;
-; pcwrite~reg0                           ; Stuck at GND due to stuck port data_in ;
-; aluoutwrite~reg0                       ; Merged with muxalusrcb[1]~reg0         ;
-; muxregdst[1]~reg0                      ; Stuck at VCC due to stuck port data_in ;
-; irwrite~reg0                           ; Stuck at GND due to stuck port data_in ;
-; muxalusrcb[1]~reg0                     ; Stuck at GND due to stuck port data_in ;
-; state.fetch3                           ; Lost fanout                            ;
-; state.decode                           ; Lost fanout                            ;
-; state~2                                ; Lost fanout                            ;
-; state~4                                ; Lost fanout                            ;
-; state~5                                ; Lost fanout                            ;
-; state~6                                ; Lost fanout                            ;
-; state~7                                ; Lost fanout                            ;
-; state~8                                ; Lost fanout                            ;
-; state.decode2                          ; Lost fanout                            ;
-; state.fetch1                           ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 48 ;                                        ;
-+----------------------------------------+----------------------------------------+
++-------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                        ;
++-----------------------------------------+-------------------------------------------------+
+; Register name                           ; Reason for Removal                              ;
++-----------------------------------------+-------------------------------------------------+
+; unidadeControle:inst17|stateOut[3..4]   ; Merged with unidadeControle:inst17|stateOut[5]  ;
+; unidadeControle:inst17|muxalusrca[1]    ; Merged with unidadeControle:inst17|muxregdst[2] ;
+; unidadeControle:inst17|alucontrol[2]    ; Merged with unidadeControle:inst17|muxregdst[2] ;
+; unidadeControle:inst17|memwrite         ; Merged with unidadeControle:inst17|muxregdst[2] ;
+; unidadeControle:inst17|muxpcsource[0]   ; Merged with unidadeControle:inst17|muxregdst[2] ;
+; unidadeControle:inst17|iordmux[0..1]    ; Merged with unidadeControle:inst17|muxregdst[2] ;
+; unidadeControle:inst17|muxpcsource[1]   ; Merged with unidadeControle:inst17|muxregdst[2] ;
+; unidadeControle:inst17|iordmux[2]       ; Merged with unidadeControle:inst17|muxregdst[2] ;
+; unidadeControle:inst17|muxmemtoreg[2]   ; Merged with unidadeControle:inst17|muxregdst[2] ;
+; unidadeControle:inst17|epcwrite         ; Merged with unidadeControle:inst17|muxregdst[2] ;
+; unidadeControle:inst17|muxmemtoreg[1]   ; Merged with unidadeControle:inst17|muxregdst[2] ;
+; unidadeControle:inst17|stateOut[5]      ; Stuck at GND due to stuck port data_in          ;
+; unidadeControle:inst17|muxregdst[2]     ; Stuck at GND due to stuck port data_in          ;
+; Registrador:EPC|Saida[0..31]            ; Stuck at GND due to stuck port clock_enable     ;
+; unidadeControle:inst17|muxmemtoreg[0,3] ; Merged with unidadeControle:inst17|muxregdst[1] ;
+; unidadeControle:inst17|state~11         ; Lost fanout                                     ;
+; unidadeControle:inst17|state~12         ; Lost fanout                                     ;
+; unidadeControle:inst17|state~13         ; Lost fanout                                     ;
+; unidadeControle:inst17|state~14         ; Lost fanout                                     ;
+; unidadeControle:inst17|state~15         ; Lost fanout                                     ;
+; unidadeControle:inst17|state~16         ; Lost fanout                                     ;
+; unidadeControle:inst17|state~17         ; Lost fanout                                     ;
+; Total Number of Removed Registers = 56  ;                                                 ;
++-----------------------------------------+-------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                        ;
++-------------------------------------+---------------------------+----------------------------------------------------------------------------------+
+; Register name                       ; Reason for Removal        ; Registers Removed due to This Register                                           ;
++-------------------------------------+---------------------------+----------------------------------------------------------------------------------+
+; unidadeControle:inst17|muxregdst[2] ; Stuck at GND              ; Registrador:EPC|Saida[29], Registrador:EPC|Saida[28], Registrador:EPC|Saida[27], ;
+;                                     ; due to stuck port data_in ; Registrador:EPC|Saida[26], Registrador:EPC|Saida[25], Registrador:EPC|Saida[21], ;
+;                                     ;                           ; Registrador:EPC|Saida[20], Registrador:EPC|Saida[19], Registrador:EPC|Saida[18], ;
+;                                     ;                           ; Registrador:EPC|Saida[17], Registrador:EPC|Saida[13], Registrador:EPC|Saida[12], ;
+;                                     ;                           ; Registrador:EPC|Saida[11], Registrador:EPC|Saida[10], Registrador:EPC|Saida[9],  ;
+;                                     ;                           ; Registrador:EPC|Saida[5], Registrador:EPC|Saida[4], Registrador:EPC|Saida[3],    ;
+;                                     ;                           ; Registrador:EPC|Saida[2], Registrador:EPC|Saida[1], Registrador:EPC|Saida[0]     ;
++-------------------------------------+---------------------------+----------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -293,38 +361,221 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 2     ;
-; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Total registers                              ; 1214  ;
+; Number of registers using Synchronous Clear  ; 1034  ;
+; Number of registers using Synchronous Load   ; 3     ;
+; Number of registers using Asynchronous Clear ; 1184  ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 1130  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                               ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output     ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
-; 3:1                ; 2 bits    ; 4 ALUTs       ; 2 ALUTs              ; 2 ALUTs                ; Yes        ; |unidadeControle|regwrite~reg0 ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------+
+; 32:1               ; 32 bits   ; 672 ALUTs     ; 672 ALUTs            ; 0 ALUTs                ; Yes        ; |schemeHard|Registrador:A|Saida[22]      ;
+; 32:1               ; 32 bits   ; 672 ALUTs     ; 672 ALUTs            ; 0 ALUTs                ; Yes        ; |schemeHard|Registrador:B|Saida[14]      ;
+; 3:1                ; 22 bits   ; 44 ALUTs      ; 22 ALUTs             ; 22 ALUTs               ; No         ; |schemeHard|unidadeControle:inst17|state ;
+; 4:1                ; 32 bits   ; 64 ALUTs      ; 64 ALUTs             ; 0 ALUTs                ; No         ; |schemeHard|Ula32:inst3|Mux10            ;
+; 3:1                ; 2 bits    ; 4 ALUTs       ; 4 ALUTs              ; 0 ALUTs                ; No         ; |schemeHard|aluSrcB:inst1|Mux30          ;
+; 3:1                ; 15 bits   ; 30 ALUTs      ; 30 ALUTs             ; 0 ALUTs                ; No         ; |schemeHard|aluSrcB:inst1|Mux5           ;
+; 4:1                ; 5 bits    ; 10 ALUTs      ; 10 ALUTs             ; 0 ALUTs                ; No         ; |schemeHard|regDST:inst9|Mux4            ;
+; 4:1                ; 15 bits   ; 30 ALUTs      ; 30 ALUTs             ; 0 ALUTs                ; No         ; |schemeHard|aluSrcB:inst1|Mux29          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------+
 
 
-+---------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Top-level Entity: |unidadeControle ;
-+-----------------+---------+-----------------------------------------------------+
-; Parameter Name  ; Value   ; Type                                                ;
-+-----------------+---------+-----------------------------------------------------+
-; reset_parameter ; 0000000 ; Unsigned Binary                                     ;
-; fetch1          ; 0000010 ; Unsigned Binary                                     ;
-; fetch2          ; 0000010 ; Unsigned Binary                                     ;
-; fetch3          ; 0000011 ; Unsigned Binary                                     ;
-; wait_           ; 0000100 ; Unsigned Binary                                     ;
-; decode          ; 0000101 ; Unsigned Binary                                     ;
-; decode2         ; 0000110 ; Unsigned Binary                                     ;
-+-----------------+---------+-----------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------+
+; Source assignments for Memoria:inst2|LPM_RAM_DQ:MEM|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated ;
++---------------------------------+--------------------+------+-------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                    ;
++---------------------------------+--------------------+------+-------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                     ;
++---------------------------------+--------------------+------+-------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for Memoria:inst2|LPM_RAM_DQ:MEM_plus_One|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated ;
++---------------------------------+--------------------+------+----------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                             ;
++---------------------------------+--------------------+------+----------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                              ;
++---------------------------------+--------------------+------+----------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for Memoria:inst2|LPM_RAM_DQ:MEM_plus_Two|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated ;
++---------------------------------+--------------------+------+----------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                             ;
++---------------------------------+--------------------+------+----------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                              ;
++---------------------------------+--------------------+------+----------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for Memoria:inst2|LPM_RAM_DQ:MEM_plus_Three|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated ;
++---------------------------------+--------------------+------+------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                               ;
++---------------------------------+--------------------+------+------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                ;
++---------------------------------+--------------------+------+------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: unidadeControle:inst17 ;
++----------------+---------+------------------------------------------+
+; Parameter Name ; Value   ; Type                                     ;
++----------------+---------+------------------------------------------+
+; fetch1         ; 0000000 ; Unsigned Binary                          ;
+; fetch2         ; 0000001 ; Unsigned Binary                          ;
+; fetch3         ; 0000010 ; Unsigned Binary                          ;
+; decode         ; 0000011 ; Unsigned Binary                          ;
+; decode2        ; 0000100 ; Unsigned Binary                          ;
+; wait_          ; 0000101 ; Unsigned Binary                          ;
+; execute        ; 0000110 ; Unsigned Binary                          ;
+; closeWR        ; 1000100 ; Unsigned Binary                          ;
+; wait_Final     ; 1000101 ; Unsigned Binary                          ;
+; formatR        ; 000000  ; Unsigned Binary                          ;
+; andR           ; 100100  ; Unsigned Binary                          ;
+; add_sub_and    ; 0000111 ; Unsigned Binary                          ;
++----------------+---------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: memToReg:inst7         ;
++----------------+----------------------------------+-----------------+
+; Parameter Name ; Value                            ; Type            ;
++----------------+----------------------------------+-----------------+
+; e10            ; 00000000000000000000000011100011 ; Unsigned Binary ;
++----------------+----------------------------------+-----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: regDST:inst9 ;
++----------------+-------+----------------------------------+
+; Parameter Name ; Value ; Type                             ;
++----------------+-------+----------------------------------+
+; D              ; 11101 ; Unsigned Binary                  ;
+; E              ; 11111 ; Unsigned Binary                  ;
++----------------+-------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: aluSrcB:inst1 ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; pcMais4        ; 100   ; Unsigned Binary                   ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Memoria:inst2|LPM_RAM_DQ:MEM ;
++------------------------+----------------+---------------------------------+
+; Parameter Name         ; Value          ; Type                            ;
++------------------------+----------------+---------------------------------+
+; LPM_WIDTH              ; 8              ; Signed Integer                  ;
+; LPM_WIDTHAD            ; 8              ; Signed Integer                  ;
+; LPM_NUMWORDS           ; 0              ; Signed Integer                  ;
+; LPM_INDATA             ; REGISTERED     ; Untyped                         ;
+; LPM_ADDRESS_CONTROL    ; REGISTERED     ; Untyped                         ;
+; LPM_OUTDATA            ; REGISTERED     ; Untyped                         ;
+; LPM_FILE               ; instrucoes.mif ; Untyped                         ;
+; USE_EAB                ; ON             ; Untyped                         ;
+; DEVICE_FAMILY          ; Stratix II     ; Untyped                         ;
+; CBXI_PARAMETER         ; NOTHING        ; Untyped                         ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                      ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                    ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                    ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                  ;
++------------------------+----------------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Memoria:inst2|LPM_RAM_DQ:MEM_plus_One ;
++------------------------+----------------+------------------------------------------+
+; Parameter Name         ; Value          ; Type                                     ;
++------------------------+----------------+------------------------------------------+
+; LPM_WIDTH              ; 8              ; Signed Integer                           ;
+; LPM_WIDTHAD            ; 8              ; Signed Integer                           ;
+; LPM_NUMWORDS           ; 0              ; Signed Integer                           ;
+; LPM_INDATA             ; REGISTERED     ; Untyped                                  ;
+; LPM_ADDRESS_CONTROL    ; REGISTERED     ; Untyped                                  ;
+; LPM_OUTDATA            ; REGISTERED     ; Untyped                                  ;
+; LPM_FILE               ; instrucoes.mif ; Untyped                                  ;
+; USE_EAB                ; ON             ; Untyped                                  ;
+; DEVICE_FAMILY          ; Stratix II     ; Untyped                                  ;
+; CBXI_PARAMETER         ; NOTHING        ; Untyped                                  ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                             ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                           ;
++------------------------+----------------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Memoria:inst2|LPM_RAM_DQ:MEM_plus_Two ;
++------------------------+----------------+------------------------------------------+
+; Parameter Name         ; Value          ; Type                                     ;
++------------------------+----------------+------------------------------------------+
+; LPM_WIDTH              ; 8              ; Signed Integer                           ;
+; LPM_WIDTHAD            ; 8              ; Signed Integer                           ;
+; LPM_NUMWORDS           ; 0              ; Signed Integer                           ;
+; LPM_INDATA             ; REGISTERED     ; Untyped                                  ;
+; LPM_ADDRESS_CONTROL    ; REGISTERED     ; Untyped                                  ;
+; LPM_OUTDATA            ; REGISTERED     ; Untyped                                  ;
+; LPM_FILE               ; instrucoes.mif ; Untyped                                  ;
+; USE_EAB                ; ON             ; Untyped                                  ;
+; DEVICE_FAMILY          ; Stratix II     ; Untyped                                  ;
+; CBXI_PARAMETER         ; NOTHING        ; Untyped                                  ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                             ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                           ;
++------------------------+----------------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Memoria:inst2|LPM_RAM_DQ:MEM_plus_Three ;
++------------------------+----------------+--------------------------------------------+
+; Parameter Name         ; Value          ; Type                                       ;
++------------------------+----------------+--------------------------------------------+
+; LPM_WIDTH              ; 8              ; Signed Integer                             ;
+; LPM_WIDTHAD            ; 8              ; Signed Integer                             ;
+; LPM_NUMWORDS           ; 0              ; Signed Integer                             ;
+; LPM_INDATA             ; REGISTERED     ; Untyped                                    ;
+; LPM_ADDRESS_CONTROL    ; REGISTERED     ; Untyped                                    ;
+; LPM_OUTDATA            ; REGISTERED     ; Untyped                                    ;
+; LPM_FILE               ; instrucoes.mif ; Untyped                                    ;
+; USE_EAB                ; ON             ; Untyped                                    ;
+; DEVICE_FAMILY          ; Stratix II     ; Untyped                                    ;
+; CBXI_PARAMETER         ; NOTHING        ; Untyped                                    ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                 ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                               ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                               ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                             ;
++------------------------+----------------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: iord:inst5             ;
++----------------+----------------------------------+-----------------+
+; Parameter Name ; Value                            ; Type            ;
++----------------+----------------------------------+-----------------+
+; D              ; 00000000000000000000000011111101 ; Unsigned Binary ;
+; E              ; 00000000000000000000000011111110 ; Unsigned Binary ;
+; F              ; 00000000000000000000000011111111 ; Unsigned Binary ;
++----------------+----------------------------------+-----------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -334,7 +585,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Full Version
-    Info: Processing started: Thu Oct 10 19:16:13 2019
+    Info: Processing started: Fri Oct 11 02:25:44 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off mipsHardware -c mipsHardware
 Info: Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info: Found 1 design units, including 1 entities, in source file memtoreg.sv
@@ -345,15 +596,14 @@ Info: Found 1 design units, including 1 entities, in source file schemehard.bdf
     Info: Found entity 1: schemeHard
 Info: Found 1 design units, including 1 entities, in source file regdst.sv
     Info: Found entity 1: regDST
-Info: Found 1 design units, including 1 entities, in source file iord.sv
-    Info: Found entity 1: iord
-Warning: Can't analyze file -- file pcRegister.vhd is missing
-Info: Found 2 design units, including 1 entities, in source file registrador.vhd
-    Info: Found design unit 1: Registrador-behavioral_arch
-    Info: Found entity 1: Registrador
 Info: Found 2 design units, including 1 entities, in source file banco_reg.vhd
     Info: Found design unit 1: Banco_reg-behavioral_arch
     Info: Found entity 1: Banco_reg
+Info: Found 1 design units, including 1 entities, in source file iord.sv
+    Info: Found entity 1: iord
+Info: Found 2 design units, including 1 entities, in source file registrador.vhd
+    Info: Found design unit 1: Registrador-behavioral_arch
+    Info: Found entity 1: Registrador
 Info: Found 2 design units, including 1 entities, in source file instr_reg.vhd
     Info: Found design unit 1: Instr_Reg-behavioral_arch
     Info: Found entity 1: Instr_Reg
@@ -377,119 +627,379 @@ Info: Found 1 design units, including 1 entities, in source file pcsource.sv
     Info: Found entity 1: pcSource
 Info: Found 1 design units, including 1 entities, in source file shiftleft2_2.sv
     Info: Found entity 1: shiftLeft2_2
-Info: Elaborating entity "unidadeControle" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at unidadeControle.sv(73): object "count" assigned a value but never read
-Warning (10272): Verilog HDL Case Statement warning at unidadeControle.sv(144): case item expression covers a value already covered by a previous case item
-Warning (10272): Verilog HDL Case Statement warning at unidadeControle.sv(231): case item expression covers a value already covered by a previous case item
-Info (10264): Verilog HDL Case Statement information at unidadeControle.sv(114): all case item expressions in this case statement are onehot
+Info: Elaborating entity "schemeHard" for the top level hierarchy
+Info: Elaborating entity "Instr_Reg" for hierarchy "Instr_Reg:inst4"
+Info: Elaborating entity "unidadeControle" for hierarchy "unidadeControle:inst17"
+Warning (10036): Verilog HDL or VHDL warning at unidadeControle.sv(85): object "count" assigned a value but never read
+Info: Elaborating entity "Ula32" for hierarchy "Ula32:inst3"
+Info: Elaborating entity "aluSrcA" for hierarchy "aluSrcA:inst"
+Warning (10270): Verilog HDL Case Statement warning at aluSrcA.sv(9): incomplete case statement has no default case item
+Warning (10240): Verilog HDL Always Construct warning at aluSrcA.sv(9): inferring latch(es) for variable "aluSrcAOut", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "aluSrcAOut[0]" at aluSrcA.sv(9)
+Info (10041): Inferred latch for "aluSrcAOut[1]" at aluSrcA.sv(9)
+Info (10041): Inferred latch for "aluSrcAOut[2]" at aluSrcA.sv(9)
+Info (10041): Inferred latch for "aluSrcAOut[3]" at aluSrcA.sv(9)
+Info (10041): Inferred latch for "aluSrcAOut[4]" at aluSrcA.sv(9)
+Info (10041): Inferred latch for "aluSrcAOut[5]" at aluSrcA.sv(9)
+Info (10041): Inferred latch for "aluSrcAOut[6]" at aluSrcA.sv(9)
+Info (10041): Inferred latch for "aluSrcAOut[7]" at aluSrcA.sv(9)
+Info (10041): Inferred latch for "aluSrcAOut[8]" at aluSrcA.sv(9)
+Info (10041): Inferred latch for "aluSrcAOut[9]" at aluSrcA.sv(9)
+Info (10041): Inferred latch for "aluSrcAOut[10]" at aluSrcA.sv(9)
+Info (10041): Inferred latch for "aluSrcAOut[11]" at aluSrcA.sv(9)
+Info (10041): Inferred latch for "aluSrcAOut[12]" at aluSrcA.sv(9)
+Info (10041): Inferred latch for "aluSrcAOut[13]" at aluSrcA.sv(9)
+Info (10041): Inferred latch for "aluSrcAOut[14]" at aluSrcA.sv(9)
+Info (10041): Inferred latch for "aluSrcAOut[15]" at aluSrcA.sv(9)
+Info (10041): Inferred latch for "aluSrcAOut[16]" at aluSrcA.sv(9)
+Info (10041): Inferred latch for "aluSrcAOut[17]" at aluSrcA.sv(9)
+Info (10041): Inferred latch for "aluSrcAOut[18]" at aluSrcA.sv(9)
+Info (10041): Inferred latch for "aluSrcAOut[19]" at aluSrcA.sv(9)
+Info (10041): Inferred latch for "aluSrcAOut[20]" at aluSrcA.sv(9)
+Info (10041): Inferred latch for "aluSrcAOut[21]" at aluSrcA.sv(9)
+Info (10041): Inferred latch for "aluSrcAOut[22]" at aluSrcA.sv(9)
+Info (10041): Inferred latch for "aluSrcAOut[23]" at aluSrcA.sv(9)
+Info (10041): Inferred latch for "aluSrcAOut[24]" at aluSrcA.sv(9)
+Info (10041): Inferred latch for "aluSrcAOut[25]" at aluSrcA.sv(9)
+Info (10041): Inferred latch for "aluSrcAOut[26]" at aluSrcA.sv(9)
+Info (10041): Inferred latch for "aluSrcAOut[27]" at aluSrcA.sv(9)
+Info (10041): Inferred latch for "aluSrcAOut[28]" at aluSrcA.sv(9)
+Info (10041): Inferred latch for "aluSrcAOut[29]" at aluSrcA.sv(9)
+Info (10041): Inferred latch for "aluSrcAOut[30]" at aluSrcA.sv(9)
+Info (10041): Inferred latch for "aluSrcAOut[31]" at aluSrcA.sv(9)
+Info: Elaborating entity "Registrador" for hierarchy "Registrador:PC"
+Info: Elaborating entity "pcSource" for hierarchy "pcSource:inst16"
+Info: Elaborating entity "Banco_reg" for hierarchy "Banco_reg:inst6"
+Info: Elaborating entity "memToReg" for hierarchy "memToReg:inst7"
+Warning (10270): Verilog HDL Case Statement warning at memToReg.sv(21): incomplete case statement has no default case item
+Warning (10240): Verilog HDL Always Construct warning at memToReg.sv(21): inferring latch(es) for variable "memToRegOut", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "memToRegOut[0]" at memToReg.sv(21)
+Info (10041): Inferred latch for "memToRegOut[1]" at memToReg.sv(21)
+Info (10041): Inferred latch for "memToRegOut[2]" at memToReg.sv(21)
+Info (10041): Inferred latch for "memToRegOut[3]" at memToReg.sv(21)
+Info (10041): Inferred latch for "memToRegOut[4]" at memToReg.sv(21)
+Info (10041): Inferred latch for "memToRegOut[5]" at memToReg.sv(21)
+Info (10041): Inferred latch for "memToRegOut[6]" at memToReg.sv(21)
+Info (10041): Inferred latch for "memToRegOut[7]" at memToReg.sv(21)
+Info (10041): Inferred latch for "memToRegOut[8]" at memToReg.sv(21)
+Info (10041): Inferred latch for "memToRegOut[9]" at memToReg.sv(21)
+Info (10041): Inferred latch for "memToRegOut[10]" at memToReg.sv(21)
+Info (10041): Inferred latch for "memToRegOut[11]" at memToReg.sv(21)
+Info (10041): Inferred latch for "memToRegOut[12]" at memToReg.sv(21)
+Info (10041): Inferred latch for "memToRegOut[13]" at memToReg.sv(21)
+Info (10041): Inferred latch for "memToRegOut[14]" at memToReg.sv(21)
+Info (10041): Inferred latch for "memToRegOut[15]" at memToReg.sv(21)
+Info (10041): Inferred latch for "memToRegOut[16]" at memToReg.sv(21)
+Info (10041): Inferred latch for "memToRegOut[17]" at memToReg.sv(21)
+Info (10041): Inferred latch for "memToRegOut[18]" at memToReg.sv(21)
+Info (10041): Inferred latch for "memToRegOut[19]" at memToReg.sv(21)
+Info (10041): Inferred latch for "memToRegOut[20]" at memToReg.sv(21)
+Info (10041): Inferred latch for "memToRegOut[21]" at memToReg.sv(21)
+Info (10041): Inferred latch for "memToRegOut[22]" at memToReg.sv(21)
+Info (10041): Inferred latch for "memToRegOut[23]" at memToReg.sv(21)
+Info (10041): Inferred latch for "memToRegOut[24]" at memToReg.sv(21)
+Info (10041): Inferred latch for "memToRegOut[25]" at memToReg.sv(21)
+Info (10041): Inferred latch for "memToRegOut[26]" at memToReg.sv(21)
+Info (10041): Inferred latch for "memToRegOut[27]" at memToReg.sv(21)
+Info (10041): Inferred latch for "memToRegOut[28]" at memToReg.sv(21)
+Info (10041): Inferred latch for "memToRegOut[29]" at memToReg.sv(21)
+Info (10041): Inferred latch for "memToRegOut[30]" at memToReg.sv(21)
+Info (10041): Inferred latch for "memToRegOut[31]" at memToReg.sv(21)
+Info: Elaborating entity "regDST" for hierarchy "regDST:inst9"
+Warning (10270): Verilog HDL Case Statement warning at regDST.sv(13): incomplete case statement has no default case item
+Warning (10240): Verilog HDL Always Construct warning at regDST.sv(13): inferring latch(es) for variable "regDSTOut", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "regDSTOut[0]" at regDST.sv(13)
+Info (10041): Inferred latch for "regDSTOut[1]" at regDST.sv(13)
+Info (10041): Inferred latch for "regDSTOut[2]" at regDST.sv(13)
+Info (10041): Inferred latch for "regDSTOut[3]" at regDST.sv(13)
+Info (10041): Inferred latch for "regDSTOut[4]" at regDST.sv(13)
+Info: Elaborating entity "aluSrcB" for hierarchy "aluSrcB:inst1"
+Info: Elaborating entity "shiftLeft2_2" for hierarchy "shiftLeft2_2:inst11"
+Info: Elaborating entity "signExtend16to32" for hierarchy "signExtend16to32:inst10"
+Info: Elaborating entity "Memoria" for hierarchy "Memoria:inst2"
+Info: Elaborating entity "LPM_RAM_DQ" for hierarchy "Memoria:inst2|LPM_RAM_DQ:MEM"
+Info: Elaborated megafunction instantiation "Memoria:inst2|LPM_RAM_DQ:MEM"
+Info: Instantiated megafunction "Memoria:inst2|LPM_RAM_DQ:MEM" with the following parameter:
+    Info: Parameter "LPM_WIDTH" = "8"
+    Info: Parameter "LPM_WIDTHAD" = "8"
+    Info: Parameter "LPM_NUMWORDS" = "0"
+    Info: Parameter "LPM_INDATA" = "REGISTERED"
+    Info: Parameter "LPM_ADDRESS_CONTROL" = "REGISTERED"
+    Info: Parameter "LPM_OUTDATA" = "REGISTERED"
+    Info: Parameter "LPM_FILE" = "instrucoes.mif"
+    Info: Parameter "LPM_TYPE" = "LPM_RAM_DQ"
+    Info: Parameter "USE_EAB" = "ON"
+    Info: Parameter "INTENDED_DEVICE_FAMILY" = "UNUSED"
+    Info: Parameter "LPM_HINT" = "UNUSED"
+Info: Elaborating entity "altram" for hierarchy "Memoria:inst2|LPM_RAM_DQ:MEM|altram:sram"
+Warning: Assertion warning: altram does not support Stratix II device family -- attempting best-case memory conversions, but power-up states and read during write behavior will be different for Stratix II devices
+Info: Elaborated megafunction instantiation "Memoria:inst2|LPM_RAM_DQ:MEM|altram:sram", which is child of megafunction instantiation "Memoria:inst2|LPM_RAM_DQ:MEM"
+Info: Elaborating entity "altsyncram" for hierarchy "Memoria:inst2|LPM_RAM_DQ:MEM|altram:sram|altsyncram:ram_block"
+Info: Elaborated megafunction instantiation "Memoria:inst2|LPM_RAM_DQ:MEM|altram:sram|altsyncram:ram_block", which is child of megafunction instantiation "Memoria:inst2|LPM_RAM_DQ:MEM"
+Info: Found 1 design units, including 1 entities, in source file db/altsyncram_g2a1.tdf
+    Info: Found entity 1: altsyncram_g2a1
+Info: Elaborating entity "altsyncram_g2a1" for hierarchy "Memoria:inst2|LPM_RAM_DQ:MEM|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated"
+Info: Elaborating entity "iord" for hierarchy "iord:inst5"
+Warning (10270): Verilog HDL Case Statement warning at iord.sv(15): incomplete case statement has no default case item
+Warning (10240): Verilog HDL Always Construct warning at iord.sv(15): inferring latch(es) for variable "iordOut", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "iordOut[0]" at iord.sv(15)
+Info (10041): Inferred latch for "iordOut[1]" at iord.sv(15)
+Info (10041): Inferred latch for "iordOut[2]" at iord.sv(15)
+Info (10041): Inferred latch for "iordOut[3]" at iord.sv(15)
+Info (10041): Inferred latch for "iordOut[4]" at iord.sv(15)
+Info (10041): Inferred latch for "iordOut[5]" at iord.sv(15)
+Info (10041): Inferred latch for "iordOut[6]" at iord.sv(15)
+Info (10041): Inferred latch for "iordOut[7]" at iord.sv(15)
+Info (10041): Inferred latch for "iordOut[8]" at iord.sv(15)
+Info (10041): Inferred latch for "iordOut[9]" at iord.sv(15)
+Info (10041): Inferred latch for "iordOut[10]" at iord.sv(15)
+Info (10041): Inferred latch for "iordOut[11]" at iord.sv(15)
+Info (10041): Inferred latch for "iordOut[12]" at iord.sv(15)
+Info (10041): Inferred latch for "iordOut[13]" at iord.sv(15)
+Info (10041): Inferred latch for "iordOut[14]" at iord.sv(15)
+Info (10041): Inferred latch for "iordOut[15]" at iord.sv(15)
+Info (10041): Inferred latch for "iordOut[16]" at iord.sv(15)
+Info (10041): Inferred latch for "iordOut[17]" at iord.sv(15)
+Info (10041): Inferred latch for "iordOut[18]" at iord.sv(15)
+Info (10041): Inferred latch for "iordOut[19]" at iord.sv(15)
+Info (10041): Inferred latch for "iordOut[20]" at iord.sv(15)
+Info (10041): Inferred latch for "iordOut[21]" at iord.sv(15)
+Info (10041): Inferred latch for "iordOut[22]" at iord.sv(15)
+Info (10041): Inferred latch for "iordOut[23]" at iord.sv(15)
+Info (10041): Inferred latch for "iordOut[24]" at iord.sv(15)
+Info (10041): Inferred latch for "iordOut[25]" at iord.sv(15)
+Info (10041): Inferred latch for "iordOut[26]" at iord.sv(15)
+Info (10041): Inferred latch for "iordOut[27]" at iord.sv(15)
+Info (10041): Inferred latch for "iordOut[28]" at iord.sv(15)
+Info (10041): Inferred latch for "iordOut[29]" at iord.sv(15)
+Info (10041): Inferred latch for "iordOut[30]" at iord.sv(15)
+Info (10041): Inferred latch for "iordOut[31]" at iord.sv(15)
+Warning: LATCH primitive "iord:inst5|iordOut[0]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[1]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[2]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[3]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[4]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[5]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[6]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[7]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[8]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[9]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[10]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[11]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[12]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[13]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[14]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[15]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[16]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[17]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[18]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[19]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[20]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[21]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[22]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[23]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[24]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[25]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[26]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[27]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[28]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[29]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[30]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[31]" is permanently enabled
+Warning: LATCH primitive "regDST:inst9|regDSTOut[0]" is permanently enabled
+Warning: LATCH primitive "regDST:inst9|regDSTOut[1]" is permanently enabled
+Warning: LATCH primitive "regDST:inst9|regDSTOut[2]" is permanently enabled
+Warning: LATCH primitive "regDST:inst9|regDSTOut[3]" is permanently enabled
+Warning: LATCH primitive "regDST:inst9|regDSTOut[4]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[0]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[1]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[2]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[3]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[4]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[5]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[6]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[7]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[8]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[9]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[10]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[11]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[12]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[13]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[14]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[15]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[16]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[17]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[18]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[19]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[20]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[21]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[22]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[23]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[24]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[25]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[26]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[27]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[28]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[29]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[30]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[31]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[0]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[1]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[2]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[3]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[4]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[5]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[6]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[7]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[8]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[9]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[10]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[11]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[12]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[13]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[14]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[15]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[16]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[17]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[18]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[19]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[20]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[21]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[22]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[23]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[24]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[25]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[26]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[27]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[28]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[29]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[30]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[31]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[0]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[1]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[2]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[3]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[4]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[5]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[6]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[7]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[8]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[9]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[10]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[11]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[12]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[13]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[14]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[15]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[16]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[17]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[18]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[19]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[20]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[21]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[22]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[23]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[24]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[25]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[26]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[27]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[28]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[29]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[30]" is permanently enabled
+Warning: LATCH primitive "iord:inst5|iordOut[31]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[0]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[1]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[2]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[3]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[4]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[5]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[6]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[7]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[8]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[9]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[10]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[11]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[12]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[13]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[14]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[15]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[16]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[17]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[18]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[19]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[20]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[21]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[22]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[23]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[24]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[25]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[26]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[27]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[28]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[29]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[30]" is permanently enabled
+Warning: LATCH primitive "memToReg:inst7|memToRegOut[31]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[0]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[1]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[2]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[3]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[4]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[5]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[6]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[7]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[8]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[9]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[10]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[11]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[12]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[13]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[14]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[15]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[16]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[17]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[18]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[19]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[20]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[21]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[22]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[23]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[24]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[25]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[26]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[27]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[28]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[29]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[30]" is permanently enabled
+Warning: LATCH primitive "aluSrcA:inst|aluSrcAOut[31]" is permanently enabled
+Warning: LATCH primitive "regDST:inst9|regDSTOut[0]" is permanently enabled
+Warning: LATCH primitive "regDST:inst9|regDSTOut[1]" is permanently enabled
+Warning: LATCH primitive "regDST:inst9|regDSTOut[2]" is permanently enabled
+Warning: LATCH primitive "regDST:inst9|regDSTOut[3]" is permanently enabled
+Warning: LATCH primitive "regDST:inst9|regDSTOut[4]" is permanently enabled
 Warning: Output pins are stuck at VCC or GND
-    Warning (13410): Pin "epcwrite" is stuck at GND
-    Warning (13410): Pin "irwrite" is stuck at GND
-    Warning (13410): Pin "memwrite" is stuck at GND
-    Warning (13410): Pin "pcwrite" is stuck at GND
-    Warning (13410): Pin "pcwritecond" is stuck at GND
-    Warning (13410): Pin "alucontrol[1]" is stuck at GND
-    Warning (13410): Pin "alucontrol[2]" is stuck at GND
-    Warning (13410): Pin "aluoutwrite" is stuck at GND
-    Warning (13410): Pin "hiwrite" is stuck at GND
-    Warning (13410): Pin "lowrite" is stuck at GND
-    Warning (13410): Pin "divby0" is stuck at GND
-    Warning (13410): Pin "xchgctrl" is stuck at GND
-    Warning (13410): Pin "shiftcontrol" is stuck at GND
-    Warning (13410): Pin "sscontrol[0]" is stuck at GND
-    Warning (13410): Pin "sscontrol[1]" is stuck at GND
-    Warning (13410): Pin "lscontrol[0]" is stuck at GND
-    Warning (13410): Pin "lscontrol[1]" is stuck at GND
-    Warning (13410): Pin "iordmux[0]" is stuck at GND
-    Warning (13410): Pin "iordmux[1]" is stuck at GND
-    Warning (13410): Pin "iordmux[2]" is stuck at GND
-    Warning (13410): Pin "muxhi" is stuck at GND
-    Warning (13410): Pin "muxlo" is stuck at GND
-    Warning (13410): Pin "muxshiftsrca" is stuck at GND
-    Warning (13410): Pin "muxshiftsrcb" is stuck at GND
-    Warning (13410): Pin "muxregdst[0]" is stuck at GND
-    Warning (13410): Pin "muxregdst[1]" is stuck at VCC
-    Warning (13410): Pin "muxregdst[2]" is stuck at GND
-    Warning (13410): Pin "muxmemtoreg[0]" is stuck at VCC
-    Warning (13410): Pin "muxmemtoreg[1]" is stuck at GND
-    Warning (13410): Pin "muxmemtoreg[2]" is stuck at GND
-    Warning (13410): Pin "muxmemtoreg[3]" is stuck at VCC
-    Warning (13410): Pin "muxxxchgctrl" is stuck at GND
-    Warning (13410): Pin "muxalusrca[0]" is stuck at GND
-    Warning (13410): Pin "muxalusrca[1]" is stuck at GND
-    Warning (13410): Pin "muxalusrcb[1]" is stuck at GND
-    Warning (13410): Pin "muxpcsource[0]" is stuck at GND
-    Warning (13410): Pin "muxpcsource[1]" is stuck at GND
-Info: 9 registers lost all their fanouts during netlist optimizations. The first 9 are displayed below.
-    Info: Register "state.fetch3" lost all its fanouts during netlist optimizations.
-    Info: Register "state.decode" lost all its fanouts during netlist optimizations.
-    Info: Register "state~2" lost all its fanouts during netlist optimizations.
-    Info: Register "state~4" lost all its fanouts during netlist optimizations.
-    Info: Register "state~5" lost all its fanouts during netlist optimizations.
-    Info: Register "state~6" lost all its fanouts during netlist optimizations.
-    Info: Register "state~7" lost all its fanouts during netlist optimizations.
-    Info: Register "state~8" lost all its fanouts during netlist optimizations.
-    Info: Register "state.decode2" lost all its fanouts during netlist optimizations.
-Warning: Ignored assignments for entity "Registrador" -- entity does not exist in design
-    Warning: Assignment for entity set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity Registrador -section_id Top was ignored
-    Warning: Assignment for entity set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity Registrador -section_id Top was ignored
-    Warning: Assignment for entity set_global_assignment -name PARTITION_COLOR 16764057 -entity Registrador -section_id Top was ignored
-    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_ASSIGNMENTS ON -entity Registrador -section_id Top was ignored
-    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_ASSIGNMENTS REPLACE_CONFLICTING -entity Registrador -section_id Top was ignored
-    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_LOGICLOCK_REGIONS REPLACE_CONFLICTING -entity Registrador -section_id Top was ignored
-    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_PIN_ASSIGNMENTS ON -entity Registrador -section_id Top was ignored
-    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_PROMOTE_ASSIGNMENTS ON -entity Registrador -section_id Top was ignored
-    Warning: Assignment for entity set_global_assignment -name PARTITION_TYPE STANDARD_PARTITION -entity Registrador -section_id Top was ignored
-Warning: Ignored assignments for entity "aluSrcA" -- entity does not exist in design
-    Warning: Assignment for entity set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity aluSrcA -section_id Top was ignored
-    Warning: Assignment for entity set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity aluSrcA -section_id Top was ignored
-    Warning: Assignment for entity set_global_assignment -name PARTITION_COLOR 16764057 -entity aluSrcA -section_id Top was ignored
-    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_ASSIGNMENTS ON -entity aluSrcA -section_id Top was ignored
-    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_ASSIGNMENTS REPLACE_CONFLICTING -entity aluSrcA -section_id Top was ignored
-    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_LOGICLOCK_REGIONS REPLACE_CONFLICTING -entity aluSrcA -section_id Top was ignored
-    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_PIN_ASSIGNMENTS ON -entity aluSrcA -section_id Top was ignored
-    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_PROMOTE_ASSIGNMENTS ON -entity aluSrcA -section_id Top was ignored
-    Warning: Assignment for entity set_global_assignment -name PARTITION_TYPE STANDARD_PARTITION -entity aluSrcA -section_id Top was ignored
-Warning: Ignored assignments for entity "aluSrcB" -- entity does not exist in design
-    Warning: Assignment for entity set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity aluSrcB -section_id Top was ignored
-    Warning: Assignment for entity set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity aluSrcB -section_id Top was ignored
-    Warning: Assignment for entity set_global_assignment -name PARTITION_COLOR 16764057 -entity aluSrcB -section_id Top was ignored
-    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_ASSIGNMENTS ON -entity aluSrcB -section_id Top was ignored
-    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_ASSIGNMENTS REPLACE_CONFLICTING -entity aluSrcB -section_id Top was ignored
-    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_LOGICLOCK_REGIONS REPLACE_CONFLICTING -entity aluSrcB -section_id Top was ignored
-    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_PIN_ASSIGNMENTS ON -entity aluSrcB -section_id Top was ignored
-    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_PROMOTE_ASSIGNMENTS ON -entity aluSrcB -section_id Top was ignored
-    Warning: Assignment for entity set_global_assignment -name PARTITION_TYPE STANDARD_PARTITION -entity aluSrcB -section_id Top was ignored
+    Warning (13410): Pin "stateOut[5]" is stuck at GND
+    Warning (13410): Pin "stateOut[4]" is stuck at GND
+    Warning (13410): Pin "stateOut[3]" is stuck at GND
+Info: 7 registers lost all their fanouts during netlist optimizations. The first 7 are displayed below.
+    Info: Register "unidadeControle:inst17|state~11" lost all its fanouts during netlist optimizations.
+    Info: Register "unidadeControle:inst17|state~12" lost all its fanouts during netlist optimizations.
+    Info: Register "unidadeControle:inst17|state~13" lost all its fanouts during netlist optimizations.
+    Info: Register "unidadeControle:inst17|state~14" lost all its fanouts during netlist optimizations.
+    Info: Register "unidadeControle:inst17|state~15" lost all its fanouts during netlist optimizations.
+    Info: Register "unidadeControle:inst17|state~16" lost all its fanouts during netlist optimizations.
+    Info: Register "unidadeControle:inst17|state~17" lost all its fanouts during netlist optimizations.
 Warning: Ignored assignments for entity "mipsHardware" -- entity does not exist in design
     Warning: Assignment for entity set_global_assignment -name LL_ROOT_REGION ON -entity mipsHardware -section_id "Root Region" was ignored
     Warning: Assignment for entity set_global_assignment -name LL_MEMBER_STATE LOCKED -entity mipsHardware -section_id "Root Region" was ignored
-Warning: Design contains 18 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "funct[0]"
-    Warning (15610): No output dependent on input pin "funct[1]"
-    Warning (15610): No output dependent on input pin "funct[2]"
-    Warning (15610): No output dependent on input pin "funct[3]"
-    Warning (15610): No output dependent on input pin "funct[4]"
-    Warning (15610): No output dependent on input pin "funct[5]"
-    Warning (15610): No output dependent on input pin "opcode[0]"
-    Warning (15610): No output dependent on input pin "opcode[1]"
-    Warning (15610): No output dependent on input pin "opcode[2]"
-    Warning (15610): No output dependent on input pin "opcode[3]"
-    Warning (15610): No output dependent on input pin "opcode[4]"
-    Warning (15610): No output dependent on input pin "opcode[5]"
-    Warning (15610): No output dependent on input pin "Overflow"
-    Warning (15610): No output dependent on input pin "Negativo"
-    Warning (15610): No output dependent on input pin "z"
-    Warning (15610): No output dependent on input pin "Igual"
-    Warning (15610): No output dependent on input pin "Maior"
-    Warning (15610): No output dependent on input pin "Menor"
-Info: Implemented 62 device resources after synthesis - the final resource count might be different
-    Info: Implemented 20 input pins
-    Info: Implemented 40 output pins
-    Info: Implemented 2 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 94 warnings
-    Info: Peak virtual memory: 4467 megabytes
-    Info: Processing ended: Thu Oct 10 19:16:15 2019
-    Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:01
+Info: Implemented 2229 device resources after synthesis - the final resource count might be different
+    Info: Implemented 2 input pins
+    Info: Implemented 98 output pins
+    Info: Implemented 2097 logic cells
+    Info: Implemented 32 RAM segments
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 219 warnings
+    Info: Peak virtual memory: 4519 megabytes
+    Info: Processing ended: Fri Oct 11 02:25:50 2019
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:08
 
 

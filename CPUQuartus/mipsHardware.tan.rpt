@@ -1,5 +1,5 @@
 Classic Timing Analyzer report for mipsHardware
-Thu Oct 10 19:16:28 2019
+Fri Oct 11 02:26:01 2019
 Quartus II 64-Bit Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Full Version
 
 
@@ -11,10 +11,11 @@ Quartus II 64-Bit Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Full Versio
   3. Timing Analyzer Settings
   4. Clock Settings Summary
   5. Parallel Compilation
-  6. tsu
-  7. tco
-  8. th
-  9. Timing Analyzer Messages
+  6. Clock Setup: 'clk'
+  7. tsu
+  8. tco
+  9. th
+ 10. Timing Analyzer Messages
 
 
 
@@ -37,16 +38,17 @@ applicable agreement for further details.
 
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------+
-; Timing Analyzer Summary                                                                                                                        ;
-+------------------------------+-------+---------------+-------------+---------------+--------------------+------------+----------+--------------+
-; Type                         ; Slack ; Required Time ; Actual Time ; From          ; To                 ; From Clock ; To Clock ; Failed Paths ;
-+------------------------------+-------+---------------+-------------+---------------+--------------------+------------+----------+--------------+
-; Worst-case tsu               ; N/A   ; None          ; 3.262 ns    ; reset         ; muxalusrcb[0]~reg0 ; --         ; clk      ; 0            ;
-; Worst-case tco               ; N/A   ; None          ; 5.589 ns    ; regwrite~reg0 ; regwrite           ; clk        ; --       ; 0            ;
-; Worst-case th                ; N/A   ; None          ; -3.022 ns   ; reset         ; regwrite~reg0      ; --         ; clk      ; 0            ;
-; Total number of failed paths ;       ;               ;             ;               ;                    ;            ;          ; 0            ;
-+------------------------------+-------+---------------+-------------+---------------+--------------------+------------+----------+--------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                                                                    ;
++------------------------------+-------+---------------+----------------------------------+--------------------------------------+------------------------------------+------------+----------+--------------+
+; Type                         ; Slack ; Required Time ; Actual Time                      ; From                                 ; To                                 ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+-------+---------------+----------------------------------+--------------------------------------+------------------------------------+------------+----------+--------------+
+; Worst-case tsu               ; N/A   ; None          ; 4.674 ns                         ; reset                                ; unidadeControle:inst17|functOut[3] ; --         ; clk      ; 0            ;
+; Worst-case tco               ; N/A   ; None          ; 7.442 ns                         ; Registrador:PC|Saida[4]              ; IORDout[4]                         ; clk        ; --       ; 0            ;
+; Worst-case th                ; N/A   ; None          ; -2.855 ns                        ; reset                                ; unidadeControle:inst17|regwrite    ; --         ; clk      ; 0            ;
+; Clock Setup: 'clk'           ; N/A   ; None          ; 121.02 MHz ( period = 8.263 ns ) ; unidadeControle:inst17|muxalusrcb[0] ; Registrador:PC|Saida[31]           ; clk        ; clk      ; 0            ;
+; Total number of failed paths ;       ;               ;                                  ;                                      ;                                    ;            ;          ; 0            ;
++------------------------------+-------+---------------+----------------------------------+--------------------------------------+------------------------------------+------------+----------+--------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -107,35 +109,392 @@ applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------+
-; tsu                                                                       ;
-+-------+--------------+------------+-------+--------------------+----------+
-; Slack ; Required tsu ; Actual tsu ; From  ; To                 ; To Clock ;
-+-------+--------------+------------+-------+--------------------+----------+
-; N/A   ; None         ; 3.262 ns   ; reset ; muxalusrcb[0]~reg0 ; clk      ;
-; N/A   ; None         ; 3.261 ns   ; reset ; regwrite~reg0      ; clk      ;
-+-------+--------------+------------+-------+--------------------+----------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'clk'                                                                                                                                                                                                                                                              ;
++-----------------------------------------+-----------------------------------------------------+--------------------------------------+------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack                                   ; Actual fmax (period)                                ; From                                 ; To                           ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-----------------------------------------+-----------------------------------------------------+--------------------------------------+------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A                                     ; 121.02 MHz ( period = 8.263 ns )                    ; unidadeControle:inst17|muxalusrcb[0] ; Registrador:PC|Saida[31]     ; clk        ; clk      ; None                        ; None                      ; 8.061 ns                ;
+; N/A                                     ; 121.09 MHz ( period = 8.258 ns )                    ; unidadeControle:inst17|muxalusrcb[0] ; Registrador:AluOut|Saida[30] ; clk        ; clk      ; None                        ; None                      ; 8.056 ns                ;
+; N/A                                     ; 121.42 MHz ( period = 8.236 ns )                    ; unidadeControle:inst17|alucontrol[0] ; Registrador:PC|Saida[31]     ; clk        ; clk      ; None                        ; None                      ; 8.034 ns                ;
+; N/A                                     ; 121.49 MHz ( period = 8.231 ns )                    ; unidadeControle:inst17|alucontrol[0] ; Registrador:AluOut|Saida[30] ; clk        ; clk      ; None                        ; None                      ; 8.029 ns                ;
+; N/A                                     ; 121.54 MHz ( period = 8.228 ns )                    ; unidadeControle:inst17|muxalusrcb[1] ; Registrador:PC|Saida[31]     ; clk        ; clk      ; None                        ; None                      ; 8.029 ns                ;
+; N/A                                     ; 121.61 MHz ( period = 8.223 ns )                    ; unidadeControle:inst17|muxalusrcb[1] ; Registrador:AluOut|Saida[30] ; clk        ; clk      ; None                        ; None                      ; 8.024 ns                ;
+; N/A                                     ; 122.17 MHz ( period = 8.185 ns )                    ; unidadeControle:inst17|alucontrol[1] ; Registrador:PC|Saida[31]     ; clk        ; clk      ; None                        ; None                      ; 7.982 ns                ;
+; N/A                                     ; 122.25 MHz ( period = 8.180 ns )                    ; unidadeControle:inst17|alucontrol[1] ; Registrador:AluOut|Saida[30] ; clk        ; clk      ; None                        ; None                      ; 7.977 ns                ;
+; N/A                                     ; 124.36 MHz ( period = 8.041 ns )                    ; unidadeControle:inst17|muxalusrca[0] ; Registrador:PC|Saida[31]     ; clk        ; clk      ; None                        ; None                      ; 7.842 ns                ;
+; N/A                                     ; 124.44 MHz ( period = 8.036 ns )                    ; unidadeControle:inst17|muxalusrca[0] ; Registrador:AluOut|Saida[30] ; clk        ; clk      ; None                        ; None                      ; 7.837 ns                ;
+; N/A                                     ; 125.34 MHz ( period = 7.978 ns )                    ; unidadeControle:inst17|muxalusrcb[0] ; Registrador:AluOut|Saida[29] ; clk        ; clk      ; None                        ; None                      ; 7.780 ns                ;
+; N/A                                     ; 125.38 MHz ( period = 7.976 ns )                    ; Instr_Reg:inst4|Instr15_0[3]         ; Registrador:PC|Saida[31]     ; clk        ; clk      ; None                        ; None                      ; 7.780 ns                ;
+; N/A                                     ; 125.44 MHz ( period = 7.972 ns )                    ; unidadeControle:inst17|muxalusrcb[0] ; Registrador:PC|Saida[28]     ; clk        ; clk      ; None                        ; None                      ; 7.774 ns                ;
+; N/A                                     ; 125.44 MHz ( period = 7.972 ns )                    ; Registrador:B|Saida[0]               ; Registrador:PC|Saida[31]     ; clk        ; clk      ; None                        ; None                      ; 7.774 ns                ;
+; N/A                                     ; 125.45 MHz ( period = 7.971 ns )                    ; Instr_Reg:inst4|Instr15_0[3]         ; Registrador:AluOut|Saida[30] ; clk        ; clk      ; None                        ; None                      ; 7.775 ns                ;
+; N/A                                     ; 125.52 MHz ( period = 7.967 ns )                    ; Registrador:B|Saida[0]               ; Registrador:AluOut|Saida[30] ; clk        ; clk      ; None                        ; None                      ; 7.769 ns                ;
+; N/A                                     ; 125.64 MHz ( period = 7.959 ns )                    ; Instr_Reg:inst4|Instr15_0[0]         ; Registrador:PC|Saida[31]     ; clk        ; clk      ; None                        ; None                      ; 7.763 ns                ;
+; N/A                                     ; 125.72 MHz ( period = 7.954 ns )                    ; Instr_Reg:inst4|Instr15_0[0]         ; Registrador:AluOut|Saida[30] ; clk        ; clk      ; None                        ; None                      ; 7.758 ns                ;
+; N/A                                     ; 125.77 MHz ( period = 7.951 ns )                    ; unidadeControle:inst17|alucontrol[0] ; Registrador:AluOut|Saida[29] ; clk        ; clk      ; None                        ; None                      ; 7.753 ns                ;
+; N/A                                     ; 125.79 MHz ( period = 7.950 ns )                    ; Instr_Reg:inst4|Instr15_0[1]         ; Registrador:PC|Saida[31]     ; clk        ; clk      ; None                        ; None                      ; 7.754 ns                ;
+; N/A                                     ; 125.87 MHz ( period = 7.945 ns )                    ; Instr_Reg:inst4|Instr15_0[1]         ; Registrador:AluOut|Saida[30] ; clk        ; clk      ; None                        ; None                      ; 7.749 ns                ;
+; N/A                                     ; 125.87 MHz ( period = 7.945 ns )                    ; unidadeControle:inst17|alucontrol[0] ; Registrador:PC|Saida[28]     ; clk        ; clk      ; None                        ; None                      ; 7.747 ns                ;
+; N/A                                     ; 125.90 MHz ( period = 7.943 ns )                    ; unidadeControle:inst17|muxalusrcb[1] ; Registrador:AluOut|Saida[29] ; clk        ; clk      ; None                        ; None                      ; 7.748 ns                ;
+; N/A                                     ; 125.99 MHz ( period = 7.937 ns )                    ; unidadeControle:inst17|muxalusrcb[1] ; Registrador:PC|Saida[28]     ; clk        ; clk      ; None                        ; None                      ; 7.742 ns                ;
+; N/A                                     ; 126.09 MHz ( period = 7.931 ns )                    ; unidadeControle:inst17|muxalusrcb[0] ; Registrador:AluOut|Saida[26] ; clk        ; clk      ; None                        ; None                      ; 7.736 ns                ;
+; N/A                                     ; 126.14 MHz ( period = 7.928 ns )                    ; unidadeControle:inst17|muxalusrcb[0] ; Registrador:AluOut|Saida[27] ; clk        ; clk      ; None                        ; None                      ; 7.733 ns                ;
+; N/A                                     ; 126.28 MHz ( period = 7.919 ns )                    ; unidadeControle:inst17|muxalusrcb[0] ; Registrador:PC|Saida[24]     ; clk        ; clk      ; None                        ; None                      ; 7.719 ns                ;
+; N/A                                     ; 126.52 MHz ( period = 7.904 ns )                    ; unidadeControle:inst17|alucontrol[0] ; Registrador:AluOut|Saida[26] ; clk        ; clk      ; None                        ; None                      ; 7.709 ns                ;
+; N/A                                     ; 126.57 MHz ( period = 7.901 ns )                    ; unidadeControle:inst17|alucontrol[0] ; Registrador:AluOut|Saida[27] ; clk        ; clk      ; None                        ; None                      ; 7.706 ns                ;
+; N/A                                     ; 126.58 MHz ( period = 7.900 ns )                    ; unidadeControle:inst17|alucontrol[1] ; Registrador:AluOut|Saida[29] ; clk        ; clk      ; None                        ; None                      ; 7.701 ns                ;
+; N/A                                     ; 126.65 MHz ( period = 7.896 ns )                    ; unidadeControle:inst17|muxalusrcb[1] ; Registrador:AluOut|Saida[26] ; clk        ; clk      ; None                        ; None                      ; 7.704 ns                ;
+; N/A                                     ; 126.68 MHz ( period = 7.894 ns )                    ; unidadeControle:inst17|alucontrol[1] ; Registrador:PC|Saida[28]     ; clk        ; clk      ; None                        ; None                      ; 7.695 ns                ;
+; N/A                                     ; 126.69 MHz ( period = 7.893 ns )                    ; unidadeControle:inst17|muxalusrcb[0] ; Registrador:PC|Saida[30]     ; clk        ; clk      ; None                        ; None                      ; 7.691 ns                ;
+; N/A                                     ; 126.69 MHz ( period = 7.893 ns )                    ; unidadeControle:inst17|muxalusrcb[1] ; Registrador:AluOut|Saida[27] ; clk        ; clk      ; None                        ; None                      ; 7.701 ns                ;
+; N/A                                     ; 126.71 MHz ( period = 7.892 ns )                    ; unidadeControle:inst17|alucontrol[0] ; Registrador:PC|Saida[24]     ; clk        ; clk      ; None                        ; None                      ; 7.692 ns                ;
+; N/A                                     ; 126.74 MHz ( period = 7.890 ns )                    ; unidadeControle:inst17|muxalusrcb[0] ; Registrador:AluOut|Saida[31] ; clk        ; clk      ; None                        ; None                      ; 7.688 ns                ;
+; N/A                                     ; 126.84 MHz ( period = 7.884 ns )                    ; unidadeControle:inst17|muxalusrcb[1] ; Registrador:PC|Saida[24]     ; clk        ; clk      ; None                        ; None                      ; 7.687 ns                ;
+; N/A                                     ; 127.06 MHz ( period = 7.870 ns )                    ; Registrador:B|Saida[1]               ; Registrador:PC|Saida[31]     ; clk        ; clk      ; None                        ; None                      ; 7.672 ns                ;
+; N/A                                     ; 127.08 MHz ( period = 7.869 ns )                    ; Registrador:A|Saida[0]               ; Registrador:PC|Saida[31]     ; clk        ; clk      ; None                        ; None                      ; 7.669 ns                ;
+; N/A                                     ; 127.13 MHz ( period = 7.866 ns )                    ; unidadeControle:inst17|alucontrol[0] ; Registrador:PC|Saida[30]     ; clk        ; clk      ; None                        ; None                      ; 7.664 ns                ;
+; N/A                                     ; 127.15 MHz ( period = 7.865 ns )                    ; Registrador:B|Saida[1]               ; Registrador:AluOut|Saida[30] ; clk        ; clk      ; None                        ; None                      ; 7.667 ns                ;
+; N/A                                     ; 127.16 MHz ( period = 7.864 ns )                    ; Registrador:A|Saida[0]               ; Registrador:AluOut|Saida[30] ; clk        ; clk      ; None                        ; None                      ; 7.664 ns                ;
+; N/A                                     ; 127.18 MHz ( period = 7.863 ns )                    ; unidadeControle:inst17|alucontrol[0] ; Registrador:AluOut|Saida[31] ; clk        ; clk      ; None                        ; None                      ; 7.661 ns                ;
+; N/A                                     ; 127.26 MHz ( period = 7.858 ns )                    ; unidadeControle:inst17|muxalusrcb[1] ; Registrador:PC|Saida[30]     ; clk        ; clk      ; None                        ; None                      ; 7.659 ns                ;
+; N/A                                     ; 127.31 MHz ( period = 7.855 ns )                    ; unidadeControle:inst17|muxalusrcb[1] ; Registrador:AluOut|Saida[31] ; clk        ; clk      ; None                        ; None                      ; 7.656 ns                ;
+; N/A                                     ; 127.34 MHz ( period = 7.853 ns )                    ; unidadeControle:inst17|alucontrol[1] ; Registrador:AluOut|Saida[26] ; clk        ; clk      ; None                        ; None                      ; 7.657 ns                ;
+; N/A                                     ; 127.39 MHz ( period = 7.850 ns )                    ; unidadeControle:inst17|alucontrol[1] ; Registrador:AluOut|Saida[27] ; clk        ; clk      ; None                        ; None                      ; 7.654 ns                ;
+; N/A                                     ; 127.53 MHz ( period = 7.841 ns )                    ; unidadeControle:inst17|alucontrol[1] ; Registrador:PC|Saida[24]     ; clk        ; clk      ; None                        ; None                      ; 7.640 ns                ;
+; N/A                                     ; 127.60 MHz ( period = 7.837 ns )                    ; Instr_Reg:inst4|Instr15_0[2]         ; Registrador:PC|Saida[31]     ; clk        ; clk      ; None                        ; None                      ; 7.641 ns                ;
+; N/A                                     ; 127.68 MHz ( period = 7.832 ns )                    ; Instr_Reg:inst4|Instr15_0[2]         ; Registrador:AluOut|Saida[30] ; clk        ; clk      ; None                        ; None                      ; 7.636 ns                ;
+; N/A                                     ; 127.88 MHz ( period = 7.820 ns )                    ; Registrador:PC|Saida[2]              ; Registrador:PC|Saida[31]     ; clk        ; clk      ; None                        ; None                      ; 7.619 ns                ;
+; N/A                                     ; 127.96 MHz ( period = 7.815 ns )                    ; Registrador:PC|Saida[2]              ; Registrador:AluOut|Saida[30] ; clk        ; clk      ; None                        ; None                      ; 7.614 ns                ;
+; N/A                                     ; 127.96 MHz ( period = 7.815 ns )                    ; unidadeControle:inst17|alucontrol[1] ; Registrador:PC|Saida[30]     ; clk        ; clk      ; None                        ; None                      ; 7.612 ns                ;
+; N/A                                     ; 128.01 MHz ( period = 7.812 ns )                    ; unidadeControle:inst17|alucontrol[1] ; Registrador:AluOut|Saida[31] ; clk        ; clk      ; None                        ; None                      ; 7.609 ns                ;
+; N/A                                     ; 128.57 MHz ( period = 7.778 ns )                    ; Registrador:A|Saida[1]               ; Registrador:PC|Saida[31]     ; clk        ; clk      ; None                        ; None                      ; 7.580 ns                ;
+; N/A                                     ; 128.65 MHz ( period = 7.773 ns )                    ; Registrador:A|Saida[1]               ; Registrador:AluOut|Saida[30] ; clk        ; clk      ; None                        ; None                      ; 7.575 ns                ;
+; N/A                                     ; 128.93 MHz ( period = 7.756 ns )                    ; unidadeControle:inst17|muxalusrca[0] ; Registrador:AluOut|Saida[29] ; clk        ; clk      ; None                        ; None                      ; 7.561 ns                ;
+; N/A                                     ; 129.03 MHz ( period = 7.750 ns )                    ; unidadeControle:inst17|muxalusrca[0] ; Registrador:PC|Saida[28]     ; clk        ; clk      ; None                        ; None                      ; 7.555 ns                ;
+; N/A                                     ; 129.72 MHz ( period = 7.709 ns )                    ; unidadeControle:inst17|muxalusrca[0] ; Registrador:AluOut|Saida[26] ; clk        ; clk      ; None                        ; None                      ; 7.517 ns                ;
+; N/A                                     ; 129.75 MHz ( period = 7.707 ns )                    ; Registrador:PC|Saida[1]              ; Registrador:PC|Saida[31]     ; clk        ; clk      ; None                        ; None                      ; 7.509 ns                ;
+; N/A                                     ; 129.77 MHz ( period = 7.706 ns )                    ; unidadeControle:inst17|muxalusrca[0] ; Registrador:AluOut|Saida[27] ; clk        ; clk      ; None                        ; None                      ; 7.514 ns                ;
+; N/A                                     ; 129.84 MHz ( period = 7.702 ns )                    ; Registrador:PC|Saida[1]              ; Registrador:AluOut|Saida[30] ; clk        ; clk      ; None                        ; None                      ; 7.504 ns                ;
+; N/A                                     ; 129.92 MHz ( period = 7.697 ns )                    ; unidadeControle:inst17|muxalusrca[0] ; Registrador:PC|Saida[24]     ; clk        ; clk      ; None                        ; None                      ; 7.500 ns                ;
+; N/A                                     ; 130.02 MHz ( period = 7.691 ns )                    ; Instr_Reg:inst4|Instr15_0[3]         ; Registrador:AluOut|Saida[29] ; clk        ; clk      ; None                        ; None                      ; 7.499 ns                ;
+; N/A                                     ; 130.09 MHz ( period = 7.687 ns )                    ; Registrador:B|Saida[0]               ; Registrador:AluOut|Saida[29] ; clk        ; clk      ; None                        ; None                      ; 7.493 ns                ;
+; N/A                                     ; 130.12 MHz ( period = 7.685 ns )                    ; Instr_Reg:inst4|Instr15_0[3]         ; Registrador:PC|Saida[28]     ; clk        ; clk      ; None                        ; None                      ; 7.493 ns                ;
+; N/A                                     ; 130.19 MHz ( period = 7.681 ns )                    ; Registrador:B|Saida[0]               ; Registrador:PC|Saida[28]     ; clk        ; clk      ; None                        ; None                      ; 7.487 ns                ;
+; N/A                                     ; 130.23 MHz ( period = 7.679 ns )                    ; Registrador:A|Saida[2]               ; Registrador:PC|Saida[31]     ; clk        ; clk      ; None                        ; None                      ; 7.478 ns                ;
+; N/A                                     ; 130.31 MHz ( period = 7.674 ns )                    ; Registrador:A|Saida[2]               ; Registrador:AluOut|Saida[30] ; clk        ; clk      ; None                        ; None                      ; 7.473 ns                ;
+; N/A                                     ; 130.31 MHz ( period = 7.674 ns )                    ; Instr_Reg:inst4|Instr15_0[0]         ; Registrador:AluOut|Saida[29] ; clk        ; clk      ; None                        ; None                      ; 7.482 ns                ;
+; N/A                                     ; 130.36 MHz ( period = 7.671 ns )                    ; unidadeControle:inst17|muxalusrca[0] ; Registrador:PC|Saida[30]     ; clk        ; clk      ; None                        ; None                      ; 7.472 ns                ;
+; N/A                                     ; 130.41 MHz ( period = 7.668 ns )                    ; Instr_Reg:inst4|Instr15_0[0]         ; Registrador:PC|Saida[28]     ; clk        ; clk      ; None                        ; None                      ; 7.476 ns                ;
+; N/A                                     ; 130.41 MHz ( period = 7.668 ns )                    ; unidadeControle:inst17|muxalusrca[0] ; Registrador:AluOut|Saida[31] ; clk        ; clk      ; None                        ; None                      ; 7.469 ns                ;
+; N/A                                     ; 130.46 MHz ( period = 7.665 ns )                    ; Instr_Reg:inst4|Instr15_0[1]         ; Registrador:AluOut|Saida[29] ; clk        ; clk      ; None                        ; None                      ; 7.473 ns                ;
+; N/A                                     ; 130.57 MHz ( period = 7.659 ns )                    ; Instr_Reg:inst4|Instr15_0[1]         ; Registrador:PC|Saida[28]     ; clk        ; clk      ; None                        ; None                      ; 7.467 ns                ;
+; N/A                                     ; 130.82 MHz ( period = 7.644 ns )                    ; Instr_Reg:inst4|Instr15_0[3]         ; Registrador:AluOut|Saida[26] ; clk        ; clk      ; None                        ; None                      ; 7.455 ns                ;
+; N/A                                     ; 130.87 MHz ( period = 7.641 ns )                    ; Instr_Reg:inst4|Instr15_0[3]         ; Registrador:AluOut|Saida[27] ; clk        ; clk      ; None                        ; None                      ; 7.452 ns                ;
+; N/A                                     ; 130.89 MHz ( period = 7.640 ns )                    ; Registrador:B|Saida[0]               ; Registrador:AluOut|Saida[26] ; clk        ; clk      ; None                        ; None                      ; 7.449 ns                ;
+; N/A                                     ; 130.94 MHz ( period = 7.637 ns )                    ; Registrador:B|Saida[0]               ; Registrador:AluOut|Saida[27] ; clk        ; clk      ; None                        ; None                      ; 7.446 ns                ;
+; N/A                                     ; 131.03 MHz ( period = 7.632 ns )                    ; Instr_Reg:inst4|Instr15_0[3]         ; Registrador:PC|Saida[24]     ; clk        ; clk      ; None                        ; None                      ; 7.438 ns                ;
+; N/A                                     ; 131.10 MHz ( period = 7.628 ns )                    ; Registrador:B|Saida[0]               ; Registrador:PC|Saida[24]     ; clk        ; clk      ; None                        ; None                      ; 7.432 ns                ;
+; N/A                                     ; 131.11 MHz ( period = 7.627 ns )                    ; Instr_Reg:inst4|Instr15_0[0]         ; Registrador:AluOut|Saida[26] ; clk        ; clk      ; None                        ; None                      ; 7.438 ns                ;
+; N/A                                     ; 131.16 MHz ( period = 7.624 ns )                    ; Instr_Reg:inst4|Instr15_0[0]         ; Registrador:AluOut|Saida[27] ; clk        ; clk      ; None                        ; None                      ; 7.435 ns                ;
+; N/A                                     ; 131.27 MHz ( period = 7.618 ns )                    ; Instr_Reg:inst4|Instr15_0[1]         ; Registrador:AluOut|Saida[26] ; clk        ; clk      ; None                        ; None                      ; 7.429 ns                ;
+; N/A                                     ; 131.32 MHz ( period = 7.615 ns )                    ; Instr_Reg:inst4|Instr15_0[0]         ; Registrador:PC|Saida[24]     ; clk        ; clk      ; None                        ; None                      ; 7.421 ns                ;
+; N/A                                     ; 131.32 MHz ( period = 7.615 ns )                    ; Instr_Reg:inst4|Instr15_0[1]         ; Registrador:AluOut|Saida[27] ; clk        ; clk      ; None                        ; None                      ; 7.426 ns                ;
+; N/A                                     ; 131.35 MHz ( period = 7.613 ns )                    ; unidadeControle:inst17|muxalusrcb[0] ; Registrador:PC|Saida[29]     ; clk        ; clk      ; None                        ; None                      ; 7.415 ns                ;
+; N/A                                     ; 131.37 MHz ( period = 7.612 ns )                    ; unidadeControle:inst17|muxalusrcb[0] ; Registrador:AluOut|Saida[28] ; clk        ; clk      ; None                        ; None                      ; 7.414 ns                ;
+; N/A                                     ; 131.48 MHz ( period = 7.606 ns )                    ; Instr_Reg:inst4|Instr15_0[3]         ; Registrador:PC|Saida[30]     ; clk        ; clk      ; None                        ; None                      ; 7.410 ns                ;
+; N/A                                     ; 131.48 MHz ( period = 7.606 ns )                    ; Instr_Reg:inst4|Instr15_0[1]         ; Registrador:PC|Saida[24]     ; clk        ; clk      ; None                        ; None                      ; 7.412 ns                ;
+; N/A                                     ; 131.49 MHz ( period = 7.605 ns )                    ; unidadeControle:inst17|muxalusrcb[0] ; Registrador:AluOut|Saida[20] ; clk        ; clk      ; None                        ; None                      ; 7.401 ns                ;
+; N/A                                     ; 131.51 MHz ( period = 7.604 ns )                    ; unidadeControle:inst17|muxalusrcb[0] ; Registrador:PC|Saida[25]     ; clk        ; clk      ; None                        ; None                      ; 7.389 ns                ;
+; N/A                                     ; 131.53 MHz ( period = 7.603 ns )                    ; Instr_Reg:inst4|Instr15_0[3]         ; Registrador:AluOut|Saida[31] ; clk        ; clk      ; None                        ; None                      ; 7.407 ns                ;
+; N/A                                     ; 131.54 MHz ( period = 7.602 ns )                    ; Registrador:B|Saida[0]               ; Registrador:PC|Saida[30]     ; clk        ; clk      ; None                        ; None                      ; 7.404 ns                ;
+; N/A                                     ; 131.60 MHz ( period = 7.599 ns )                    ; Registrador:B|Saida[0]               ; Registrador:AluOut|Saida[31] ; clk        ; clk      ; None                        ; None                      ; 7.401 ns                ;
+; N/A                                     ; 131.72 MHz ( period = 7.592 ns )                    ; Registrador:PC|Saida[0]              ; Registrador:PC|Saida[31]     ; clk        ; clk      ; None                        ; None                      ; 7.396 ns                ;
+; N/A                                     ; 131.77 MHz ( period = 7.589 ns )                    ; Instr_Reg:inst4|Instr15_0[0]         ; Registrador:PC|Saida[30]     ; clk        ; clk      ; None                        ; None                      ; 7.393 ns                ;
+; N/A                                     ; 131.79 MHz ( period = 7.588 ns )                    ; Instr_Reg:inst4|Instr15_0[4]         ; Registrador:PC|Saida[31]     ; clk        ; clk      ; None                        ; None                      ; 7.392 ns                ;
+; N/A                                     ; 131.80 MHz ( period = 7.587 ns )                    ; Registrador:PC|Saida[0]              ; Registrador:AluOut|Saida[30] ; clk        ; clk      ; None                        ; None                      ; 7.391 ns                ;
+; N/A                                     ; 131.82 MHz ( period = 7.586 ns )                    ; unidadeControle:inst17|alucontrol[0] ; Registrador:PC|Saida[29]     ; clk        ; clk      ; None                        ; None                      ; 7.388 ns                ;
+; N/A                                     ; 131.82 MHz ( period = 7.586 ns )                    ; Instr_Reg:inst4|Instr15_0[0]         ; Registrador:AluOut|Saida[31] ; clk        ; clk      ; None                        ; None                      ; 7.390 ns                ;
+; N/A                                     ; 131.82 MHz ( period = 7.586 ns )                    ; Registrador:B|Saida[2]               ; Registrador:PC|Saida[31]     ; clk        ; clk      ; None                        ; None                      ; 7.390 ns                ;
+; N/A                                     ; 131.84 MHz ( period = 7.585 ns )                    ; Registrador:B|Saida[1]               ; Registrador:AluOut|Saida[29] ; clk        ; clk      ; None                        ; None                      ; 7.391 ns                ;
+; N/A                                     ; 131.84 MHz ( period = 7.585 ns )                    ; unidadeControle:inst17|alucontrol[0] ; Registrador:AluOut|Saida[28] ; clk        ; clk      ; None                        ; None                      ; 7.387 ns                ;
+; N/A                                     ; 131.86 MHz ( period = 7.584 ns )                    ; Registrador:A|Saida[0]               ; Registrador:AluOut|Saida[29] ; clk        ; clk      ; None                        ; None                      ; 7.388 ns                ;
+; N/A                                     ; 131.87 MHz ( period = 7.583 ns )                    ; Instr_Reg:inst4|Instr15_0[4]         ; Registrador:AluOut|Saida[30] ; clk        ; clk      ; None                        ; None                      ; 7.387 ns                ;
+; N/A                                     ; 131.91 MHz ( period = 7.581 ns )                    ; Registrador:B|Saida[2]               ; Registrador:AluOut|Saida[30] ; clk        ; clk      ; None                        ; None                      ; 7.385 ns                ;
+; N/A                                     ; 131.93 MHz ( period = 7.580 ns )                    ; Instr_Reg:inst4|Instr15_0[1]         ; Registrador:PC|Saida[30]     ; clk        ; clk      ; None                        ; None                      ; 7.384 ns                ;
+; N/A                                     ; 131.94 MHz ( period = 7.579 ns )                    ; Registrador:B|Saida[1]               ; Registrador:PC|Saida[28]     ; clk        ; clk      ; None                        ; None                      ; 7.385 ns                ;
+; N/A                                     ; 131.96 MHz ( period = 7.578 ns )                    ; unidadeControle:inst17|muxalusrcb[1] ; Registrador:PC|Saida[29]     ; clk        ; clk      ; None                        ; None                      ; 7.383 ns                ;
+; N/A                                     ; 131.96 MHz ( period = 7.578 ns )                    ; Registrador:A|Saida[0]               ; Registrador:PC|Saida[28]     ; clk        ; clk      ; None                        ; None                      ; 7.382 ns                ;
+; N/A                                     ; 131.96 MHz ( period = 7.578 ns )                    ; unidadeControle:inst17|alucontrol[0] ; Registrador:AluOut|Saida[20] ; clk        ; clk      ; None                        ; None                      ; 7.374 ns                ;
+; N/A                                     ; 131.98 MHz ( period = 7.577 ns )                    ; unidadeControle:inst17|alucontrol[0] ; Registrador:PC|Saida[25]     ; clk        ; clk      ; None                        ; None                      ; 7.362 ns                ;
+; N/A                                     ; 131.98 MHz ( period = 7.577 ns )                    ; unidadeControle:inst17|muxalusrcb[1] ; Registrador:AluOut|Saida[28] ; clk        ; clk      ; None                        ; None                      ; 7.382 ns                ;
+; N/A                                     ; 131.98 MHz ( period = 7.577 ns )                    ; Instr_Reg:inst4|Instr15_0[1]         ; Registrador:AluOut|Saida[31] ; clk        ; clk      ; None                        ; None                      ; 7.381 ns                ;
+; N/A                                     ; 132.10 MHz ( period = 7.570 ns )                    ; unidadeControle:inst17|muxalusrcb[1] ; Registrador:AluOut|Saida[20] ; clk        ; clk      ; None                        ; None                      ; 7.369 ns                ;
+; N/A                                     ; 132.12 MHz ( period = 7.569 ns )                    ; unidadeControle:inst17|muxalusrcb[1] ; Registrador:PC|Saida[25]     ; clk        ; clk      ; None                        ; None                      ; 7.357 ns                ;
+; N/A                                     ; 132.17 MHz ( period = 7.566 ns )                    ; unidadeControle:inst17|muxalusrcb[0] ; Registrador:PC|Saida[26]     ; clk        ; clk      ; None                        ; None                      ; 7.371 ns                ;
+; N/A                                     ; 132.19 MHz ( period = 7.565 ns )                    ; Registrador:B|Saida[3]               ; Registrador:PC|Saida[31]     ; clk        ; clk      ; None                        ; None                      ; 7.370 ns                ;
+; N/A                                     ; 132.21 MHz ( period = 7.564 ns )                    ; unidadeControle:inst17|muxalusrcb[0] ; Registrador:PC|Saida[27]     ; clk        ; clk      ; None                        ; None                      ; 7.369 ns                ;
+; N/A                                     ; 132.28 MHz ( period = 7.560 ns )                    ; Registrador:B|Saida[3]               ; Registrador:AluOut|Saida[30] ; clk        ; clk      ; None                        ; None                      ; 7.365 ns                ;
+; N/A                                     ; 132.42 MHz ( period = 7.552 ns )                    ; Instr_Reg:inst4|Instr15_0[2]         ; Registrador:AluOut|Saida[29] ; clk        ; clk      ; None                        ; None                      ; 7.360 ns                ;
+; N/A                                     ; 132.52 MHz ( period = 7.546 ns )                    ; Instr_Reg:inst4|Instr15_0[2]         ; Registrador:PC|Saida[28]     ; clk        ; clk      ; None                        ; None                      ; 7.354 ns                ;
+; N/A                                     ; 132.64 MHz ( period = 7.539 ns )                    ; unidadeControle:inst17|alucontrol[0] ; Registrador:PC|Saida[26]     ; clk        ; clk      ; None                        ; None                      ; 7.344 ns                ;
+; N/A                                     ; 132.66 MHz ( period = 7.538 ns )                    ; Registrador:B|Saida[1]               ; Registrador:AluOut|Saida[26] ; clk        ; clk      ; None                        ; None                      ; 7.347 ns                ;
+; N/A                                     ; 132.68 MHz ( period = 7.537 ns )                    ; unidadeControle:inst17|alucontrol[0] ; Registrador:PC|Saida[27]     ; clk        ; clk      ; None                        ; None                      ; 7.342 ns                ;
+; N/A                                     ; 132.68 MHz ( period = 7.537 ns )                    ; Registrador:A|Saida[0]               ; Registrador:AluOut|Saida[26] ; clk        ; clk      ; None                        ; None                      ; 7.344 ns                ;
+; N/A                                     ; 132.71 MHz ( period = 7.535 ns )                    ; unidadeControle:inst17|alucontrol[1] ; Registrador:PC|Saida[29]     ; clk        ; clk      ; None                        ; None                      ; 7.336 ns                ;
+; N/A                                     ; 132.71 MHz ( period = 7.535 ns )                    ; Registrador:PC|Saida[2]              ; Registrador:AluOut|Saida[29] ; clk        ; clk      ; None                        ; None                      ; 7.338 ns                ;
+; N/A                                     ; 132.71 MHz ( period = 7.535 ns )                    ; Registrador:B|Saida[1]               ; Registrador:AluOut|Saida[27] ; clk        ; clk      ; None                        ; None                      ; 7.344 ns                ;
+; N/A                                     ; 132.73 MHz ( period = 7.534 ns )                    ; unidadeControle:inst17|alucontrol[1] ; Registrador:AluOut|Saida[28] ; clk        ; clk      ; None                        ; None                      ; 7.335 ns                ;
+; N/A                                     ; 132.73 MHz ( period = 7.534 ns )                    ; Registrador:A|Saida[0]               ; Registrador:AluOut|Saida[27] ; clk        ; clk      ; None                        ; None                      ; 7.341 ns                ;
+; N/A                                     ; 132.75 MHz ( period = 7.533 ns )                    ; Registrador:PC|Saida[3]              ; Registrador:PC|Saida[31]     ; clk        ; clk      ; None                        ; None                      ; 7.351 ns                ;
+; N/A                                     ; 132.78 MHz ( period = 7.531 ns )                    ; unidadeControle:inst17|muxalusrcb[1] ; Registrador:PC|Saida[26]     ; clk        ; clk      ; None                        ; None                      ; 7.339 ns                ;
+; N/A                                     ; 132.82 MHz ( period = 7.529 ns )                    ; Registrador:PC|Saida[2]              ; Registrador:PC|Saida[28]     ; clk        ; clk      ; None                        ; None                      ; 7.332 ns                ;
+; N/A                                     ; 132.82 MHz ( period = 7.529 ns )                    ; unidadeControle:inst17|muxalusrcb[1] ; Registrador:PC|Saida[27]     ; clk        ; clk      ; None                        ; None                      ; 7.337 ns                ;
+; N/A                                     ; 132.84 MHz ( period = 7.528 ns )                    ; Registrador:PC|Saida[3]              ; Registrador:AluOut|Saida[30] ; clk        ; clk      ; None                        ; None                      ; 7.346 ns                ;
+; N/A                                     ; 132.86 MHz ( period = 7.527 ns )                    ; unidadeControle:inst17|alucontrol[1] ; Registrador:AluOut|Saida[20] ; clk        ; clk      ; None                        ; None                      ; 7.322 ns                ;
+; N/A                                     ; 132.87 MHz ( period = 7.526 ns )                    ; Registrador:B|Saida[1]               ; Registrador:PC|Saida[24]     ; clk        ; clk      ; None                        ; None                      ; 7.330 ns                ;
+; N/A                                     ; 132.87 MHz ( period = 7.526 ns )                    ; unidadeControle:inst17|alucontrol[1] ; Registrador:PC|Saida[25]     ; clk        ; clk      ; None                        ; None                      ; 7.310 ns                ;
+; N/A                                     ; 132.89 MHz ( period = 7.525 ns )                    ; Registrador:A|Saida[0]               ; Registrador:PC|Saida[24]     ; clk        ; clk      ; None                        ; None                      ; 7.327 ns                ;
+; N/A                                     ; 133.21 MHz ( period = 7.507 ns )                    ; Instr_Reg:inst4|Instr15_0[6]         ; Registrador:PC|Saida[31]     ; clk        ; clk      ; None                        ; None                      ; 7.311 ns                ;
+; N/A                                     ; 133.24 MHz ( period = 7.505 ns )                    ; Instr_Reg:inst4|Instr15_0[2]         ; Registrador:AluOut|Saida[26] ; clk        ; clk      ; None                        ; None                      ; 7.316 ns                ;
+; N/A                                     ; 133.30 MHz ( period = 7.502 ns )                    ; Instr_Reg:inst4|Instr15_0[6]         ; Registrador:AluOut|Saida[30] ; clk        ; clk      ; None                        ; None                      ; 7.306 ns                ;
+; N/A                                     ; 133.30 MHz ( period = 7.502 ns )                    ; Instr_Reg:inst4|Instr15_0[2]         ; Registrador:AluOut|Saida[27] ; clk        ; clk      ; None                        ; None                      ; 7.313 ns                ;
+; N/A                                     ; 133.33 MHz ( period = 7.500 ns )                    ; Registrador:B|Saida[1]               ; Registrador:PC|Saida[30]     ; clk        ; clk      ; None                        ; None                      ; 7.302 ns                ;
+; N/A                                     ; 133.35 MHz ( period = 7.499 ns )                    ; Registrador:A|Saida[0]               ; Registrador:PC|Saida[30]     ; clk        ; clk      ; None                        ; None                      ; 7.299 ns                ;
+; N/A                                     ; 133.39 MHz ( period = 7.497 ns )                    ; Registrador:B|Saida[1]               ; Registrador:AluOut|Saida[31] ; clk        ; clk      ; None                        ; None                      ; 7.299 ns                ;
+; N/A                                     ; 133.40 MHz ( period = 7.496 ns )                    ; Registrador:A|Saida[0]               ; Registrador:AluOut|Saida[31] ; clk        ; clk      ; None                        ; None                      ; 7.296 ns                ;
+; N/A                                     ; 133.46 MHz ( period = 7.493 ns )                    ; Instr_Reg:inst4|Instr15_0[2]         ; Registrador:PC|Saida[24]     ; clk        ; clk      ; None                        ; None                      ; 7.299 ns                ;
+; N/A                                     ; 133.46 MHz ( period = 7.493 ns )                    ; Registrador:A|Saida[1]               ; Registrador:AluOut|Saida[29] ; clk        ; clk      ; None                        ; None                      ; 7.299 ns                ;
+; N/A                                     ; 133.55 MHz ( period = 7.488 ns )                    ; unidadeControle:inst17|alucontrol[1] ; Registrador:PC|Saida[26]     ; clk        ; clk      ; None                        ; None                      ; 7.292 ns                ;
+; N/A                                     ; 133.55 MHz ( period = 7.488 ns )                    ; Registrador:PC|Saida[2]              ; Registrador:AluOut|Saida[26] ; clk        ; clk      ; None                        ; None                      ; 7.294 ns                ;
+; N/A                                     ; 133.56 MHz ( period = 7.487 ns )                    ; Registrador:A|Saida[1]               ; Registrador:PC|Saida[28]     ; clk        ; clk      ; None                        ; None                      ; 7.293 ns                ;
+; N/A                                     ; 133.58 MHz ( period = 7.486 ns )                    ; unidadeControle:inst17|alucontrol[1] ; Registrador:PC|Saida[27]     ; clk        ; clk      ; None                        ; None                      ; 7.290 ns                ;
+; N/A                                     ; 133.60 MHz ( period = 7.485 ns )                    ; Registrador:PC|Saida[2]              ; Registrador:AluOut|Saida[27] ; clk        ; clk      ; None                        ; None                      ; 7.291 ns                ;
+; N/A                                     ; 133.76 MHz ( period = 7.476 ns )                    ; Registrador:PC|Saida[2]              ; Registrador:PC|Saida[24]     ; clk        ; clk      ; None                        ; None                      ; 7.277 ns                ;
+; N/A                                     ; 133.92 MHz ( period = 7.467 ns )                    ; Instr_Reg:inst4|Instr15_0[2]         ; Registrador:PC|Saida[30]     ; clk        ; clk      ; None                        ; None                      ; 7.271 ns                ;
+; N/A                                     ; 133.98 MHz ( period = 7.464 ns )                    ; Instr_Reg:inst4|Instr15_0[2]         ; Registrador:AluOut|Saida[31] ; clk        ; clk      ; None                        ; None                      ; 7.268 ns                ;
+; N/A                                     ; 134.23 MHz ( period = 7.450 ns )                    ; Registrador:PC|Saida[2]              ; Registrador:PC|Saida[30]     ; clk        ; clk      ; None                        ; None                      ; 7.249 ns                ;
+; N/A                                     ; 134.28 MHz ( period = 7.447 ns )                    ; Registrador:PC|Saida[2]              ; Registrador:AluOut|Saida[31] ; clk        ; clk      ; None                        ; None                      ; 7.246 ns                ;
+; N/A                                     ; 134.30 MHz ( period = 7.446 ns )                    ; Registrador:A|Saida[1]               ; Registrador:AluOut|Saida[26] ; clk        ; clk      ; None                        ; None                      ; 7.255 ns                ;
+; N/A                                     ; 134.35 MHz ( period = 7.443 ns )                    ; Registrador:A|Saida[1]               ; Registrador:AluOut|Saida[27] ; clk        ; clk      ; None                        ; None                      ; 7.252 ns                ;
+; N/A                                     ; 134.52 MHz ( period = 7.434 ns )                    ; Registrador:A|Saida[1]               ; Registrador:PC|Saida[24]     ; clk        ; clk      ; None                        ; None                      ; 7.238 ns                ;
+; N/A                                     ; 134.73 MHz ( period = 7.422 ns )                    ; Registrador:PC|Saida[1]              ; Registrador:AluOut|Saida[29] ; clk        ; clk      ; None                        ; None                      ; 7.228 ns                ;
+; N/A                                     ; 134.84 MHz ( period = 7.416 ns )                    ; Registrador:PC|Saida[1]              ; Registrador:PC|Saida[28]     ; clk        ; clk      ; None                        ; None                      ; 7.222 ns                ;
+; N/A                                     ; 134.99 MHz ( period = 7.408 ns )                    ; Registrador:A|Saida[1]               ; Registrador:PC|Saida[30]     ; clk        ; clk      ; None                        ; None                      ; 7.210 ns                ;
+; N/A                                     ; 135.04 MHz ( period = 7.405 ns )                    ; Registrador:A|Saida[1]               ; Registrador:AluOut|Saida[31] ; clk        ; clk      ; None                        ; None                      ; 7.207 ns                ;
+; N/A                                     ; 135.24 MHz ( period = 7.394 ns )                    ; Registrador:A|Saida[2]               ; Registrador:AluOut|Saida[29] ; clk        ; clk      ; None                        ; None                      ; 7.197 ns                ;
+; N/A                                     ; 135.30 MHz ( period = 7.391 ns )                    ; unidadeControle:inst17|muxalusrca[0] ; Registrador:PC|Saida[29]     ; clk        ; clk      ; None                        ; None                      ; 7.196 ns                ;
+; N/A                                     ; 135.32 MHz ( period = 7.390 ns )                    ; unidadeControle:inst17|muxalusrca[0] ; Registrador:AluOut|Saida[28] ; clk        ; clk      ; None                        ; None                      ; 7.195 ns                ;
+; N/A                                     ; 135.35 MHz ( period = 7.388 ns )                    ; Registrador:A|Saida[2]               ; Registrador:PC|Saida[28]     ; clk        ; clk      ; None                        ; None                      ; 7.191 ns                ;
+; N/A                                     ; 135.45 MHz ( period = 7.383 ns )                    ; unidadeControle:inst17|muxalusrca[0] ; Registrador:AluOut|Saida[20] ; clk        ; clk      ; None                        ; None                      ; 7.182 ns                ;
+; N/A                                     ; 135.46 MHz ( period = 7.382 ns )                    ; unidadeControle:inst17|muxalusrca[0] ; Registrador:PC|Saida[25]     ; clk        ; clk      ; None                        ; None                      ; 7.170 ns                ;
+; N/A                                     ; 135.59 MHz ( period = 7.375 ns )                    ; Registrador:PC|Saida[1]              ; Registrador:AluOut|Saida[26] ; clk        ; clk      ; None                        ; None                      ; 7.184 ns                ;
+; N/A                                     ; 135.65 MHz ( period = 7.372 ns )                    ; Registrador:PC|Saida[1]              ; Registrador:AluOut|Saida[27] ; clk        ; clk      ; None                        ; None                      ; 7.181 ns                ;
+; N/A                                     ; 135.81 MHz ( period = 7.363 ns )                    ; Registrador:PC|Saida[1]              ; Registrador:PC|Saida[24]     ; clk        ; clk      ; None                        ; None                      ; 7.167 ns                ;
+; N/A                                     ; 136.00 MHz ( period = 7.353 ns )                    ; Registrador:A|Saida[4]               ; Registrador:PC|Saida[31]     ; clk        ; clk      ; None                        ; None                      ; 7.152 ns                ;
+; N/A                                     ; 136.09 MHz ( period = 7.348 ns )                    ; Registrador:A|Saida[4]               ; Registrador:AluOut|Saida[30] ; clk        ; clk      ; None                        ; None                      ; 7.147 ns                ;
+; N/A                                     ; 136.11 MHz ( period = 7.347 ns )                    ; Registrador:A|Saida[2]               ; Registrador:AluOut|Saida[26] ; clk        ; clk      ; None                        ; None                      ; 7.153 ns                ;
+; N/A                                     ; 136.17 MHz ( period = 7.344 ns )                    ; unidadeControle:inst17|muxalusrca[0] ; Registrador:PC|Saida[26]     ; clk        ; clk      ; None                        ; None                      ; 7.152 ns                ;
+; N/A                                     ; 136.17 MHz ( period = 7.344 ns )                    ; Registrador:A|Saida[2]               ; Registrador:AluOut|Saida[27] ; clk        ; clk      ; None                        ; None                      ; 7.150 ns                ;
+; N/A                                     ; 136.20 MHz ( period = 7.342 ns )                    ; unidadeControle:inst17|muxalusrca[0] ; Registrador:PC|Saida[27]     ; clk        ; clk      ; None                        ; None                      ; 7.150 ns                ;
+; N/A                                     ; 136.30 MHz ( period = 7.337 ns )                    ; Registrador:PC|Saida[1]              ; Registrador:PC|Saida[30]     ; clk        ; clk      ; None                        ; None                      ; 7.139 ns                ;
+; N/A                                     ; 136.33 MHz ( period = 7.335 ns )                    ; Registrador:A|Saida[2]               ; Registrador:PC|Saida[24]     ; clk        ; clk      ; None                        ; None                      ; 7.136 ns                ;
+; N/A                                     ; 136.35 MHz ( period = 7.334 ns )                    ; Registrador:PC|Saida[1]              ; Registrador:AluOut|Saida[31] ; clk        ; clk      ; None                        ; None                      ; 7.136 ns                ;
+; N/A                                     ; 136.50 MHz ( period = 7.326 ns )                    ; Instr_Reg:inst4|Instr15_0[3]         ; Registrador:PC|Saida[29]     ; clk        ; clk      ; None                        ; None                      ; 7.134 ns                ;
+; N/A                                     ; 136.52 MHz ( period = 7.325 ns )                    ; Instr_Reg:inst4|Instr15_0[3]         ; Registrador:AluOut|Saida[28] ; clk        ; clk      ; None                        ; None                      ; 7.133 ns                ;
+; N/A                                     ; 136.57 MHz ( period = 7.322 ns )                    ; Registrador:B|Saida[0]               ; Registrador:PC|Saida[29]     ; clk        ; clk      ; None                        ; None                      ; 7.128 ns                ;
+; N/A                                     ; 136.59 MHz ( period = 7.321 ns )                    ; Registrador:B|Saida[0]               ; Registrador:AluOut|Saida[28] ; clk        ; clk      ; None                        ; None                      ; 7.127 ns                ;
+; N/A                                     ; 136.65 MHz ( period = 7.318 ns )                    ; Instr_Reg:inst4|Instr15_0[3]         ; Registrador:AluOut|Saida[20] ; clk        ; clk      ; None                        ; None                      ; 7.120 ns                ;
+; N/A                                     ; 136.67 MHz ( period = 7.317 ns )                    ; Instr_Reg:inst4|Instr15_0[3]         ; Registrador:PC|Saida[25]     ; clk        ; clk      ; None                        ; None                      ; 7.108 ns                ;
+; N/A                                     ; 136.72 MHz ( period = 7.314 ns )                    ; Registrador:B|Saida[0]               ; Registrador:AluOut|Saida[20] ; clk        ; clk      ; None                        ; None                      ; 7.114 ns                ;
+; N/A                                     ; 136.74 MHz ( period = 7.313 ns )                    ; Registrador:B|Saida[0]               ; Registrador:PC|Saida[25]     ; clk        ; clk      ; None                        ; None                      ; 7.102 ns                ;
+; N/A                                     ; 136.82 MHz ( period = 7.309 ns )                    ; Registrador:A|Saida[2]               ; Registrador:PC|Saida[30]     ; clk        ; clk      ; None                        ; None                      ; 7.108 ns                ;
+; N/A                                     ; 136.82 MHz ( period = 7.309 ns )                    ; Instr_Reg:inst4|Instr15_0[0]         ; Registrador:PC|Saida[29]     ; clk        ; clk      ; None                        ; None                      ; 7.117 ns                ;
+; N/A                                     ; 136.84 MHz ( period = 7.308 ns )                    ; Instr_Reg:inst4|Instr15_0[0]         ; Registrador:AluOut|Saida[28] ; clk        ; clk      ; None                        ; None                      ; 7.116 ns                ;
+; N/A                                     ; 136.86 MHz ( period = 7.307 ns )                    ; Registrador:PC|Saida[0]              ; Registrador:AluOut|Saida[29] ; clk        ; clk      ; None                        ; None                      ; 7.115 ns                ;
+; N/A                                     ; 136.87 MHz ( period = 7.306 ns )                    ; Registrador:A|Saida[2]               ; Registrador:AluOut|Saida[31] ; clk        ; clk      ; None                        ; None                      ; 7.105 ns                ;
+; N/A                                     ; 136.93 MHz ( period = 7.303 ns )                    ; Instr_Reg:inst4|Instr15_0[4]         ; Registrador:AluOut|Saida[29] ; clk        ; clk      ; None                        ; None                      ; 7.111 ns                ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;                                      ;                              ;            ;          ;                             ;                           ;                         ;
++-----------------------------------------+-----------------------------------------------------+--------------------------------------+------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
 
 
-+-------------------------------------------------------------------------------------+
-; tco                                                                                 ;
-+-------+--------------+------------+--------------------+---------------+------------+
-; Slack ; Required tco ; Actual tco ; From               ; To            ; From Clock ;
-+-------+--------------+------------+--------------------+---------------+------------+
-; N/A   ; None         ; 5.589 ns   ; regwrite~reg0      ; regwrite      ; clk        ;
-; N/A   ; None         ; 5.200 ns   ; muxalusrcb[0]~reg0 ; muxalusrcb[0] ; clk        ;
-; N/A   ; None         ; 5.180 ns   ; muxalusrcb[0]~reg0 ; alucontrol[0] ; clk        ;
-+-------+--------------+------------+--------------------+---------------+------------+
++-------------------------------------------------------------------------------------------------+
+; tsu                                                                                             ;
++-------+--------------+------------+-------+------------------------------------------+----------+
+; Slack ; Required tsu ; Actual tsu ; From  ; To                                       ; To Clock ;
++-------+--------------+------------+-------+------------------------------------------+----------+
+; N/A   ; None         ; 4.674 ns   ; reset ; unidadeControle:inst17|functOut[5]       ; clk      ;
+; N/A   ; None         ; 4.674 ns   ; reset ; unidadeControle:inst17|functOut[3]       ; clk      ;
+; N/A   ; None         ; 4.299 ns   ; reset ; unidadeControle:inst17|functOut[4]       ; clk      ;
+; N/A   ; None         ; 4.299 ns   ; reset ; unidadeControle:inst17|functOut[2]       ; clk      ;
+; N/A   ; None         ; 4.299 ns   ; reset ; unidadeControle:inst17|functOut[1]       ; clk      ;
+; N/A   ; None         ; 4.299 ns   ; reset ; unidadeControle:inst17|functOut[0]       ; clk      ;
+; N/A   ; None         ; 3.631 ns   ; reset ; unidadeControle:inst17|stateOut[6]       ; clk      ;
+; N/A   ; None         ; 3.631 ns   ; reset ; unidadeControle:inst17|stateOut[2]       ; clk      ;
+; N/A   ; None         ; 3.606 ns   ; reset ; unidadeControle:inst17|stateOut[1]       ; clk      ;
+; N/A   ; None         ; 3.606 ns   ; reset ; unidadeControle:inst17|stateOut[0]       ; clk      ;
+; N/A   ; None         ; 3.484 ns   ; reset ; unidadeControle:inst17|state.decode2     ; clk      ;
+; N/A   ; None         ; 3.478 ns   ; reset ; unidadeControle:inst17|state.wait_Final  ; clk      ;
+; N/A   ; None         ; 3.457 ns   ; reset ; unidadeControle:inst17|state.fetch2      ; clk      ;
+; N/A   ; None         ; 3.457 ns   ; reset ; unidadeControle:inst17|state.fetch1      ; clk      ;
+; N/A   ; None         ; 3.454 ns   ; reset ; unidadeControle:inst17|state.fetch3      ; clk      ;
+; N/A   ; None         ; 3.454 ns   ; reset ; unidadeControle:inst17|state.decode      ; clk      ;
+; N/A   ; None         ; 3.420 ns   ; reset ; unidadeControle:inst17|alucontrol[1]     ; clk      ;
+; N/A   ; None         ; 3.367 ns   ; reset ; unidadeControle:inst17|state.add_sub_and ; clk      ;
+; N/A   ; None         ; 3.325 ns   ; reset ; unidadeControle:inst17|state.closeWR     ; clk      ;
+; N/A   ; None         ; 3.282 ns   ; reset ; unidadeControle:inst17|muxalusrcb[1]     ; clk      ;
+; N/A   ; None         ; 3.282 ns   ; reset ; unidadeControle:inst17|muxalusrca[0]     ; clk      ;
+; N/A   ; None         ; 3.282 ns   ; reset ; unidadeControle:inst17|muxregdst[0]      ; clk      ;
+; N/A   ; None         ; 3.257 ns   ; reset ; unidadeControle:inst17|irwrite           ; clk      ;
+; N/A   ; None         ; 3.257 ns   ; reset ; unidadeControle:inst17|state.execute     ; clk      ;
+; N/A   ; None         ; 3.257 ns   ; reset ; unidadeControle:inst17|pcwrite           ; clk      ;
+; N/A   ; None         ; 3.257 ns   ; reset ; unidadeControle:inst17|alucontrol[0]     ; clk      ;
+; N/A   ; None         ; 3.257 ns   ; reset ; unidadeControle:inst17|muxalusrcb[0]     ; clk      ;
+; N/A   ; None         ; 3.257 ns   ; reset ; unidadeControle:inst17|aluoutwrite       ; clk      ;
+; N/A   ; None         ; 3.094 ns   ; reset ; unidadeControle:inst17|muxregdst[1]      ; clk      ;
+; N/A   ; None         ; 3.094 ns   ; reset ; unidadeControle:inst17|regwrite          ; clk      ;
++-------+--------------+------------+-------+------------------------------------------+----------+
 
 
-+---------------------------------------------------------------------------------+
-; th                                                                              ;
-+---------------+-------------+-----------+-------+--------------------+----------+
-; Minimum Slack ; Required th ; Actual th ; From  ; To                 ; To Clock ;
-+---------------+-------------+-----------+-------+--------------------+----------+
-; N/A           ; None        ; -3.022 ns ; reset ; regwrite~reg0      ; clk      ;
-; N/A           ; None        ; -3.023 ns ; reset ; muxalusrcb[0]~reg0 ; clk      ;
-+---------------+-------------+-----------+-------+--------------------+----------+
++---------------------------------------------------------------------------------------------------+
+; tco                                                                                               ;
++-------+--------------+------------+------------------------------------+-------------+------------+
+; Slack ; Required tco ; Actual tco ; From                               ; To          ; From Clock ;
++-------+--------------+------------+------------------------------------+-------------+------------+
+; N/A   ; None         ; 7.442 ns   ; Registrador:PC|Saida[4]            ; IORDout[4]  ; clk        ;
+; N/A   ; None         ; 7.272 ns   ; Registrador:PC|Saida[25]           ; IORDout[25] ; clk        ;
+; N/A   ; None         ; 7.108 ns   ; Registrador:PC|Saida[30]           ; IORDout[30] ; clk        ;
+; N/A   ; None         ; 7.099 ns   ; Registrador:PC|Saida[30]           ; pcOut[30]   ; clk        ;
+; N/A   ; None         ; 7.056 ns   ; Registrador:PC|Saida[0]            ; pcOut[0]    ; clk        ;
+; N/A   ; None         ; 7.056 ns   ; Registrador:PC|Saida[0]            ; IORDout[0]  ; clk        ;
+; N/A   ; None         ; 7.026 ns   ; Registrador:PC|Saida[2]            ; IORDout[2]  ; clk        ;
+; N/A   ; None         ; 7.025 ns   ; Instr_Reg:inst4|Instr15_0[3]       ; funct[3]    ; clk        ;
+; N/A   ; None         ; 6.981 ns   ; Registrador:PC|Saida[25]           ; pcOut[25]   ; clk        ;
+; N/A   ; None         ; 6.980 ns   ; Registrador:PC|Saida[2]            ; pcOut[2]    ; clk        ;
+; N/A   ; None         ; 6.976 ns   ; Registrador:PC|Saida[20]           ; IORDout[20] ; clk        ;
+; N/A   ; None         ; 6.923 ns   ; Registrador:PC|Saida[5]            ; IORDout[5]  ; clk        ;
+; N/A   ; None         ; 6.898 ns   ; Instr_Reg:inst4|Instr15_0[12]      ; rd[1]       ; clk        ;
+; N/A   ; None         ; 6.804 ns   ; Registrador:PC|Saida[21]           ; pcOut[21]   ; clk        ;
+; N/A   ; None         ; 6.784 ns   ; Instr_Reg:inst4|Instr20_16[2]      ; rt[2]       ; clk        ;
+; N/A   ; None         ; 6.781 ns   ; Instr_Reg:inst4|Instr20_16[3]      ; rt[3]       ; clk        ;
+; N/A   ; None         ; 6.772 ns   ; Registrador:PC|Saida[23]           ; IORDout[23] ; clk        ;
+; N/A   ; None         ; 6.750 ns   ; Registrador:PC|Saida[6]            ; IORDout[6]  ; clk        ;
+; N/A   ; None         ; 6.745 ns   ; Instr_Reg:inst4|Instr15_0[1]       ; funct[1]    ; clk        ;
+; N/A   ; None         ; 6.742 ns   ; Registrador:PC|Saida[23]           ; pcOut[23]   ; clk        ;
+; N/A   ; None         ; 6.700 ns   ; Registrador:PC|Saida[6]            ; pcOut[6]    ; clk        ;
+; N/A   ; None         ; 6.691 ns   ; Instr_Reg:inst4|Instr15_0[5]       ; funct[5]    ; clk        ;
+; N/A   ; None         ; 6.688 ns   ; Instr_Reg:inst4|Instr15_0[0]       ; funct[0]    ; clk        ;
+; N/A   ; None         ; 6.679 ns   ; Instr_Reg:inst4|Instr25_21[1]      ; rs[1]       ; clk        ;
+; N/A   ; None         ; 6.664 ns   ; Registrador:PC|Saida[4]            ; pcOut[4]    ; clk        ;
+; N/A   ; None         ; 6.623 ns   ; Instr_Reg:inst4|Instr25_21[0]      ; rs[0]       ; clk        ;
+; N/A   ; None         ; 6.611 ns   ; unidadeControle:inst17|functOut[5] ; functOut[5] ; clk        ;
+; N/A   ; None         ; 6.564 ns   ; Instr_Reg:inst4|Instr15_0[2]       ; funct[2]    ; clk        ;
+; N/A   ; None         ; 6.560 ns   ; Registrador:PC|Saida[12]           ; pcOut[12]   ; clk        ;
+; N/A   ; None         ; 6.544 ns   ; Registrador:PC|Saida[10]           ; IORDout[10] ; clk        ;
+; N/A   ; None         ; 6.495 ns   ; Registrador:PC|Saida[14]           ; pcOut[14]   ; clk        ;
+; N/A   ; None         ; 6.471 ns   ; Registrador:PC|Saida[5]            ; pcOut[5]    ; clk        ;
+; N/A   ; None         ; 6.455 ns   ; Registrador:PC|Saida[14]           ; IORDout[14] ; clk        ;
+; N/A   ; None         ; 6.451 ns   ; Registrador:PC|Saida[1]            ; IORDout[1]  ; clk        ;
+; N/A   ; None         ; 6.437 ns   ; Registrador:PC|Saida[22]           ; pcOut[22]   ; clk        ;
+; N/A   ; None         ; 6.415 ns   ; Instr_Reg:inst4|Instr25_21[2]      ; rs[2]       ; clk        ;
+; N/A   ; None         ; 6.414 ns   ; Registrador:PC|Saida[10]           ; pcOut[10]   ; clk        ;
+; N/A   ; None         ; 6.407 ns   ; Registrador:PC|Saida[22]           ; IORDout[22] ; clk        ;
+; N/A   ; None         ; 6.406 ns   ; Registrador:PC|Saida[24]           ; IORDout[24] ; clk        ;
+; N/A   ; None         ; 6.400 ns   ; Registrador:PC|Saida[18]           ; IORDout[18] ; clk        ;
+; N/A   ; None         ; 6.393 ns   ; Registrador:PC|Saida[21]           ; IORDout[21] ; clk        ;
+; N/A   ; None         ; 6.392 ns   ; unidadeControle:inst17|stateOut[1] ; stateOut[1] ; clk        ;
+; N/A   ; None         ; 6.380 ns   ; Instr_Reg:inst4|Instr20_16[1]      ; rt[1]       ; clk        ;
+; N/A   ; None         ; 6.376 ns   ; Registrador:PC|Saida[3]            ; pcOut[3]    ; clk        ;
+; N/A   ; None         ; 6.376 ns   ; Registrador:PC|Saida[18]           ; pcOut[18]   ; clk        ;
+; N/A   ; None         ; 6.376 ns   ; Registrador:PC|Saida[3]            ; IORDout[3]  ; clk        ;
+; N/A   ; None         ; 6.357 ns   ; Instr_Reg:inst4|Instr20_16[4]      ; rt[4]       ; clk        ;
+; N/A   ; None         ; 6.346 ns   ; Registrador:PC|Saida[20]           ; pcOut[20]   ; clk        ;
+; N/A   ; None         ; 6.337 ns   ; Instr_Reg:inst4|Instr25_21[4]      ; rs[4]       ; clk        ;
+; N/A   ; None         ; 6.324 ns   ; Registrador:PC|Saida[1]            ; pcOut[1]    ; clk        ;
+; N/A   ; None         ; 6.319 ns   ; unidadeControle:inst17|stateOut[6] ; stateOut[6] ; clk        ;
+; N/A   ; None         ; 6.313 ns   ; unidadeControle:inst17|functOut[0] ; functOut[0] ; clk        ;
+; N/A   ; None         ; 6.303 ns   ; Instr_Reg:inst4|Instr25_21[3]      ; rs[3]       ; clk        ;
+; N/A   ; None         ; 6.295 ns   ; unidadeControle:inst17|functOut[1] ; functOut[1] ; clk        ;
+; N/A   ; None         ; 6.289 ns   ; Registrador:PC|Saida[16]           ; pcOut[16]   ; clk        ;
+; N/A   ; None         ; 6.289 ns   ; Registrador:PC|Saida[16]           ; IORDout[16] ; clk        ;
+; N/A   ; None         ; 6.285 ns   ; Registrador:PC|Saida[7]            ; IORDout[7]  ; clk        ;
+; N/A   ; None         ; 6.267 ns   ; Instr_Reg:inst4|Instr15_0[13]      ; rd[2]       ; clk        ;
+; N/A   ; None         ; 6.254 ns   ; unidadeControle:inst17|functOut[2] ; functOut[2] ; clk        ;
+; N/A   ; None         ; 6.252 ns   ; Registrador:PC|Saida[27]           ; IORDout[27] ; clk        ;
+; N/A   ; None         ; 6.238 ns   ; Instr_Reg:inst4|Instr20_16[0]      ; rt[0]       ; clk        ;
+; N/A   ; None         ; 6.205 ns   ; Instr_Reg:inst4|Instr15_0[11]      ; rd[0]       ; clk        ;
+; N/A   ; None         ; 6.165 ns   ; Instr_Reg:inst4|Instr15_0[4]       ; funct[4]    ; clk        ;
+; N/A   ; None         ; 6.155 ns   ; Registrador:PC|Saida[15]           ; pcOut[15]   ; clk        ;
+; N/A   ; None         ; 6.146 ns   ; Registrador:PC|Saida[26]           ; pcOut[26]   ; clk        ;
+; N/A   ; None         ; 6.146 ns   ; Registrador:PC|Saida[29]           ; pcOut[29]   ; clk        ;
+; N/A   ; None         ; 6.146 ns   ; Registrador:PC|Saida[26]           ; IORDout[26] ; clk        ;
+; N/A   ; None         ; 6.119 ns   ; unidadeControle:inst17|stateOut[0] ; stateOut[0] ; clk        ;
+; N/A   ; None         ; 6.054 ns   ; Registrador:PC|Saida[7]            ; pcOut[7]    ; clk        ;
+; N/A   ; None         ; 6.044 ns   ; Registrador:PC|Saida[29]           ; IORDout[29] ; clk        ;
+; N/A   ; None         ; 6.024 ns   ; Registrador:PC|Saida[11]           ; pcOut[11]   ; clk        ;
+; N/A   ; None         ; 6.021 ns   ; Registrador:PC|Saida[24]           ; pcOut[24]   ; clk        ;
+; N/A   ; None         ; 6.014 ns   ; Registrador:PC|Saida[11]           ; IORDout[11] ; clk        ;
+; N/A   ; None         ; 6.013 ns   ; unidadeControle:inst17|functOut[4] ; functOut[4] ; clk        ;
+; N/A   ; None         ; 6.011 ns   ; Registrador:PC|Saida[17]           ; IORDout[17] ; clk        ;
+; N/A   ; None         ; 6.007 ns   ; Registrador:PC|Saida[9]            ; pcOut[9]    ; clk        ;
+; N/A   ; None         ; 5.995 ns   ; Instr_Reg:inst4|Instr15_0[14]      ; rd[3]       ; clk        ;
+; N/A   ; None         ; 5.975 ns   ; Registrador:PC|Saida[15]           ; IORDout[15] ; clk        ;
+; N/A   ; None         ; 5.963 ns   ; Registrador:PC|Saida[17]           ; pcOut[17]   ; clk        ;
+; N/A   ; None         ; 5.957 ns   ; Registrador:PC|Saida[28]           ; pcOut[28]   ; clk        ;
+; N/A   ; None         ; 5.957 ns   ; Registrador:PC|Saida[28]           ; IORDout[28] ; clk        ;
+; N/A   ; None         ; 5.948 ns   ; Registrador:PC|Saida[8]            ; pcOut[8]    ; clk        ;
+; N/A   ; None         ; 5.948 ns   ; Registrador:PC|Saida[8]            ; IORDout[8]  ; clk        ;
+; N/A   ; None         ; 5.932 ns   ; Instr_Reg:inst4|Instr15_0[15]      ; rd[4]       ; clk        ;
+; N/A   ; None         ; 5.910 ns   ; unidadeControle:inst17|functOut[3] ; functOut[3] ; clk        ;
+; N/A   ; None         ; 5.898 ns   ; Registrador:PC|Saida[13]           ; pcOut[13]   ; clk        ;
+; N/A   ; None         ; 5.898 ns   ; Registrador:PC|Saida[13]           ; IORDout[13] ; clk        ;
+; N/A   ; None         ; 5.894 ns   ; Registrador:PC|Saida[31]           ; IORDout[31] ; clk        ;
+; N/A   ; None         ; 5.858 ns   ; Registrador:PC|Saida[31]           ; pcOut[31]   ; clk        ;
+; N/A   ; None         ; 5.845 ns   ; Registrador:PC|Saida[19]           ; pcOut[19]   ; clk        ;
+; N/A   ; None         ; 5.828 ns   ; Registrador:PC|Saida[19]           ; IORDout[19] ; clk        ;
+; N/A   ; None         ; 5.796 ns   ; Registrador:PC|Saida[27]           ; pcOut[27]   ; clk        ;
+; N/A   ; None         ; 5.794 ns   ; Registrador:PC|Saida[12]           ; IORDout[12] ; clk        ;
+; N/A   ; None         ; 5.674 ns   ; Registrador:PC|Saida[9]            ; IORDout[9]  ; clk        ;
+; N/A   ; None         ; 5.600 ns   ; unidadeControle:inst17|stateOut[2] ; stateOut[2] ; clk        ;
++-------+--------------+------------+------------------------------------+-------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------+
+; th                                                                                                    ;
++---------------+-------------+-----------+-------+------------------------------------------+----------+
+; Minimum Slack ; Required th ; Actual th ; From  ; To                                       ; To Clock ;
++---------------+-------------+-----------+-------+------------------------------------------+----------+
+; N/A           ; None        ; -2.855 ns ; reset ; unidadeControle:inst17|muxregdst[1]      ; clk      ;
+; N/A           ; None        ; -2.855 ns ; reset ; unidadeControle:inst17|regwrite          ; clk      ;
+; N/A           ; None        ; -3.018 ns ; reset ; unidadeControle:inst17|irwrite           ; clk      ;
+; N/A           ; None        ; -3.018 ns ; reset ; unidadeControle:inst17|state.execute     ; clk      ;
+; N/A           ; None        ; -3.018 ns ; reset ; unidadeControle:inst17|pcwrite           ; clk      ;
+; N/A           ; None        ; -3.018 ns ; reset ; unidadeControle:inst17|alucontrol[0]     ; clk      ;
+; N/A           ; None        ; -3.018 ns ; reset ; unidadeControle:inst17|muxalusrcb[0]     ; clk      ;
+; N/A           ; None        ; -3.018 ns ; reset ; unidadeControle:inst17|aluoutwrite       ; clk      ;
+; N/A           ; None        ; -3.043 ns ; reset ; unidadeControle:inst17|muxalusrcb[1]     ; clk      ;
+; N/A           ; None        ; -3.043 ns ; reset ; unidadeControle:inst17|muxalusrca[0]     ; clk      ;
+; N/A           ; None        ; -3.043 ns ; reset ; unidadeControle:inst17|muxregdst[0]      ; clk      ;
+; N/A           ; None        ; -3.086 ns ; reset ; unidadeControle:inst17|state.closeWR     ; clk      ;
+; N/A           ; None        ; -3.128 ns ; reset ; unidadeControle:inst17|state.add_sub_and ; clk      ;
+; N/A           ; None        ; -3.181 ns ; reset ; unidadeControle:inst17|alucontrol[1]     ; clk      ;
+; N/A           ; None        ; -3.215 ns ; reset ; unidadeControle:inst17|state.fetch3      ; clk      ;
+; N/A           ; None        ; -3.215 ns ; reset ; unidadeControle:inst17|state.decode      ; clk      ;
+; N/A           ; None        ; -3.218 ns ; reset ; unidadeControle:inst17|state.fetch2      ; clk      ;
+; N/A           ; None        ; -3.218 ns ; reset ; unidadeControle:inst17|state.fetch1      ; clk      ;
+; N/A           ; None        ; -3.239 ns ; reset ; unidadeControle:inst17|state.wait_Final  ; clk      ;
+; N/A           ; None        ; -3.245 ns ; reset ; unidadeControle:inst17|state.decode2     ; clk      ;
+; N/A           ; None        ; -3.367 ns ; reset ; unidadeControle:inst17|stateOut[1]       ; clk      ;
+; N/A           ; None        ; -3.367 ns ; reset ; unidadeControle:inst17|stateOut[0]       ; clk      ;
+; N/A           ; None        ; -3.392 ns ; reset ; unidadeControle:inst17|stateOut[6]       ; clk      ;
+; N/A           ; None        ; -3.392 ns ; reset ; unidadeControle:inst17|stateOut[2]       ; clk      ;
+; N/A           ; None        ; -4.060 ns ; reset ; unidadeControle:inst17|functOut[4]       ; clk      ;
+; N/A           ; None        ; -4.060 ns ; reset ; unidadeControle:inst17|functOut[2]       ; clk      ;
+; N/A           ; None        ; -4.060 ns ; reset ; unidadeControle:inst17|functOut[1]       ; clk      ;
+; N/A           ; None        ; -4.060 ns ; reset ; unidadeControle:inst17|functOut[0]       ; clk      ;
+; N/A           ; None        ; -4.435 ns ; reset ; unidadeControle:inst17|functOut[5]       ; clk      ;
+; N/A           ; None        ; -4.435 ns ; reset ; unidadeControle:inst17|functOut[3]       ; clk      ;
++---------------+-------------+-----------+-------+------------------------------------------+----------+
 
 
 +--------------------------+
@@ -144,56 +503,95 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Classic Timing Analyzer
     Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Full Version
-    Info: Processing started: Thu Oct 10 19:16:28 2019
+    Info: Processing started: Fri Oct 11 02:26:00 2019
 Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off mipsHardware -c mipsHardware --timing_analysis_only
 Info: Parallel compilation is enabled and will use 4 of the 4 processors detected
 Warning: Found pins functioning as undefined clocks and/or memory enables
     Info: Assuming node "clk" is an undefined clock
-Info: No valid register-to-register data paths exist for clock "clk"
-Info: tsu for register "muxalusrcb[0]~reg0" (data pin = "reset", clock pin = "clk") is 3.262 ns
-    Info: + Longest pin to register delay is 5.670 ns
-        Info: 1: + IC(0.000 ns) + CELL(0.857 ns) = 0.857 ns; Loc. = PIN_AA17; Fanout = 2; PIN Node = 'reset'
-        Info: 2: + IC(4.504 ns) + CELL(0.154 ns) = 5.515 ns; Loc. = LCCOMB_X11_Y24_N18; Fanout = 1; COMB Node = 'muxalusrcb[0]~0'
-        Info: 3: + IC(0.000 ns) + CELL(0.155 ns) = 5.670 ns; Loc. = LCFF_X11_Y24_N19; Fanout = 2; REG Node = 'muxalusrcb[0]~reg0'
-        Info: Total cell delay = 1.166 ns ( 20.56 % )
-        Info: Total interconnect delay = 4.504 ns ( 79.44 % )
-    Info: + Micro setup delay of destination is 0.090 ns
-    Info: - Shortest clock path from clock "clk" to destination register is 2.498 ns
-        Info: 1: + IC(0.000 ns) + CELL(0.854 ns) = 0.854 ns; Loc. = PIN_N20; Fanout = 1; CLK Node = 'clk'
-        Info: 2: + IC(0.343 ns) + CELL(0.000 ns) = 1.197 ns; Loc. = CLKCTRL_G3; Fanout = 2; COMB Node = 'clk~clkctrl'
-        Info: 3: + IC(0.683 ns) + CELL(0.618 ns) = 2.498 ns; Loc. = LCFF_X11_Y24_N19; Fanout = 2; REG Node = 'muxalusrcb[0]~reg0'
-        Info: Total cell delay = 1.472 ns ( 58.93 % )
-        Info: Total interconnect delay = 1.026 ns ( 41.07 % )
-Info: tco from clock "clk" to destination pin "regwrite" through register "regwrite~reg0" is 5.589 ns
-    Info: + Longest clock path from clock "clk" to source register is 2.498 ns
-        Info: 1: + IC(0.000 ns) + CELL(0.854 ns) = 0.854 ns; Loc. = PIN_N20; Fanout = 1; CLK Node = 'clk'
-        Info: 2: + IC(0.343 ns) + CELL(0.000 ns) = 1.197 ns; Loc. = CLKCTRL_G3; Fanout = 2; COMB Node = 'clk~clkctrl'
-        Info: 3: + IC(0.683 ns) + CELL(0.618 ns) = 2.498 ns; Loc. = LCFF_X11_Y24_N17; Fanout = 1; REG Node = 'regwrite~reg0'
-        Info: Total cell delay = 1.472 ns ( 58.93 % )
-        Info: Total interconnect delay = 1.026 ns ( 41.07 % )
+Info: Clock "clk" has Internal fmax of 121.02 MHz between source register "unidadeControle:inst17|muxalusrcb[0]" and destination register "Registrador:PC|Saida[31]" (period= 8.263 ns)
+    Info: + Longest register to register delay is 8.061 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X25_Y14_N21; Fanout = 43; REG Node = 'unidadeControle:inst17|muxalusrcb[0]'
+        Info: 2: + IC(0.561 ns) + CELL(0.366 ns) = 0.927 ns; Loc. = LCCOMB_X22_Y14_N22; Fanout = 3; COMB Node = 'aluSrcB:inst1|Mux31~0'
+        Info: 3: + IC(0.311 ns) + CELL(0.053 ns) = 1.291 ns; Loc. = LCCOMB_X22_Y14_N8; Fanout = 3; COMB Node = 'Ula32:inst3|carry_temp[0]~1'
+        Info: 4: + IC(0.227 ns) + CELL(0.154 ns) = 1.672 ns; Loc. = LCCOMB_X22_Y14_N12; Fanout = 4; COMB Node = 'Ula32:inst3|carry_temp[2]~3'
+        Info: 5: + IC(0.260 ns) + CELL(0.272 ns) = 2.204 ns; Loc. = LCCOMB_X22_Y14_N4; Fanout = 6; COMB Node = 'Ula32:inst3|carry_temp[4]~6'
+        Info: 6: + IC(0.489 ns) + CELL(0.154 ns) = 2.847 ns; Loc. = LCCOMB_X23_Y14_N14; Fanout = 1; COMB Node = 'Ula32:inst3|carry_temp[6]~10DUPLICATE'
+        Info: 7: + IC(0.203 ns) + CELL(0.053 ns) = 3.103 ns; Loc. = LCCOMB_X23_Y14_N30; Fanout = 1; COMB Node = 'Ula32:inst3|carry_temp[7]~25'
+        Info: 8: + IC(0.207 ns) + CELL(0.053 ns) = 3.363 ns; Loc. = LCCOMB_X23_Y14_N0; Fanout = 3; COMB Node = 'Ula32:inst3|carry_temp[7]~11'
+        Info: 9: + IC(0.220 ns) + CELL(0.053 ns) = 3.636 ns; Loc. = LCCOMB_X23_Y14_N4; Fanout = 3; COMB Node = 'Ula32:inst3|carry_temp[9]~12'
+        Info: 10: + IC(0.219 ns) + CELL(0.053 ns) = 3.908 ns; Loc. = LCCOMB_X23_Y14_N20; Fanout = 3; COMB Node = 'Ula32:inst3|carry_temp[11]~13'
+        Info: 11: + IC(0.217 ns) + CELL(0.053 ns) = 4.178 ns; Loc. = LCCOMB_X23_Y14_N10; Fanout = 3; COMB Node = 'Ula32:inst3|carry_temp[13]~14'
+        Info: 12: + IC(0.215 ns) + CELL(0.053 ns) = 4.446 ns; Loc. = LCCOMB_X23_Y14_N26; Fanout = 3; COMB Node = 'Ula32:inst3|carry_temp[15]~15'
+        Info: 13: + IC(0.224 ns) + CELL(0.053 ns) = 4.723 ns; Loc. = LCCOMB_X23_Y14_N16; Fanout = 4; COMB Node = 'Ula32:inst3|carry_temp[17]~46'
+        Info: 14: + IC(0.804 ns) + CELL(0.053 ns) = 5.580 ns; Loc. = LCCOMB_X22_Y17_N16; Fanout = 3; COMB Node = 'Ula32:inst3|carry_temp[19]~42'
+        Info: 15: + IC(0.224 ns) + CELL(0.053 ns) = 5.857 ns; Loc. = LCCOMB_X22_Y17_N28; Fanout = 3; COMB Node = 'Ula32:inst3|carry_temp[21]~38'
+        Info: 16: + IC(0.365 ns) + CELL(0.053 ns) = 6.275 ns; Loc. = LCCOMB_X22_Y17_N24; Fanout = 4; COMB Node = 'Ula32:inst3|carry_temp[23]~34'
+        Info: 17: + IC(0.305 ns) + CELL(0.053 ns) = 6.633 ns; Loc. = LCCOMB_X22_Y17_N20; Fanout = 3; COMB Node = 'Ula32:inst3|carry_temp[25]~30'
+        Info: 18: + IC(0.211 ns) + CELL(0.053 ns) = 6.897 ns; Loc. = LCCOMB_X22_Y17_N0; Fanout = 3; COMB Node = 'Ula32:inst3|carry_temp[27]~26'
+        Info: 19: + IC(0.220 ns) + CELL(0.053 ns) = 7.170 ns; Loc. = LCCOMB_X22_Y17_N4; Fanout = 2; COMB Node = 'Ula32:inst3|carry_temp[29]~16'
+        Info: 20: + IC(0.310 ns) + CELL(0.053 ns) = 7.533 ns; Loc. = LCCOMB_X21_Y17_N8; Fanout = 2; COMB Node = 'Ula32:inst3|Mux0~1'
+        Info: 21: + IC(0.219 ns) + CELL(0.309 ns) = 8.061 ns; Loc. = LCFF_X21_Y17_N19; Fanout = 4; REG Node = 'Registrador:PC|Saida[31]'
+        Info: Total cell delay = 2.050 ns ( 25.43 % )
+        Info: Total interconnect delay = 6.011 ns ( 74.57 % )
+    Info: - Smallest clock skew is -0.018 ns
+        Info: + Shortest clock path from clock "clk" to destination register is 2.469 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.854 ns) = 0.854 ns; Loc. = PIN_N20; Fanout = 1; CLK Node = 'clk'
+            Info: 2: + IC(0.343 ns) + CELL(0.000 ns) = 1.197 ns; Loc. = CLKCTRL_G3; Fanout = 2366; COMB Node = 'clk~clkctrl'
+            Info: 3: + IC(0.654 ns) + CELL(0.618 ns) = 2.469 ns; Loc. = LCFF_X21_Y17_N19; Fanout = 4; REG Node = 'Registrador:PC|Saida[31]'
+            Info: Total cell delay = 1.472 ns ( 59.62 % )
+            Info: Total interconnect delay = 0.997 ns ( 40.38 % )
+        Info: - Longest clock path from clock "clk" to source register is 2.487 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.854 ns) = 0.854 ns; Loc. = PIN_N20; Fanout = 1; CLK Node = 'clk'
+            Info: 2: + IC(0.343 ns) + CELL(0.000 ns) = 1.197 ns; Loc. = CLKCTRL_G3; Fanout = 2366; COMB Node = 'clk~clkctrl'
+            Info: 3: + IC(0.672 ns) + CELL(0.618 ns) = 2.487 ns; Loc. = LCFF_X25_Y14_N21; Fanout = 43; REG Node = 'unidadeControle:inst17|muxalusrcb[0]'
+            Info: Total cell delay = 1.472 ns ( 59.19 % )
+            Info: Total interconnect delay = 1.015 ns ( 40.81 % )
     Info: + Micro clock to output delay of source is 0.094 ns
-    Info: + Longest register to pin delay is 2.997 ns
-        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X11_Y24_N17; Fanout = 1; REG Node = 'regwrite~reg0'
-        Info: 2: + IC(0.853 ns) + CELL(2.144 ns) = 2.997 ns; Loc. = PIN_F20; Fanout = 0; PIN Node = 'regwrite'
-        Info: Total cell delay = 2.144 ns ( 71.54 % )
-        Info: Total interconnect delay = 0.853 ns ( 28.46 % )
-Info: th for register "regwrite~reg0" (data pin = "reset", clock pin = "clk") is -3.022 ns
-    Info: + Longest clock path from clock "clk" to destination register is 2.498 ns
+    Info: + Micro setup delay of destination is 0.090 ns
+Info: tsu for register "unidadeControle:inst17|functOut[5]" (data pin = "reset", clock pin = "clk") is 4.674 ns
+    Info: + Longest pin to register delay is 7.064 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.864 ns) = 0.864 ns; Loc. = PIN_M21; Fanout = 26; PIN Node = 'reset'
+        Info: 2: + IC(4.488 ns) + CELL(0.366 ns) = 5.718 ns; Loc. = LCCOMB_X22_Y13_N2; Fanout = 6; COMB Node = 'unidadeControle:inst17|functOut[5]~0'
+        Info: 3: + IC(0.600 ns) + CELL(0.746 ns) = 7.064 ns; Loc. = LCFF_X21_Y14_N23; Fanout = 1; REG Node = 'unidadeControle:inst17|functOut[5]'
+        Info: Total cell delay = 1.976 ns ( 27.97 % )
+        Info: Total interconnect delay = 5.088 ns ( 72.03 % )
+    Info: + Micro setup delay of destination is 0.090 ns
+    Info: - Shortest clock path from clock "clk" to destination register is 2.480 ns
         Info: 1: + IC(0.000 ns) + CELL(0.854 ns) = 0.854 ns; Loc. = PIN_N20; Fanout = 1; CLK Node = 'clk'
-        Info: 2: + IC(0.343 ns) + CELL(0.000 ns) = 1.197 ns; Loc. = CLKCTRL_G3; Fanout = 2; COMB Node = 'clk~clkctrl'
-        Info: 3: + IC(0.683 ns) + CELL(0.618 ns) = 2.498 ns; Loc. = LCFF_X11_Y24_N17; Fanout = 1; REG Node = 'regwrite~reg0'
-        Info: Total cell delay = 1.472 ns ( 58.93 % )
-        Info: Total interconnect delay = 1.026 ns ( 41.07 % )
+        Info: 2: + IC(0.343 ns) + CELL(0.000 ns) = 1.197 ns; Loc. = CLKCTRL_G3; Fanout = 2366; COMB Node = 'clk~clkctrl'
+        Info: 3: + IC(0.665 ns) + CELL(0.618 ns) = 2.480 ns; Loc. = LCFF_X21_Y14_N23; Fanout = 1; REG Node = 'unidadeControle:inst17|functOut[5]'
+        Info: Total cell delay = 1.472 ns ( 59.35 % )
+        Info: Total interconnect delay = 1.008 ns ( 40.65 % )
+Info: tco from clock "clk" to destination pin "IORDout[4]" through register "Registrador:PC|Saida[4]" is 7.442 ns
+    Info: + Longest clock path from clock "clk" to source register is 2.486 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.854 ns) = 0.854 ns; Loc. = PIN_N20; Fanout = 1; CLK Node = 'clk'
+        Info: 2: + IC(0.343 ns) + CELL(0.000 ns) = 1.197 ns; Loc. = CLKCTRL_G3; Fanout = 2366; COMB Node = 'clk~clkctrl'
+        Info: 3: + IC(0.671 ns) + CELL(0.618 ns) = 2.486 ns; Loc. = LCFF_X23_Y13_N17; Fanout = 10; REG Node = 'Registrador:PC|Saida[4]'
+        Info: Total cell delay = 1.472 ns ( 59.21 % )
+        Info: Total interconnect delay = 1.014 ns ( 40.79 % )
+    Info: + Micro clock to output delay of source is 0.094 ns
+    Info: + Longest register to pin delay is 4.862 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X23_Y13_N17; Fanout = 10; REG Node = 'Registrador:PC|Saida[4]'
+        Info: 2: + IC(2.880 ns) + CELL(1.982 ns) = 4.862 ns; Loc. = PIN_B7; Fanout = 0; PIN Node = 'IORDout[4]'
+        Info: Total cell delay = 1.982 ns ( 40.77 % )
+        Info: Total interconnect delay = 2.880 ns ( 59.23 % )
+Info: th for register "unidadeControle:inst17|muxregdst[1]" (data pin = "reset", clock pin = "clk") is -2.855 ns
+    Info: + Longest clock path from clock "clk" to destination register is 2.469 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.854 ns) = 0.854 ns; Loc. = PIN_N20; Fanout = 1; CLK Node = 'clk'
+        Info: 2: + IC(0.343 ns) + CELL(0.000 ns) = 1.197 ns; Loc. = CLKCTRL_G3; Fanout = 2366; COMB Node = 'clk~clkctrl'
+        Info: 3: + IC(0.654 ns) + CELL(0.618 ns) = 2.469 ns; Loc. = LCFF_X17_Y13_N19; Fanout = 1030; REG Node = 'unidadeControle:inst17|muxregdst[1]'
+        Info: Total cell delay = 1.472 ns ( 59.62 % )
+        Info: Total interconnect delay = 0.997 ns ( 40.38 % )
     Info: + Micro hold delay of destination is 0.149 ns
-    Info: - Shortest pin to register delay is 5.669 ns
-        Info: 1: + IC(0.000 ns) + CELL(0.857 ns) = 0.857 ns; Loc. = PIN_AA17; Fanout = 2; PIN Node = 'reset'
-        Info: 2: + IC(4.503 ns) + CELL(0.309 ns) = 5.669 ns; Loc. = LCFF_X11_Y24_N17; Fanout = 1; REG Node = 'regwrite~reg0'
-        Info: Total cell delay = 1.166 ns ( 20.57 % )
-        Info: Total interconnect delay = 4.503 ns ( 79.43 % )
+    Info: - Shortest pin to register delay is 5.473 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.864 ns) = 0.864 ns; Loc. = PIN_M21; Fanout = 26; PIN Node = 'reset'
+        Info: 2: + IC(4.106 ns) + CELL(0.503 ns) = 5.473 ns; Loc. = LCFF_X17_Y13_N19; Fanout = 1030; REG Node = 'unidadeControle:inst17|muxregdst[1]'
+        Info: Total cell delay = 1.367 ns ( 24.98 % )
+        Info: Total interconnect delay = 4.106 ns ( 75.02 % )
 Info: Quartus II 64-Bit Classic Timing Analyzer was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4367 megabytes
-    Info: Processing ended: Thu Oct 10 19:16:29 2019
+    Info: Peak virtual memory: 4386 megabytes
+    Info: Processing ended: Fri Oct 11 02:26:01 2019
     Info: Elapsed time: 00:00:01
-    Info: Total CPU time (on all processors): 00:00:00
+    Info: Total CPU time (on all processors): 00:00:01
 
 

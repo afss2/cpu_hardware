@@ -2,7 +2,7 @@ module regDST(
 	input logic [4:0] inst20_16, // 
 	input logic [4:0] inst15_11, // 1
 	input logic [4:0] inst25_21,// 4
-	output logic [31:0] regDSTOut,
+	output logic [4:0] regDSTOut,
 	input logic [2:0] regDSTmux
 );
 

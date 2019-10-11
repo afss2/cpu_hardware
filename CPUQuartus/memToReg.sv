@@ -10,7 +10,7 @@ module memToReg(
 	input logic [31:0] e8,
 	input logic [31:0] e9,
 	output logic [31:0] memToRegOut,
-	input logic [2:0]memToRegmux
+	input logic [3:0]memToRegmux
 );
 
 parameter  e10 = 32'd227;

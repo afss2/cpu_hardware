@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY "Stratix II"
 set_global_assignment -name DEVICE AUTO
-set_global_assignment -name TOP_LEVEL_ENTITY unidadeControle
+set_global_assignment -name TOP_LEVEL_ENTITY schemeHard
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION "9.1 SP2"
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "15:38:22  OCTOBER 09, 2019"
 set_global_assignment -name LAST_QUARTUS_VERSION "9.1 SP2"
@@ -52,17 +52,17 @@ set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity a
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity aluSrcA -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -entity aluSrcA -section_id Top
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity aluSrcA -section_id Top
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity Registrador -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -entity Registrador -section_id Top
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity Registrador -section_id Top
+set_global_assignment -name SIMULATION_MODE FUNCTIONAL
+set_global_assignment -name SIMULATOR_GENERATE_POWERPLAY_VCD_FILE ON
+set_global_assignment -name SIMULATOR_POWERPLAY_VCD_FILE_OUTPUT_DESTINATION mipsHardware.vcd
+set_global_assignment -name MIF_FILE instrucoes.mif
 set_global_assignment -name SYSTEMVERILOG_FILE memToReg.sv
 set_global_assignment -name SYSTEMVERILOG_FILE signExtend16to32.sv
 set_global_assignment -name BDF_FILE schemeHard.bdf
 set_global_assignment -name SYSTEMVERILOG_FILE regDST.sv
-set_global_assignment -name SYSTEMVERILOG_FILE iord.sv
-set_global_assignment -name VHDL_FILE pcRegister.vhd
-set_global_assignment -name VHDL_FILE Registrador.vhd
 set_global_assignment -name VHDL_FILE Banco_reg.vhd
+set_global_assignment -name SYSTEMVERILOG_FILE iord.sv
+set_global_assignment -name VHDL_FILE Registrador.vhd
 set_global_assignment -name VHDL_FILE Instr_Reg.vhd
 set_global_assignment -name VHDL_FILE Memoria.vhd
 set_global_assignment -name VHDL_FILE RegDesloc.vhd
@@ -72,6 +72,9 @@ set_global_assignment -name SYSTEMVERILOG_FILE aluSrcA.sv
 set_global_assignment -name SYSTEMVERILOG_FILE aluSrcB.sv
 set_global_assignment -name SYSTEMVERILOG_FILE pcSource.sv
 set_global_assignment -name SYSTEMVERILOG_FILE shiftLeft2_2.sv
+set_global_assignment -name VECTOR_WAVEFORM_FILE schemeHard.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE testecontrole.vwf
+set_global_assignment -name INCREMENTAL_VECTOR_INPUT_SOURCE schemeHard.vwf
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name LL_ROOT_REGION ON -section_id "Root Region"

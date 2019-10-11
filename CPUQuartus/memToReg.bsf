@@ -96,8 +96,8 @@ applicable agreement for further details.
 	(port
 		(pt 0 192)
 		(input)
-		(text "memToRegmux[2..0]" (rect 0 0 103 12)(font "Arial" ))
-		(text "memToRegmux[2..0]" (rect 21 187 124 199)(font "Arial" ))
+		(text "memToRegmux[3..0]" (rect 0 0 103 12)(font "Arial" ))
+		(text "memToRegmux[3..0]" (rect 21 187 124 199)(font "Arial" ))
 		(line (pt 0 192)(pt 16 192)(line_width 3))
 	)
 	(port
