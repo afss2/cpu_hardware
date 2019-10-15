@@ -5,29 +5,29 @@ Timing Analyzer Summary
 Type           : Worst-case tsu
 Slack          : N/A
 Required Time  : None
-Actual Time    : 7.087 ns
-From           : WriteReg[2]
-To             : Reg21[27]
+Actual Time    : 4.199 ns
+From           : reset
+To             : unidadeControle:inst17|functOut[0]
 From Clock     : --
-To Clock       : Clk
+To Clock       : clk
 Failed Paths   : 0
 
 Type           : Worst-case tco
 Slack          : N/A
 Required Time  : None
-Actual Time    : 10.562 ns
-From           : Reg14[3]
-To             : ReadData1[3]
-From Clock     : Clk
+Actual Time    : 13.792 ns
+From           : unidadeControle:inst17|muxalusrcb[0]
+To             : aluresult[31]
+From Clock     : clk
 To Clock       : --
 Failed Paths   : 0
 
 Type           : Worst-case tpd
 Slack          : N/A
 Required Time  : None
-Actual Time    : 13.188 ns
-From           : ReadReg1[4]
-To             : ReadData1[20]
+Actual Time    : 7.257 ns
+From           : reset
+To             : resetD2
 From Clock     : --
 To Clock       : --
 Failed Paths   : 0
@@ -35,11 +35,21 @@ Failed Paths   : 0
 Type           : Worst-case th
 Slack          : N/A
 Required Time  : None
-Actual Time    : -2.398 ns
-From           : WriteData[3]
-To             : Reg0[3]
+Actual Time    : -2.767 ns
+From           : reset
+To             : unidadeControle:inst17|aluoutwrite
 From Clock     : --
-To Clock       : Clk
+To Clock       : clk
+Failed Paths   : 0
+
+Type           : Clock Setup: 'clk'
+Slack          : N/A
+Required Time  : None
+Actual Time    : 135.94 MHz ( period = 7.356 ns )
+From           : unidadeControle:inst17|muxalusrcb[0]
+To             : Registrador:AluOut|Saida[31]
+From Clock     : clk
+To Clock       : clk
 Failed Paths   : 0
 
 Type           : Total number of failed paths

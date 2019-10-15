@@ -1,0 +1,13 @@
+
+State Machine - |schemeHard|unidadeControle:inst17|state
+Name state.wait_Final state.closeWR state.add_sub_and state.execute state.decode2 state.decode state.fetch3 state.fetch2 state.fetch1 state.addi_addiu 
+state.fetch1 0 0 0 0 0 0 0 0 0 0 
+state.fetch2 0 0 0 0 0 0 0 1 1 0 
+state.fetch3 0 0 0 0 0 0 1 0 1 0 
+state.decode 0 0 0 0 0 1 0 0 1 0 
+state.decode2 0 0 0 0 1 0 0 0 1 0 
+state.execute 0 0 0 1 0 0 0 0 1 0 
+state.add_sub_and 0 0 1 0 0 0 0 0 1 0 
+state.addi_addiu 0 0 0 0 0 0 0 0 1 1 
+state.closeWR 0 1 0 0 0 0 0 0 1 0 
+state.wait_Final 1 0 0 0 0 0 0 0 1 0 

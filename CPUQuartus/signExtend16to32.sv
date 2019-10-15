@@ -3,6 +3,10 @@ input logic [15:0] inst15_0,
 output logic [31:0] signExtend16to32Out
 );
 
-always @ (*) signExtend16to32Out = $signed(inst15_0);
-	
-endmodule
+always
+
+signExtend16to32Out <= (inst15_0[15] == 0) ? (32'b00000000000000000000000000000000 + inst15_0) : (32'b11111111111111110000000000000000 + inst15_0);
+
+
+endmodule:signExtend16to32
+

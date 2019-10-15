@@ -77,7 +77,13 @@ parameter wait_Final = 7'd69;
 //inst R
 parameter formatR = 6'd0;
 parameter andR = 6'd36;
+parameter addR = 6'd32;
+parameter subR = 6'd34;
 parameter add_sub_and = 7'd7;
+//inst I
+parameter addi = 6'd8;
+parameter addiu = 6'd9;
+parameter addi_addiu = 6'd10;
 
 
 
@@ -245,7 +251,7 @@ always @(posedge clk) begin
 					 xchgctrl = 1'd0;
 				end
 				decode2: begin // 
-					 alucontrol = 3'd0;
+					 alucontrol = 3'd1;
 					 aluoutwrite = 1'd0;
 					 divby0 = 1'd0;
 					 epcwrite = 1'd0;
@@ -309,11 +315,131 @@ always @(posedge clk) begin
 									stateOut = add_sub_and;
 									xchgctrl = 1'd0;
 								end
+								addR: begin
+								    alucontrol = 3'd1; // funcao and
+									aluoutwrite = 1'd1; // habilita escrita
+									divby0 = 1'd0;
+									epcwrite = 1'd0;
+									hiwrite = 1'd0;
+									iordmux = 2'd0;
+									irwrite = 1'd0;
+									lowrite = 1'd0;
+									lscontrol = 2'd0;
+									memwrite  = 1'd0;
+									muxalusrca = 2'd1; // a
+									muxalusrcb = 2'd0; // b
+									muxhi = 1'd0;
+									muxlo = 1'd0;
+									muxmemtoreg = 4'd9; 
+									muxpcsource = 2'd0;
+									muxregdst = 3'd2;  
+									muxshiftsrca = 1'd0;
+									muxshiftsrcb = 1'd0;
+									muxxxchgctrl = 1'd0;
+									pcwrite = 1'd0;
+									pcwritecond = 1'd0;
+									regwrite = 1'd0; 
+									shiftcontrol = 1'd0;
+									sscontrol = 2'd0;
+									state = add_sub_and;
+									stateOut = add_sub_and;
+									xchgctrl = 1'd0;
+								end
+								subR: begin
+								    alucontrol = 3'd2; // funcao and
+									aluoutwrite = 1'd1; // habilita escrita
+									divby0 = 1'd0;
+									epcwrite = 1'd0;
+									hiwrite = 1'd0;
+									iordmux = 2'd0;
+									irwrite = 1'd0;
+									lowrite = 1'd0;
+									lscontrol = 2'd0;
+									memwrite  = 1'd0;
+									muxalusrca = 2'd1; // a
+									muxalusrcb = 2'd0; // b
+									muxhi = 1'd0;
+									muxlo = 1'd0;
+									muxmemtoreg = 4'd9; 
+									muxpcsource = 2'd0;
+									muxregdst = 3'd2;  
+									muxshiftsrca = 1'd0;
+									muxshiftsrcb = 1'd0;
+									muxxxchgctrl = 1'd0;
+									pcwrite = 1'd0;
+									pcwritecond = 1'd0;
+									regwrite = 1'd0; 
+									shiftcontrol = 1'd0;
+									sscontrol = 2'd0;
+									state = add_sub_and;
+									stateOut = add_sub_and;
+									xchgctrl = 1'd0;
+								end
 							endcase
 						end
+						addi: begin
+							 alucontrol = 3'd1;
+							 aluoutwrite = 1'd1;
+							 divby0 = 1'd0;
+							 epcwrite = 1'd0;
+							 hiwrite = 1'd0;
+							 iordmux = 2'd0;
+							 irwrite = 1'd0;
+							 lowrite = 1'd0;
+							 lscontrol = 2'd0;
+							 memwrite  = 1'd0; // 0 = lendo , 1 = escrevendo
+							 muxalusrca = 2'd1;
+							 muxalusrcb = 2'd2;
+							 muxhi = 1'd0;
+							 muxlo = 1'd0;
+							 muxmemtoreg = 4'd9; // 
+							 muxpcsource = 2'd0;
+							 muxregdst = 3'd2; // 
+							 muxshiftsrca = 1'd0;
+							 muxshiftsrcb = 1'd0;
+							 muxxxchgctrl = 1'd0;
+							 pcwrite = 1'd0;
+							 pcwritecond = 1'd0;
+							 regwrite = 1'd0; //
+							 shiftcontrol = 1'd0;
+							 sscontrol = 2'd0;
+							 state = addi_addiu;
+							 stateOut = addi_addiu;
+							 functOut = funct;
+							 xchgctrl = 1'd0;
+						end
+						addiu: begin
+							 alucontrol = 3'd1;
+							 aluoutwrite = 1'd1;
+							 divby0 = 1'd0;
+							 epcwrite = 1'd0;
+							 hiwrite = 1'd0;
+							 iordmux = 2'd0;
+							 irwrite = 1'd0;
+							 lowrite = 1'd0;
+							 lscontrol = 2'd0;
+							 memwrite  = 1'd0; // 0 = lendo , 1 = escrevendo
+							 muxalusrca = 2'd1;
+							 muxalusrcb = 2'd2;
+							 muxhi = 1'd0;
+							 muxlo = 1'd0;
+							 muxmemtoreg = 4'd9; // 
+							 muxpcsource = 2'd0;
+							 muxregdst = 3'd2; // 
+							 muxshiftsrca = 1'd0;
+							 muxshiftsrcb = 1'd0;
+							 muxxxchgctrl = 1'd0;
+							 pcwrite = 1'd0;
+							 pcwritecond = 1'd0;
+							 regwrite = 1'd0; //
+							 shiftcontrol = 1'd0;
+							 sscontrol = 2'd0;
+							 state = addi_addiu;
+							 stateOut = addi_addiu;
+							 functOut = funct;
+							 xchgctrl = 1'd0;
+						end
 					endcase
-				
-			
 			    end			
 				add_sub_and: begin
 					alucontrol = 3'd0;
@@ -333,6 +459,36 @@ always @(posedge clk) begin
 					muxmemtoreg = 4'd0; // <----
 					muxpcsource = 2'd0;
 					muxregdst = 3'd1; // <---
+					muxshiftsrca = 1'd0;
+					muxshiftsrcb = 1'd0;
+					muxxxchgctrl = 1'd0;
+					pcwrite = 1'd0;
+					pcwritecond = 1'd0;
+					regwrite = 1'd1; // <---
+					shiftcontrol = 1'd0;
+					sscontrol = 2'd0;
+					state = closeWR;
+					stateOut = closeWR;								
+					xchgctrl = 1'd0;
+				end
+				addi_addiu: begin
+					alucontrol = 3'd0;
+					aluoutwrite = 1'd0;
+					divby0 = 1'd0;														
+					epcwrite = 1'd0;
+					hiwrite = 1'd0;
+					iordmux = 2'd0;
+					irwrite = 1'd0;
+					lowrite = 1'd0;
+					lscontrol = 2'd0;
+					memwrite  = 1'd0; 					
+					muxalusrca = 2'd1;
+					muxalusrcb = 2'd0;
+					muxhi = 1'd0;
+					muxlo = 1'd0;
+					muxmemtoreg = 4'd0; // <----
+					muxpcsource = 2'd0;
+					muxregdst = 3'd0; // <---
 					muxshiftsrca = 1'd0;
 					muxshiftsrcb = 1'd0;
 					muxxxchgctrl = 1'd0;

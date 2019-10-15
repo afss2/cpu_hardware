@@ -1,5 +1,5 @@
 Flow report for mipsHardware
-Fri Oct 11 04:35:00 2019
+Tue Oct 15 18:21:46 2019
 Quartus II 64-Bit Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Full Version
 
 
@@ -38,23 +38,23 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +-------------------------------+-----------------------------------------------+
-; Flow Status                   ; Successful - Fri Oct 11 04:35:00 2019         ;
+; Flow Status                   ; Successful - Tue Oct 15 18:21:46 2019         ;
 ; Quartus II 64-Bit Version     ; 9.1 Build 350 03/24/2010 SP 2 SJ Full Version ;
 ; Revision Name                 ; mipsHardware                                  ;
-; Top-level Entity Name         ; Banco_reg                                     ;
+; Top-level Entity Name         ; schemeHard                                    ;
 ; Family                        ; Stratix II                                    ;
 ; Met timing requirements       ; Yes                                           ;
-; Logic utilization             ; 11 %                                          ;
-;     Combinational ALUTs       ; 738 / 12,480 ( 6 % )                          ;
-;     Dedicated logic registers ; 1,024 / 12,480 ( 8 % )                        ;
-; Total registers               ; 1024                                          ;
-; Total pins                    ; 114 / 343 ( 33 % )                            ;
+; Logic utilization             ; 14 %                                          ;
+;     Combinational ALUTs       ; 1,012 / 12,480 ( 8 % )                        ;
+;     Dedicated logic registers ; 1,218 / 12,480 ( 10 % )                       ;
+; Total registers               ; 1218                                          ;
+; Total pins                    ; 324 / 367 ( 88 % )                            ;
 ; Total virtual pins            ; 0                                             ;
-; Total block memory bits       ; 0 / 419,328 ( 0 % )                           ;
+; Total block memory bits       ; 8,192 / 419,328 ( 2 % )                       ;
 ; DSP block 9-bit elements      ; 0 / 96 ( 0 % )                                ;
 ; Total PLLs                    ; 0 / 6 ( 0 % )                                 ;
 ; Total DLLs                    ; 0 / 2 ( 0 % )                                 ;
-; Device                        ; EP2S15F484C3                                  ;
+; Device                        ; EP2S15F672C3                                  ;
 ; Timing Models                 ; Final                                         ;
 +-------------------------------+-----------------------------------------------+
 
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 10/11/2019 04:34:46 ;
+; Start date & time ; 10/15/2019 18:21:28 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; mipsHardware        ;
 +-------------------+---------------------+
@@ -75,14 +75,14 @@ applicable agreement for further details.
 +------------------------------------+---------------------------------+---------------+-------------+----------------+
 ; Assignment Name                    ; Value                           ; Default Value ; Entity Name ; Section Id     ;
 +------------------------------------+---------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID              ; 229335799398857.157077928603948 ; --            ; --          ; --             ;
-; PARTITION_COLOR                    ; 16764057                        ; --            ; Banco_reg   ; Top            ;
+; COMPILER_SIGNATURE_ID              ; 229335799398852.157117448812776 ; --            ; --          ; --             ;
 ; PARTITION_COLOR                    ; 16764057                        ; --            ; aluSrcA     ; Top            ;
 ; PARTITION_COLOR                    ; 16764057                        ; --            ; aluSrcB     ; Top            ;
-; PARTITION_NETLIST_TYPE             ; SOURCE                          ; --            ; Banco_reg   ; Top            ;
+; PARTITION_COLOR                    ; 16764057                        ; --            ; schemeHard  ; Top            ;
 ; PARTITION_NETLIST_TYPE             ; SOURCE                          ; --            ; aluSrcA     ; Top            ;
 ; PARTITION_NETLIST_TYPE             ; SOURCE                          ; --            ; aluSrcB     ; Top            ;
-; TOP_LEVEL_ENTITY                   ; Banco_reg                       ; mipsHardware  ; --          ; --             ;
+; PARTITION_NETLIST_TYPE             ; SOURCE                          ; --            ; schemeHard  ; Top            ;
+; TOP_LEVEL_ENTITY                   ; schemeHard                      ; mipsHardware  ; --          ; --             ;
 ; USE_GENERATED_PHYSICAL_CONSTRAINTS ; Off                             ; --            ; --          ; eda_blast_fpga ;
 +------------------------------------+---------------------------------+---------------+-------------+----------------+
 
@@ -92,11 +92,11 @@ applicable agreement for further details.
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name             ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis    ; 00:00:04     ; 1.0                     ; 4502 MB             ; 00:00:07                           ;
-; Fitter                  ; 00:00:05     ; 1.0                     ; 4604 MB             ; 00:00:06                           ;
-; Assembler               ; 00:00:02     ; 1.0                     ; 4424 MB             ; 00:00:01                           ;
-; Classic Timing Analyzer ; 00:00:00     ; 1.0                     ; 4364 MB             ; 00:00:01                           ;
-; Total                   ; 00:00:11     ; --                      ; --                  ; 00:00:15                           ;
+; Analysis & Synthesis    ; 00:00:06     ; 1.0                     ; 4528 MB             ; 00:00:07                           ;
+; Fitter                  ; 00:00:06     ; 3.0                     ; 4609 MB             ; 00:00:08                           ;
+; Assembler               ; 00:00:02     ; 1.0                     ; 4426 MB             ; 00:00:01                           ;
+; Classic Timing Analyzer ; 00:00:01     ; 1.0                     ; 4369 MB             ; 00:00:00                           ;
+; Total                   ; 00:00:15     ; --                      ; --                  ; 00:00:16                           ;
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -105,10 +105,10 @@ applicable agreement for further details.
 +-------------------------+------------------+---------------+------------+----------------+
 ; Module Name             ; Machine Hostname ; OS Name       ; OS Version ; Processor type ;
 +-------------------------+------------------+---------------+------------+----------------+
-; Analysis & Synthesis    ; G3C12            ; Windows Vista ; 6.2        ; x86_64         ;
-; Fitter                  ; G3C12            ; Windows Vista ; 6.2        ; x86_64         ;
-; Assembler               ; G3C12            ; Windows Vista ; 6.2        ; x86_64         ;
-; Classic Timing Analyzer ; G3C12            ; Windows Vista ; 6.2        ; x86_64         ;
+; Analysis & Synthesis    ; g3c48            ; Windows Vista ; 6.2        ; x86_64         ;
+; Fitter                  ; g3c48            ; Windows Vista ; 6.2        ; x86_64         ;
+; Assembler               ; g3c48            ; Windows Vista ; 6.2        ; x86_64         ;
+; Classic Timing Analyzer ; g3c48            ; Windows Vista ; 6.2        ; x86_64         ;
 +-------------------------+------------------+---------------+------------+----------------+
 
 
