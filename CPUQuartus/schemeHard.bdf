@@ -408,6 +408,23 @@ applicable agreement for further details.
 		(line (pt 78 12)(pt 82 8)(line_width 1))
 	)
 )
+(pin
+	(output)
+	(rect 2032 856 2048 1032)
+	(text "OUTPUT" (rect 0 1 10 39)(font "Arial" (font_size 6))(vertical))
+	(text "xCHG[31..0]" (rect 0 90 12 152)(font "Arial" )(vertical))
+	(pt 8 0)
+	(drawing
+		(line (pt 8 0)(pt 8 52)(line_width 1))
+		(line (pt 4 52)(pt 4 78)(line_width 1))
+		(line (pt 12 52)(pt 12 78)(line_width 1))
+		(line (pt 12 52)(pt 4 52)(line_width 1))
+		(line (pt 4 78)(pt 8 82)(line_width 1))
+		(line (pt 8 82)(pt 12 78)(line_width 1))
+		(line (pt 12 78)(pt 8 82)(line_width 1))
+	)
+	(flipy_rotate90)
+)
 (symbol
 	(rect 2352 96 2536 224)
 	(text "Registrador" (rect 5 0 61 12)(font "Arial" ))
@@ -1593,6 +1610,21 @@ applicable agreement for further details.
 		""
 		(type "PARAMETER_UNSIGNED_BIN")	)
 	(parameter
+		"add_sub_and"
+		"0000111"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"addi_addiu"
+		"001010"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"break2"
+		"0001001"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
 		"closeWR"
 		"1000100"
 		""
@@ -1605,6 +1637,21 @@ applicable agreement for further details.
 	(parameter
 		"formatR"
 		"000000"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"xchg1"
+		"000101"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"break1"
+		"001101"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"rte"
+		"010011"
 		""
 		(type "PARAMETER_UNSIGNED_BIN")	)
 	(parameter
@@ -1623,11 +1670,6 @@ applicable agreement for further details.
 		""
 		(type "PARAMETER_UNSIGNED_BIN")	)
 	(parameter
-		"add_sub_and"
-		"0000111"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
 		"addi"
 		"001000"
 		""
@@ -1635,11 +1677,6 @@ applicable agreement for further details.
 	(parameter
 		"addiu"
 		"001001"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"addi_addiu"
-		"001010"
 		""
 		(type "PARAMETER_UNSIGNED_BIN")	)
 	(drawing
@@ -1669,6 +1706,50 @@ applicable agreement for further details.
 	(drawing
 		(rectangle (rect 16 16 248 80)(line_width 1))
 	)
+)
+(symbol
+	(rect 2080 744 2264 872)
+	(text "Registrador" (rect 123 116 179 128)(font "Arial" ))
+	(text "xchg" (rect 147 4 170 16)(font "Arial" ))
+	(port
+		(pt 184 96)
+		(input)
+		(text "Clk" (rect 0 0 16 12)(font "Arial" ))
+		(text "Clk" (rect 147 89 163 101)(font "Arial" ))
+		(line (pt 184 96)(pt 168 96)(line_width 1))
+	)
+	(port
+		(pt 184 80)
+		(input)
+		(text "Reset" (rect 0 0 29 12)(font "Arial" ))
+		(text "Reset" (rect 134 73 163 85)(font "Arial" ))
+		(line (pt 184 80)(pt 168 80)(line_width 1))
+	)
+	(port
+		(pt 184 64)
+		(input)
+		(text "Load" (rect 0 0 23 12)(font "Arial" ))
+		(text "Load" (rect 140 57 163 69)(font "Arial" ))
+		(line (pt 184 64)(pt 168 64)(line_width 1))
+	)
+	(port
+		(pt 184 48)
+		(input)
+		(text "Entrada[31..0]" (rect 0 0 69 12)(font "Arial" ))
+		(text "Entrada[31..0]" (rect 94 41 163 53)(font "Arial" ))
+		(line (pt 184 48)(pt 168 48)(line_width 3))
+	)
+	(port
+		(pt 0 96)
+		(output)
+		(text "Saida[31..0]" (rect 0 0 59 12)(font "Arial" ))
+		(text "Saida[31..0]" (rect 21 89 80 101)(font "Arial" ))
+		(line (pt 0 96)(pt 16 96)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 168 112)(line_width 1))
+	)
+	(rotate180)
 )
 (connector
 	(pt 2320 176)
@@ -1718,16 +1799,6 @@ applicable agreement for further details.
 (connector
 	(pt 3016 248)
 	(pt 3032 248)
-	(bus)
-)
-(connector
-	(pt 2608 160)
-	(pt 2720 160)
-	(bus)
-)
-(connector
-	(pt 2528 448)
-	(pt 2704 448)
 	(bus)
 )
 (connector
@@ -1917,10 +1988,6 @@ applicable agreement for further details.
 (connector
 	(pt 2288 128)
 	(pt 2288 1688)
-)
-(connector
-	(pt 2328 448)
-	(pt 2328 1688)
 )
 (connector
 	(pt 3368 200)
@@ -2727,10 +2794,6 @@ applicable agreement for further details.
 	(pt 3448 232)
 )
 (connector
-	(pt 2304 456)
-	(pt 2304 1768)
-)
-(connector
 	(pt 2288 128)
 	(pt 2352 128)
 )
@@ -3021,6 +3084,149 @@ applicable agreement for further details.
 	(pt 1736 288)
 	(pt 1664 288)
 )
+(connector
+	(pt 2264 824)
+	(pt 2304 824)
+)
+(connector
+	(pt 2304 456)
+	(pt 2304 824)
+)
+(connector
+	(pt 2304 824)
+	(pt 2304 1768)
+)
+(connector
+	(pt 2264 840)
+	(pt 2328 840)
+)
+(connector
+	(pt 2328 448)
+	(pt 2328 840)
+)
+(connector
+	(pt 2328 840)
+	(pt 2328 1688)
+)
+(connector
+	(pt 2544 448)
+	(pt 2544 608)
+	(bus)
+)
+(connector
+	(pt 2544 608)
+	(pt 2336 608)
+	(bus)
+)
+(connector
+	(pt 2528 448)
+	(pt 2544 448)
+	(bus)
+)
+(connector
+	(pt 2544 448)
+	(pt 2704 448)
+	(bus)
+)
+(connector
+	(pt 2336 608)
+	(pt 2336 792)
+	(bus)
+)
+(connector
+	(pt 2336 792)
+	(pt 2264 792)
+	(bus)
+)
+(connector
+	(pt 2456 88)
+	(pt 2584 88)
+)
+(connector
+	(pt 2456 -544)
+	(pt 2456 88)
+)
+(connector
+	(pt 2584 88)
+	(pt 2584 584)
+)
+(connector
+	(pt 2280 584)
+	(pt 2280 808)
+)
+(connector
+	(pt 2280 808)
+	(pt 2264 808)
+)
+(connector
+	(pt 2584 584)
+	(pt 2280 584)
+)
+(connector
+	(pt 1896 840)
+	(pt 1896 856)
+	(bus)
+)
+(connector
+	(pt 2040 840)
+	(pt 2040 856)
+	(bus)
+)
+(connector
+	(pt 2080 840)
+	(pt 2040 840)
+	(bus)
+)
+(connector
+	(pt 2040 840)
+	(pt 1896 840)
+	(bus)
+)
+(connector
+	(pt 1800 856)
+	(pt 1896 856)
+	(bus)
+)
+(connector
+	(pt 2640 160)
+	(pt 2640 584)
+	(bus)
+)
+(connector
+	(pt 2640 584)
+	(pt 2856 584)
+	(bus)
+)
+(connector
+	(pt 2608 160)
+	(pt 2640 160)
+	(bus)
+)
+(connector
+	(pt 2640 160)
+	(pt 2720 160)
+	(bus)
+)
+(connector
+	(pt 2856 584)
+	(pt 2856 1040)
+	(bus)
+)
+(connector
+	(pt 2856 1040)
+	(pt 1960 1040)
+	(bus)
+)
+(connector
+	(pt 1960 1040)
+	(pt 1960 888)
+	(bus)
+)
+(connector
+	(pt 1960 888)
+	(pt 1792 888)
+	(bus)
+)
 (junction (pt 3320 248))
 (junction (pt 1832 144))
 (junction (pt 1816 128))
@@ -3066,3 +3272,8 @@ applicable agreement for further details.
 (junction (pt 1952 544))
 (junction (pt 712 400))
 (junction (pt 1736 288))
+(junction (pt 2304 824))
+(junction (pt 2328 840))
+(junction (pt 2544 448))
+(junction (pt 2040 840))
+(junction (pt 2640 160))
