@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY "Stratix II"
 set_global_assignment -name DEVICE AUTO
-set_global_assignment -name TOP_LEVEL_ENTITY unidadeControle
+set_global_assignment -name TOP_LEVEL_ENTITY schemeHard
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION "9.1 SP2"
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "15:38:22  OCTOBER 09, 2019"
 set_global_assignment -name LAST_QUARTUS_VERSION "9.1 SP2"
@@ -76,6 +76,7 @@ set_global_assignment -name VECTOR_WAVEFORM_FILE schemeHard.vwf
 set_global_assignment -name VECTOR_WAVEFORM_FILE testecontrole.vwf
 set_global_assignment -name VECTOR_WAVEFORM_FILE Banco_reg.vwf
 set_global_assignment -name INCREMENTAL_VECTOR_INPUT_SOURCE schemeHard.vwf
+set_global_assignment -name SYSTEMVERILOG_FILE xchgMux.sv
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name LL_ROOT_REGION ON -section_id "Root Region"

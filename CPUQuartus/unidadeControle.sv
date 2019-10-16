@@ -74,6 +74,7 @@ parameter execute = 7'd6;
 parameter add_sub_and = 7'd7;
 parameter addi_addiu = 7'd8;
 parameter break2 = 7'd9;
+parameter xchg2 = 7'd10;
 parameter closeWR = 7'd68;
 parameter wait_Final = 7'd69;
 
@@ -89,9 +90,6 @@ parameter subR = 6'd34;
 //inst I
 parameter addi = 6'd8;
 parameter addiu = 6'd9;
-
-
-
 
 reg[6:0] state;
 integer count;
@@ -438,10 +436,41 @@ always @(posedge clk) begin
 									 regwrite = 1'd0; //
 									 shiftcontrol = 1'd0;
 									 sscontrol = 2'd0;
-									 state = execute;
-									 stateOut = execute;
+									 state = closeWR;
+									 stateOut = closeWR;
 									 functOut = funct;
 									 xchgctrl = 1'd0;
+								end
+								xchg1: begin
+									 alucontrol = 3'd1;
+									 aluoutwrite = 1'd0;
+									 divby0 = 1'd0;
+									 epcwrite = 1'd0;
+									 hiwrite = 1'd0;
+									 iordmux = 2'd0;
+									 irwrite = 1'd0;
+									 lowrite = 1'd0;
+									 lscontrol = 2'd0;
+									 memwrite  = 1'd0; 
+									 muxalusrca = 2'd0;
+									 muxalusrcb = 2'd3;
+									 muxhi = 1'd0;
+									 muxlo = 1'd0;
+									 muxmemtoreg = 4'd8; // <--
+									 muxpcsource = 2'd0;
+									 muxregdst = 3'd0;  // <--
+									 muxshiftsrca = 1'd0;
+									 muxshiftsrcb = 1'd0;
+									 muxxxchgctrl = 1'd0; // <--
+									 pcwrite = 1'd0;
+									 pcwritecond = 1'd0;
+									 regwrite = 1'd0; 
+									 shiftcontrol = 1'd0;
+									 sscontrol = 2'd0;
+									 state = xchg2;
+									 stateOut = xchg2;
+									 functOut = funct;
+									 xchgctrl = 1'd1; // <--
 								end
 							endcase
 						end
@@ -538,6 +567,36 @@ always @(posedge clk) begin
 					state = closeWR;
 					stateOut = closeWR;								
 					xchgctrl = 1'd0;
+				end
+				xchg2: begin
+					alucontrol = 3'd0;
+					aluoutwrite = 1'd0;
+					divby0 = 1'd0;														
+					epcwrite = 1'd0;
+					hiwrite = 1'd0;
+					iordmux = 2'd0;
+					irwrite = 1'd0;
+					lowrite = 1'd0;
+					lscontrol = 2'd0;
+					memwrite  = 1'd0; 					
+					muxalusrca = 2'd1;
+					muxalusrcb = 2'd0;
+					muxhi = 1'd0;
+					muxlo = 1'd0;
+					muxmemtoreg = 4'd8; // <--- 
+					muxpcsource = 2'd0;
+					muxregdst = 3'd4; // <---
+					muxshiftsrca = 1'd0;
+					muxshiftsrcb = 1'd0;
+					muxxxchgctrl = 1'd1; // <---
+					pcwrite = 1'd0;
+					pcwritecond = 1'd0;
+					regwrite = 1'd0; 
+					shiftcontrol = 1'd0;
+					sscontrol = 2'd0;
+					state = closeWR;
+					stateOut = closeWR;								
+					xchgctrl = 1'd0; // <---
 				end
 				addi_addiu: begin
 					alucontrol = 3'd0;

@@ -63,6 +63,9 @@ F
 PARAMETER_UNSIGNED_BIN
 USR
 }
+# hierarchies {
+iord:inst5
+}
 # macro_sequence
 
 # end
@@ -96,6 +99,9 @@ VERILOG_CONSTANT_LOOP_LIMIT
 VERILOG_NON_CONSTANT_LOOP_LIMIT
 250
 }
+# hierarchies {
+pcSource:inst16
+}
 # macro_sequence
 
 # end
@@ -128,6 +134,9 @@ VERILOG_CONSTANT_LOOP_LIMIT
 5000
 VERILOG_NON_CONSTANT_LOOP_LIMIT
 250
+}
+# hierarchies {
+aluSrcA:inst
 }
 # macro_sequence
 
@@ -168,6 +177,9 @@ pcMais4
 PARAMETER_UNSIGNED_BIN
 USR
 }
+# hierarchies {
+aluSrcB:inst1
+}
 # macro_sequence
 
 # end
@@ -201,48 +213,8 @@ VERILOG_CONSTANT_LOOP_LIMIT
 VERILOG_NON_CONSTANT_LOOP_LIMIT
 250
 }
-# macro_sequence
-
-# end
-# entity
-regDST
-# storage
-db|mipsHardware.(18).cnf
-db|mipsHardware.(18).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-regdst.sv
-c5ebad67494eec64bd8aee9a74c6b3a
-9
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
-}
-# user_parameter {
-D
-11101
-PARAMETER_UNSIGNED_BIN
-USR
-E
-11111
-PARAMETER_UNSIGNED_BIN
-USR
+# hierarchies {
+shiftLeft2_2:inst11
 }
 # macro_sequence
 
@@ -283,48 +255,8 @@ e10
 PARAMETER_UNSIGNED_BIN
 DEF
 }
-# macro_sequence
-
-# end
-# entity
-regDST
-# storage
-db|mipsHardware.(20).cnf
-db|mipsHardware.(20).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-regdst.sv
-c5ebad67494eec64bd8aee9a74c6b3a
-9
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
-}
-# user_parameter {
-D
-11101
-PARAMETER_UNSIGNED_BIN
-DEF
-E
-11111
-PARAMETER_UNSIGNED_BIN
-DEF
+# hierarchies {
+memToReg:inst7
 }
 # macro_sequence
 
@@ -406,22 +338,892 @@ VERILOG_CONSTANT_LOOP_LIMIT
 VERILOG_NON_CONSTANT_LOOP_LIMIT
 250
 }
+# hierarchies {
+signExtend16to32:inst8
+}
 # macro_sequence
 
 # end
 # entity
-schemeHard
+xchgMux
 # storage
-db|mipsHardware.(2).cnf
-db|mipsHardware.(2).cnf
+db|mipsHardware.(1).cnf
+db|mipsHardware.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+xchgmux.sv
+d95963cfc578acbdc452bdf8fa3d7b1
+9
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+xchgMux:inst10
+}
+# macro_sequence
+
+# end
+# entity
+regDST
+# storage
+db|mipsHardware.(0).cnf
+db|mipsHardware.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+regdst.sv
+64322614ee768f7c5bd85de381f623
+9
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# user_parameter {
+D
+11101
+PARAMETER_UNSIGNED_BIN
+DEF
+E
+11111
+PARAMETER_UNSIGNED_BIN
+DEF
+}
+# hierarchies {
+regDST:inst15
+}
+# macro_sequence
+
+# end
+# entity
+Ula32
+# storage
+db|mipsHardware.(4).cnf
+db|mipsHardware.(4).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
 # case_insensitive
 # source_file
-schemehard.bdf
-2c2f0d5a63acf899ae053a2c995d8
-26
+ula32.vhd
+d6bb5bfd211de44547e9b6fe9d17a72
+5
 # internal_option {
-BLOCK_DESIGN_NAMING
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+Ula32:inst3
+}
+# lmf
+|programfiles|quartus|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+Registrador
+# storage
+db|mipsHardware.(5).cnf
+db|mipsHardware.(5).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+registrador.vhd
+9c2fa77c717e3583f352d6d9d43cb93
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+Registrador:PC
+Registrador:EPC
+Registrador:AluOut
+Registrador:A
+Registrador:xchgUnit
+Registrador:B
+}
+# lmf
+|programfiles|quartus|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+Banco_reg
+# storage
+db|mipsHardware.(6).cnf
+db|mipsHardware.(6).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+banco_reg.vhd
+2cadfcaf44a2386f30e8abc1e4fa4f58
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+Banco_reg:inst6
+}
+# lmf
+|programfiles|quartus|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+Instr_Reg
+# storage
+db|mipsHardware.(7).cnf
+db|mipsHardware.(7).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+instr_reg.vhd
+2210c8a335c3f44acebaf05a94bee
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+Instr_Reg:inst4
+}
+# lmf
+|programfiles|quartus|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+Memoria
+# storage
+db|mipsHardware.(8).cnf
+db|mipsHardware.(8).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+memoria.vhd
+d0855f6a49415dbe7ff9c716b61a576a
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+Memoria:inst2
+}
+# lmf
+|programfiles|quartus|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+LPM_RAM_DQ
+# storage
+db|mipsHardware.(11).cnf
+db|mipsHardware.(11).cnf
+# case_insensitive
+# source_file
+|programfiles|quartus|altera|91sp2|quartus|libraries|megafunctions|lpm_ram_dq.tdf
+8cb8fb4e8f3e90656f489fc92aabb9
+7
+# user_parameter {
+LPM_WIDTH
+8
+PARAMETER_SIGNED_DEC
+USR
+LPM_WIDTHAD
+8
+PARAMETER_SIGNED_DEC
+USR
+LPM_NUMWORDS
+0
+PARAMETER_SIGNED_DEC
+USR
+LPM_INDATA
+REGISTERED
+PARAMETER_UNKNOWN
+USR
+LPM_ADDRESS_CONTROL
+REGISTERED
+PARAMETER_UNKNOWN
+USR
+LPM_OUTDATA
+REGISTERED
+PARAMETER_UNKNOWN
+USR
+LPM_FILE
+instrucoes.mif
+PARAMETER_UNKNOWN
+USR
+USE_EAB
+ON
+PARAMETER_UNKNOWN
+USR
+DEVICE_FAMILY
+Stratix II
+PARAMETER_UNKNOWN
+USR
+CBXI_PARAMETER
+NOTHING
+PARAMETER_UNKNOWN
+DEF
+AUTO_CARRY_CHAINS
+ON
+AUTO_CARRY
+USR
+IGNORE_CARRY_BUFFERS
+OFF
+IGNORE_CARRY
+USR
+AUTO_CASCADE_CHAINS
+ON
+AUTO_CASCADE
+USR
+IGNORE_CASCADE_BUFFERS
+OFF
+IGNORE_CASCADE
+USR
+}
+# used_port {
+WE
+-1
+3
+Q7
+-1
+3
+Q6
+-1
+3
+Q5
+-1
+3
+Q4
+-1
+3
+Q3
+-1
+3
+Q2
+-1
+3
+Q1
+-1
+3
+Q0
+-1
+3
+OUTCLOCK
+-1
+3
+INCLOCK
+-1
+3
+DATA7
+-1
+3
+DATA6
+-1
+3
+DATA5
+-1
+3
+DATA4
+-1
+3
+DATA3
+-1
+3
+DATA2
+-1
+3
+DATA1
+-1
+3
+DATA0
+-1
+3
+ADDRESS7
+-1
+3
+ADDRESS6
+-1
+3
+ADDRESS5
+-1
+3
+ADDRESS4
+-1
+3
+ADDRESS3
+-1
+3
+ADDRESS2
+-1
+3
+ADDRESS1
+-1
+3
+ADDRESS0
+-1
+3
+}
+# hierarchies {
+Memoria:inst2|lpm_ram_dq:MEM
+Memoria:inst2|lpm_ram_dq:MEM_plus_One
+Memoria:inst2|lpm_ram_dq:MEM_plus_Two
+Memoria:inst2|lpm_ram_dq:MEM_plus_Three
+}
+# macro_sequence
+
+# end
+# entity
+altram
+# storage
+db|mipsHardware.(17).cnf
+db|mipsHardware.(17).cnf
+# case_insensitive
+# source_file
+|programfiles|quartus|altera|91sp2|quartus|libraries|megafunctions|altram.tdf
+c72d5dfba4da3c5a1457d7f3112cd3b
+7
+# user_parameter {
+AUTO_CARRY_CHAINS
+ON
+AUTO_CARRY
+USR
+IGNORE_CARRY_BUFFERS
+OFF
+IGNORE_CARRY
+USR
+AUTO_CASCADE_CHAINS
+ON
+AUTO_CASCADE
+USR
+IGNORE_CASCADE_BUFFERS
+OFF
+IGNORE_CASCADE
+USR
+WIDTH_BYTEENA_A
+1
+PARAMETER_UNKNOWN
+DEF
+WIDTH_BYTEENA_B
+1
+PARAMETER_UNKNOWN
+DEF
+WIDTH
+8
+PARAMETER_UNKNOWN
+USR
+AD_WIDTH
+8
+PARAMETER_UNKNOWN
+USR
+NUMWORDS
+256
+PARAMETER_UNKNOWN
+USR
+FILE
+instrucoes.mif
+PARAMETER_UNKNOWN
+USR
+REGISTERINPUTMODE
+ALL
+PARAMETER_UNKNOWN
+USR
+USE_EAB
+ON
+PARAMETER_UNKNOWN
+USR
+MAXIMUM_DEPTH
+2048
+PARAMETER_UNKNOWN
+DEF
+DEVICE_FAMILY
+Stratix II
+PARAMETER_UNKNOWN
+USR
+SUPPRESS_MEMORY_CONVERSION_WARNINGS
+OFF
+PARAMETER_UNKNOWN
+DEF
+ENABLE_RAM_BENCHMARKING_MODE
+OFF
+PARAMETER_UNKNOWN
+DEF
+}
+# used_port {
+we
+-1
+3
+q7
+-1
+3
+q6
+-1
+3
+q5
+-1
+3
+q4
+-1
+3
+q3
+-1
+3
+q2
+-1
+3
+q1
+-1
+3
+q0
+-1
+3
+data7
+-1
+3
+data6
+-1
+3
+data5
+-1
+3
+data4
+-1
+3
+data3
+-1
+3
+data2
+-1
+3
+data1
+-1
+3
+data0
+-1
+3
+clocko
+-1
+3
+clocki
+-1
+3
+address7
+-1
+3
+address6
+-1
+3
+address5
+-1
+3
+address4
+-1
+3
+address3
+-1
+3
+address2
+-1
+3
+address1
+-1
+3
+address0
+-1
+3
+}
+# hierarchies {
+Memoria:inst2|lpm_ram_dq:MEM|altram:sram
+Memoria:inst2|lpm_ram_dq:MEM_plus_One|altram:sram
+Memoria:inst2|lpm_ram_dq:MEM_plus_Two|altram:sram
+Memoria:inst2|lpm_ram_dq:MEM_plus_Three|altram:sram
+}
+# macro_sequence
+
+# end
+# entity
+altsyncram
+# storage
+db|mipsHardware.(18).cnf
+db|mipsHardware.(18).cnf
+# case_insensitive
+# source_file
+|programfiles|quartus|altera|91sp2|quartus|libraries|megafunctions|altsyncram.tdf
+67d9a3902c8a461c1d5750189e124f2
+7
+# user_parameter {
+BYTE_SIZE_BLOCK
+8
+PARAMETER_UNKNOWN
+DEF
+AUTO_CARRY_CHAINS
+ON
+AUTO_CARRY
+USR
+IGNORE_CARRY_BUFFERS
+OFF
+IGNORE_CARRY
+USR
+AUTO_CASCADE_CHAINS
+ON
+AUTO_CASCADE
+USR
+IGNORE_CASCADE_BUFFERS
+OFF
+IGNORE_CASCADE
+USR
+WIDTH_BYTEENA
+1
+PARAMETER_UNKNOWN
+DEF
+OPERATION_MODE
+SINGLE_PORT
+PARAMETER_UNKNOWN
+USR
+WIDTH_A
+8
+PARAMETER_UNKNOWN
+USR
+WIDTHAD_A
+8
+PARAMETER_UNKNOWN
+USR
+NUMWORDS_A
+256
+PARAMETER_UNKNOWN
+USR
+OUTDATA_REG_A
+CLOCK1
+PARAMETER_UNKNOWN
+USR
+ADDRESS_ACLR_A
+NONE
+PARAMETER_UNKNOWN
+USR
+OUTDATA_ACLR_A
+NONE
+PARAMETER_UNKNOWN
+USR
+WRCONTROL_ACLR_A
+NONE
+PARAMETER_UNKNOWN
+USR
+INDATA_ACLR_A
+NONE
+PARAMETER_UNKNOWN
+USR
+BYTEENA_ACLR_A
+NONE
+PARAMETER_UNKNOWN
+DEF
+WIDTH_B
+1
+PARAMETER_UNKNOWN
+DEF
+WIDTHAD_B
+1
+PARAMETER_UNKNOWN
+DEF
+NUMWORDS_B
+1
+PARAMETER_UNKNOWN
+DEF
+INDATA_REG_B
+CLOCK1
+PARAMETER_UNKNOWN
+DEF
+WRCONTROL_WRADDRESS_REG_B
+CLOCK1
+PARAMETER_UNKNOWN
+DEF
+RDCONTROL_REG_B
+CLOCK1
+PARAMETER_UNKNOWN
+DEF
+ADDRESS_REG_B
+CLOCK1
+PARAMETER_UNKNOWN
+DEF
+OUTDATA_REG_B
+UNREGISTERED
+PARAMETER_UNKNOWN
+DEF
+BYTEENA_REG_B
+CLOCK1
+PARAMETER_UNKNOWN
+DEF
+INDATA_ACLR_B
+NONE
+PARAMETER_UNKNOWN
+DEF
+WRCONTROL_ACLR_B
+NONE
+PARAMETER_UNKNOWN
+DEF
+ADDRESS_ACLR_B
+NONE
+PARAMETER_UNKNOWN
+DEF
+OUTDATA_ACLR_B
+NONE
+PARAMETER_UNKNOWN
+DEF
+RDCONTROL_ACLR_B
+NONE
+PARAMETER_UNKNOWN
+DEF
+BYTEENA_ACLR_B
+NONE
+PARAMETER_UNKNOWN
+DEF
+WIDTH_BYTEENA_A
+1
+PARAMETER_UNKNOWN
+USR
+WIDTH_BYTEENA_B
+1
+PARAMETER_UNKNOWN
+USR
+RAM_BLOCK_TYPE
 AUTO
+PARAMETER_UNKNOWN
+DEF
+BYTE_SIZE
+8
+PARAMETER_UNKNOWN
+DEF
+READ_DURING_WRITE_MODE_MIXED_PORTS
+DONT_CARE
+PARAMETER_UNKNOWN
+DEF
+READ_DURING_WRITE_MODE_PORT_A
+NEW_DATA_NO_NBE_READ
+PARAMETER_UNKNOWN
+DEF
+READ_DURING_WRITE_MODE_PORT_B
+NEW_DATA_NO_NBE_READ
+PARAMETER_UNKNOWN
+DEF
+INIT_FILE
+instrucoes.mif
+PARAMETER_UNKNOWN
+USR
+INIT_FILE_LAYOUT
+PORT_A
+PARAMETER_UNKNOWN
+DEF
+MAXIMUM_DEPTH
+0
+PARAMETER_UNKNOWN
+DEF
+CLOCK_ENABLE_INPUT_A
+NORMAL
+PARAMETER_UNKNOWN
+DEF
+CLOCK_ENABLE_INPUT_B
+NORMAL
+PARAMETER_UNKNOWN
+DEF
+CLOCK_ENABLE_OUTPUT_A
+NORMAL
+PARAMETER_UNKNOWN
+DEF
+CLOCK_ENABLE_OUTPUT_B
+NORMAL
+PARAMETER_UNKNOWN
+DEF
+CLOCK_ENABLE_CORE_A
+USE_INPUT_CLKEN
+PARAMETER_UNKNOWN
+DEF
+CLOCK_ENABLE_CORE_B
+USE_INPUT_CLKEN
+PARAMETER_UNKNOWN
+DEF
+ENABLE_ECC
+FALSE
+PARAMETER_UNKNOWN
+DEF
+DEVICE_FAMILY
+Stratix II
+PARAMETER_UNKNOWN
+USR
+CBXI_PARAMETER
+altsyncram_g2a1
+PARAMETER_UNKNOWN
+USR
+}
+# used_port {
+wren_a
+-1
+3
+q_a7
+-1
+3
+q_a6
+-1
+3
+q_a5
+-1
+3
+q_a4
+-1
+3
+q_a3
+-1
+3
+q_a2
+-1
+3
+q_a1
+-1
+3
+q_a0
+-1
+3
+data_a7
+-1
+3
+data_a6
+-1
+3
+data_a5
+-1
+3
+data_a4
+-1
+3
+data_a3
+-1
+3
+data_a2
+-1
+3
+data_a1
+-1
+3
+data_a0
+-1
+3
+clock1
+-1
+3
+clock0
+-1
+3
+address_a7
+-1
+3
+address_a6
+-1
+3
+address_a5
+-1
+3
+address_a4
+-1
+3
+address_a3
+-1
+3
+address_a2
+-1
+3
+address_a1
+-1
+3
+address_a0
+-1
+3
+}
+# hierarchies {
+Memoria:inst2|lpm_ram_dq:MEM|altram:sram|altsyncram:ram_block
+Memoria:inst2|lpm_ram_dq:MEM_plus_One|altram:sram|altsyncram:ram_block
+Memoria:inst2|lpm_ram_dq:MEM_plus_Two|altram:sram|altsyncram:ram_block
+Memoria:inst2|lpm_ram_dq:MEM_plus_Three|altram:sram|altsyncram:ram_block
 }
 # macro_sequence
 
@@ -429,8 +1231,8 @@ AUTO
 # entity
 altsyncram_g2a1
 # storage
-db|mipsHardware.(17).cnf
-db|mipsHardware.(17).cnf
+db|mipsHardware.(20).cnf
+db|mipsHardware.(20).cnf
 # case_insensitive
 # source_file
 db|altsyncram_g2a1.tdf
@@ -521,7 +1323,13 @@ address_a0
 }
 # memory_file {
 instrucoes.mif
-dd128824ca3a4d0c5ddc192b37ecca
+e422c9143f5a51624e43b169ca427497
+}
+# hierarchies {
+Memoria:inst2|lpm_ram_dq:MEM|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated
+Memoria:inst2|lpm_ram_dq:MEM_plus_One|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated
+Memoria:inst2|lpm_ram_dq:MEM_plus_Two|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated
+Memoria:inst2|lpm_ram_dq:MEM_plus_Three|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated
 }
 # macro_sequence
 
@@ -529,8 +1337,8 @@ dd128824ca3a4d0c5ddc192b37ecca
 # entity
 unidadeControle
 # storage
-db|mipsHardware.(0).cnf
-db|mipsHardware.(0).cnf
+db|mipsHardware.(3).cnf
+db|mipsHardware.(3).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -538,7 +1346,130 @@ ON
 # case_sensitive
 # source_file
 unidadecontrole.sv
-c6f7b88f119dca6f7fcbf7a6cfe7f94
+1858f771c1f4de6a73ccbc9e8bf87783
+9
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# user_parameter {
+fetch1
+0000000
+PARAMETER_UNSIGNED_BIN
+USR
+fetch2
+0000001
+PARAMETER_UNSIGNED_BIN
+USR
+fetch3
+0000010
+PARAMETER_UNSIGNED_BIN
+USR
+decode
+0000011
+PARAMETER_UNSIGNED_BIN
+USR
+decode2
+0000100
+PARAMETER_UNSIGNED_BIN
+USR
+wait_
+0000101
+PARAMETER_UNSIGNED_BIN
+USR
+execute
+0000110
+PARAMETER_UNSIGNED_BIN
+USR
+add_sub_and
+0000111
+PARAMETER_UNSIGNED_BIN
+USR
+addi_addiu
+001010
+PARAMETER_UNSIGNED_BIN
+USR
+break2
+0001001
+PARAMETER_UNSIGNED_BIN
+USR
+xchg2
+0001010
+PARAMETER_UNSIGNED_BIN
+USR
+closeWR
+1000100
+PARAMETER_UNSIGNED_BIN
+USR
+wait_Final
+1000101
+PARAMETER_UNSIGNED_BIN
+USR
+formatR
+000000
+PARAMETER_UNSIGNED_BIN
+USR
+xchg1
+000101
+PARAMETER_UNSIGNED_BIN
+USR
+break1
+001101
+PARAMETER_UNSIGNED_BIN
+USR
+rte
+010011
+PARAMETER_UNSIGNED_BIN
+USR
+andR
+100100
+PARAMETER_UNSIGNED_BIN
+USR
+addR
+100000
+PARAMETER_UNSIGNED_BIN
+USR
+subR
+100010
+PARAMETER_UNSIGNED_BIN
+USR
+addi
+001000
+PARAMETER_UNSIGNED_BIN
+USR
+addiu
+001001
+PARAMETER_UNSIGNED_BIN
+USR
+}
+# macro_sequence
+
+# end
+# entity
+unidadeControle
+# storage
+db|mipsHardware.(19).cnf
+db|mipsHardware.(19).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+unidadecontrole.sv
+1858f771c1f4de6a73ccbc9e8bf87783
 9
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -597,6 +1528,10 @@ break2
 0001001
 PARAMETER_UNSIGNED_BIN
 DEF
+xchg2
+0001010
+PARAMETER_UNSIGNED_BIN
+DEF
 closeWR
 1000100
 PARAMETER_UNSIGNED_BIN
@@ -641,6 +1576,26 @@ addiu
 001001
 PARAMETER_UNSIGNED_BIN
 DEF
+}
+# hierarchies {
+unidadeControle:inst17
+}
+# macro_sequence
+
+# end
+# entity
+schemeHard
+# storage
+db|mipsHardware.(2).cnf
+db|mipsHardware.(2).cnf
+# case_insensitive
+# source_file
+schemehard.bdf
+97bc985d48b77ce3b98725a4b460dde4
+26
+# internal_option {
+BLOCK_DESIGN_NAMING
+AUTO
 }
 # hierarchies {
 |

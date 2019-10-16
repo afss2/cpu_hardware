@@ -13,9 +13,9 @@ always
 	case(regDSTmux)
 		3'b000: regDSTOut = inst20_16;
 		3'b001: regDSTOut = inst15_11;
-		3'b010: regDSTOut = inst25_21;
-		3'b011: regDSTOut = D;
-		3'b100: regDSTOut = E;
+		3'b010: regDSTOut = D;
+		3'b011: regDSTOut = E;
+		3'b100: regDSTOut = inst25_21;
 	endcase
 	
 endmodule: regDST
